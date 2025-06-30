@@ -1,4 +1,5 @@
 {% load static %}
+{% load mptt_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +79,21 @@
                                 <img src="{% static "icons/category.svg" %}" alt="category">
                             </button>
                             <nav class="category-menu__nav">
+                                
                                 <ul class="list-group">
+                                    {% recursetree main_catalog %}
+                                    <li class="list-group-item ">
+                                        <a href="#">{{ node.name }}</a>
+                                        {% if not node.is_leaf_node %}
+                                            <ul class="list-group">
+                                                {{ children }}
+                                            </ul>
+                                        {% endif %}  
+                                        <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
+                                    </li>
+                                    {% endrecursetree %}
+                                </ul>
+                                {% comment %} <ul class="list-group">
                                     <li class="list-group-item ">
                                         <a href="#">Item</a>
                                         <ul class="list-group">
@@ -124,7 +139,7 @@
                                         <a href="#">Item</a>
                                         <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
                                     </li>
-                                </ul>
+                                </ul> {% endcomment %}
                             </nav>
                         </div>
                     </div>
@@ -139,6 +154,7 @@
                     aside
                 </aside>
                 <main class="col-sm-12 col-md-9">
+                    
                     main
                 </main>
             </div>
