@@ -71,7 +71,7 @@
         </div>  
         <div class="header__bottom py-2">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex align-items-center">
                     <div class="col-sm-12 col-md-3">
                         <div class="category-menu">
                             <button class="btn btn-primary d-flex justify-content-between w-100">
@@ -79,7 +79,6 @@
                                 <img src="{% static "icons/category.svg" %}" alt="category">
                             </button>
                             <nav class="category-menu__nav">
-                                
                                 <ul class="list-group">
                                     {% recursetree main_catalog %}
                                     <li class="list-group-item ">
@@ -93,71 +92,34 @@
                                     </li>
                                     {% endrecursetree %}
                                 </ul>
-                                {% comment %} <ul class="list-group">
-                                    <li class="list-group-item ">
-                                        <a href="#">Item</a>
-                                        <ul class="list-group">
-                                            <li class="list-group-item">
-                                                <a href="#" class="list-group-link">Item 1</a>
-                                                <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="#" class="list-group-link">Item 1</a>
-                                                <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="#" class="list-group-link">Item 1</a>
-                                                <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="#" class="list-group-link">Item 1</a>
-                                                <ul class="list-group">
-                                                    <li class="list-group-item">
-                                                        <a href="#" class="list-group-link">Item 2</a>
-                                                        <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <a href="#" class="list-group-link">Item 2</a>
-                                                        <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                                    </li>
-                                                </ul>
-                                                <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                            </li>
-                                            <li class="list-group-item"><a href="#" class="list-group-link">Item 1</a></li>
-                                        </ul>
-                                        <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                    </li>
-                                    <li class="list-group-item ">
-                                        <a href="#">Item</a>
-                                        <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                    </li>
-                                    <li class="list-group-item ">
-                                        <a href="#">Item</a>
-                                        <button class="plus"><img src="{% static "icons/plus.svg" %}"  alt="plus"></button>
-                                    </li>
-                                    <li class="list-group-item ">
-                                        <a href="#">Item</a>
-                                        <button class="plus"><img src="{% static "icons/plus.svg" %}" alt="plus"></button>
-                                    </li>
-                                </ul> {% endcomment %}
                             </nav>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-9 d-none d-md-block">
+                        <div class="recommended p-1 rounded bg-body-secondary d-flex gap-4 border">
+                            <a class="btn btn-primary btn-sm px-3 text-uppercase" href="#">Кращі ціни</a>
+                            <a class="btn btn-primary btn-sm px-3 text-uppercase" href="#">Подарункові видання</a>
+                            <a class="btn btn-primary btn-sm px-3 text-uppercase" href="#">Новинки</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="header__breadcrumbs py-3">
+            <div class="container">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Головна</a></li>
+                    <li class="breadcrumb-item"><a href="#">Книги</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Художня</li>
+                </ol>
+            </nav>
+            </div>
+        </div>
     </header>
     <div class="content">
         <div class="container">
-            <div class="row">
-                <aside class="col-sm-12 col-md-3">
-                    aside
-                </aside>
-                <main class="col-sm-12 col-md-9">
-                    
-                    main
-                </main>
-            </div>
+            {% block content%} {% endblock content %}
         </div>
     </div>
     <footer class="footer mt-auto">
