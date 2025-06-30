@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # My applicatios
     "core",
     "core.main.apps.MainConfig",
+    "core.shop.apps.ShopConfig",
 ]
 
 MIDDLEWARE = [
