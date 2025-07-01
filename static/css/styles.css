@@ -114,6 +114,9 @@ a:hover {
     }
 
     /* Menu start*/
+    .category-menu__nav {
+        z-index: 10;
+    }
     .category-menu__nav .list-group-item:hover {
         background-color: #beddf5
     }
