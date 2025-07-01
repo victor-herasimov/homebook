@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
@@ -185,7 +186,7 @@ class Book(AbstractModel):
 
     @property
     def get_price_with_discount(self):
-        return self.price * (1 - self.discount / 100)
+        return self.price * Decimal((1 - self.discount / 100))
 
     def __str__(self):
         return f"{self.title}"

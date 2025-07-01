@@ -28,7 +28,7 @@
                     <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Головна</a>
+                                <a class="nav-link active" aria-current="page" href="{% url "main:index" %}">Головна</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Оплата/Доставка</a>
@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-3 text-center text-md-left header__logo">
-                        <a href="#" class="logo">
+                        <a href="{% url "main:index" %}" class="logo">
                             <img src="{% static "images/logo.png" %}" class="logo__img" alt="logo">
                         </a>
                     </div>
@@ -82,7 +82,7 @@
                                 <ul class="list-group">
                                     {% recursetree main_catalog %}
                                     <li class="list-group-item ">
-                                        <a href="{% url "shop:catalog" %}">{{ node.name }}</a>
+                                        <a href="{% url "shop:catalog" node.slug %}">{{ node.name }}</a>
                                         {% if not node.is_leaf_node %}
                                             <ul class="list-group">
                                                 {{ children }}
