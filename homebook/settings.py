@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Installed apps
     "mptt",
+    "view_breadcrumbs",
     # My applicatios
     "core",
     "core.main.apps.MainConfig",
@@ -119,3 +120,7 @@ MEDIA_ROOT = BASE_DIR / MEDIA_URL
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Breadcrumbs
+BREADCRUMBS_HOME_LABEL = "HomeBook"
+BREADCRUMBS_TEMPLATE = "components/_breadcrumbs.html"

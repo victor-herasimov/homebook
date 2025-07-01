@@ -1,5 +1,6 @@
 {% load static %}
 {% load mptt_tags %}
+{% load view_breadcrumbs %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,17 +106,7 @@
                 </div>
             </div>
         </div>
-        <div class="header__breadcrumbs py-3">
-            <div class="container">
-                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Головна</a></li>
-                    <li class="breadcrumb-item"><a href="#">Книги</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Художня</li>
-                </ol>
-            </nav>
-            </div>
-        </div>
+            {% render_breadcrumbs %}
     </header>
     <div class="content">
         <div class="container">
