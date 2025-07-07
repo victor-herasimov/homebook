@@ -1,1 +1,64 @@
 {% extends "base.html" %}
+
+{% block styles %}
+    {% include "components/_styles.html" %}
+    {% include "components/_swiper-styles.html" %}
+{% endblock styles %}
+
+{% block content %}
+<main>
+    <section class="slider py-2">
+        <div class="container">
+            <div id="main-slider" class="carousel slide">
+                <div class="carousel-indicators">
+                    {% for _ in recommendations %}
+                        <button type="button" data-bs-target="#main-slider" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true" {% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                    {% for recommendation in recommendations %}
+                        <div class="carousel-item position-relative  {% if forloop.first %}active{% endif %} ">
+                            <div class="image-wrapper">
+                                <img src="{{ recommendation.image.url }}" alt="{{ recommendation.title }}">
+                            </div>
+                            <a href="#" class="position-absolute top-0 start-0 bottom-0 end-0"></a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#main-slider" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#main-slider" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    {% if new_books %}
+        <section class="new-books py-2">
+            <div class="container">
+                {% include "main/components/slider.html" with books=new_books slider_title="Нові надходження" %}
+            </div>
+        </section>
+    {% endif %}
+    {% if new_books %}
+        <section class="complect-books py-2">
+            <div class="container">
+                {% include "main/components/slider.html" with books=new_books slider_title="Комплекти книг" %}
+            </div>
+        </section>
+    {% endif %}
+     <section class="info py-2">
+        <div class="container">
+            info
+        </div>
+    </section>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+    {% include "components/_scripts.html" %}
+    {% include "components/_swiper-scripts.html" %}
+{% endblock scripts %}

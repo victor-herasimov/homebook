@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>page</title>
-    {% include "components/_styles.html" %}
+    {% block styles %}
+        {% include "components/_styles.html" %}
+    {% endblock styles %}
+    
 </head>
 <body class="d-flex flex-column" style="min-height: 100vh">
     {% include "components/_header.html" %}
-    <div class="content">
-        <div class="container">
-            {% block content%} {% endblock content %}
-        </div>
+    <div class="content">   
+        {% block content%} {% endblock content %}
     </div>
     {% include "components/_footer.html" %}
-    {% include "components/_scripts.html" %}
+    {% block scripts %}
+        {% include "components/_scripts.html" %}
+    {% endblock scripts %}
+    
 </body>
 </html>

@@ -82,7 +82,12 @@ class OtherCharacteristicInline(admin.TabularInline):
 class BookAdmin(admin.ModelAdmin):
 
     def thumbnail(self, obj):
-        return mark_safe(f'<img src="{obj.image.url}" width="60" height="60"')
+
+        return (
+            mark_safe(f'<img src="{obj.image.url}" width="60" height="60"')
+            if obj.image
+            else "-"
+        )
 
     thumbnail.short_description = "Image"
 

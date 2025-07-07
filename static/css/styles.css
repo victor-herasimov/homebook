@@ -190,3 +190,13 @@ a:hover {
 .open {
     display: block !important;
 }
+
+.slider .image-wrapper {
+    width: 100%;
+    aspect-ratio: 3;
+}
+.slider .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

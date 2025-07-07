@@ -1,0 +1,18 @@
+<div class="swiper slider new-books-slider">
+    <div class="slider-title pt-3 mb-3 border-bottom border-primary">
+        <a href="#" class="text-uppercase fw-bold">{{ slider_title }}</a>
+    </div>
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    {% for book in books %}
+        <div class="swiper-slide">
+            {% include "components/_book-card.html" with book=book%}
+        </div>
+    {% endfor %}
+
+  </div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>

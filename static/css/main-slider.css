@@ -1,0 +1,23 @@
+.swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.swiper .swiper-wrapper .swiper-slide {
+    height: auto;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: var(--bs-body-font-size);
+}
+
+.swiper-button-next:after, .swiper-button-prev,
+.swiper-button-next:after, .swiper-button-next  {
+    top: 1.7rem;
+    left: unset;
+    right: 0;
+}
+
+.swiper-button-next:after, .swiper-button-prev {
+    left: unset;
+    right: 1.6rem;
+}
