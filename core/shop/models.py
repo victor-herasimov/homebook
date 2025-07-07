@@ -1,7 +1,9 @@
 from decimal import Decimal
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.urls import reverse
 from mptt.models import MPTTModel, TreeForeignKey
+from ckeditor.fields import RichTextField
 
 from core.abstract.models import AbstractModel
 
@@ -153,7 +155,7 @@ class Book(AbstractModel):
         related_name="books",
         verbose_name="Мова",
     )
-    description = models.TextField(verbose_name="Опис")
+    description = RichTextField(verbose_name="Опис")
     count = models.IntegerField(
         validators=[MinValueValidator(0)], verbose_name="Залишок", default=0
     )
@@ -187,6 +189,21 @@ class Book(AbstractModel):
     @property
     def get_price_with_discount(self):
         return self.price * Decimal((1 - self.discount / 100))
+
+    @property
+    def get_authors(self):
+        return ", ".join([author.name for author in self.author.all()])
+
+    @property
+    def short_description(self):
+        return (
+            self.description
+            if len(self.description) < 297
+            else f"{str(self.description)[:297]}..."
+        )
+
+    def get_absolute_url(self):
+        return reverse("shop:book_detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"{self.title}"

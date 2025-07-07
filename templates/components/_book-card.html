@@ -1,4 +1,4 @@
- <div class="card shasow-sm h-100">
+ <div class="card shasow-sm h-100 position-relative">
     <div class="text-canter p-3">
         <img src="{{ book.image.url }}" class="card-img-top mw-75 text-center" alt="{{ book.title }}">
     </div>
@@ -24,9 +24,10 @@
     </div>
     <div class="card-button-group text-center pb-3">
         {% if book.available %}
-            <a href="#" class="btn btn-primary text_uppercase">В кошик</a>
+            <a href="#" class="btn btn-primary text_uppercase position-relative z-3">В кошик</a>
         {% else %}
-            <a href="#" class="btn btn-primary text_uppercase disabled">Немає в наявності</a>
+            <a href="#" class="btn btn-primary text_uppercase disabled position-relative z-3">Немає в наявності</a>
         {% endif %}
     </div>
+    <a href="{{ book.get_absolute_url }}" class="position-absolute top-0 bottom-0 end-0 start-0"></a>
 </div>

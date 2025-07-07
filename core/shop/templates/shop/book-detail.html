@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container my-4">
+        <div class="row">
+            <!-- Book Image -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="text-center">
+                    {% if book.image %}
+                        <img src="{{ book.image.url }}" alt="{{ book.title }}" class="book-cover">
+                    {% else %}
+                        <img src="{% static "images/no-image.jpg" %}" alt="No image" class="book-cover">
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Book Details -->
+            <div class="col-lg-5 col-md-6 mb-4">
+                <h1 class="h2 mb-3">{{ book.title }}</h1>
+                
+                <div class="mb-3">
+                    <span class="text-muted">Автор: </span>
+                    {{ book.get_authors }}
+                </div>
+
+                <div class="mb-3">
+                    <div class="rating-stars mb-1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <small class="text-muted">(248 відгуків)</small>
+                </div>
+                
+                {% if book.available %}
+                    <div class="availability-badge in-stock mb-3">
+                        <i class="fas fa-check-circle"></i> В наявності 
+                    </div>
+                {% else %}
+                    <div class="availability-badge mb-3">
+                        <i class="fa-solid fa-xmark"></i> Немає в наявності
+                    </div>
+                {% endif %}
+
+                <div class="book-info-section">
+                    <div class="row">
+                        <div class="col-6 col-sm-4 mb-2">
+                            <small class="text-muted">Видавництво:</small><br>
+                            <span>{{ book.publisher }}</span>
+                        </div>
+                        <div class="col-6 col-sm-4 mb-2">
+                            <small class="text-muted">Мова:</small><br>
+                            <span>{{ book.language }}</span>
+                        </div>
+                        <div class="col-6 col-sm-4 mb-2">
+                            <small class="text-muted">Обкладинка:</small><br>
+                            <span>{{ book.cover }}</span>
+                        </div>
+                        <div class="col-6 col-sm-4 mb-2">
+                            <small class="text-muted">ISBN:</small><br>
+                            <span>{{ book.isbn }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h5>Опис книги</h5>
+                    <p class="text-muted">
+                        {{ book.short_description }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Purchase Section -->
+            <div class="col-lg-3">
+                <div class="price-section sticky-top">
+                    <div class="mb-3">
+                        {% if not book.available %}
+                            <span>0 грн</span>
+                        {% else %}
+                            {% if book.is_discount %}
+                                <div class="old-price mb-1">{{ book.price }} грн</div>
+                                <div class="new-price">{{ book.get_price_with_discount|floatformat:2 }} грн</div>
+                                <small class="text-success"><i class="fas fa-tag"></i> Знижка 20%</small>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Кількість:</label>
+                        <div class="input-group" style="max-width: 120px;">
+                            <button class="btn btn-outline-secondary" type="button">-</button>
+                            <input type="number" class="form-control text-center" value="1" min="1">
+                            <button class="btn btn-outline-secondary" type="button">+</button>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mb-3">
+                        <button class="btn btn-primary-custom btn-lg">
+                            <i class="fas fa-shopping-cart"></i> Купити
+                        </button>
+                    </div>
+
+                    <div class="text-center">
+                        <small class="text-muted">
+                            <i class="fas fa-undo"></i> Повернення протягом 14 днів
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <ul class="nav nav-tabs book-tabs" id="bookTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button">
+                            Опис
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="characteristics-tab" data-bs-toggle="tab" data-bs-target="#characteristics" type="button">
+                            Характеристики
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">
+                            Відгуки (248)
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content mt-4" id="bookTabsContent">
+                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h4>Повний опис книги</h4>
+                                {{ book.description| safe }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="characteristics" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr><td><strong>ISBN</strong></td><td>{{ book.isbn }}</td></tr>
+                                        <tr><td><strong>Автор</strong></td><td>{{ book.get_authors }}</td></tr>
+                                        <tr><td><strong>Видавництво</strong></td><td>{{ book.publisher }}</td></tr>
+                                        <tr><td><strong>Обкладинка</strong></td><td>{{ book.cover }}</td></tr>
+                                        <tr><td><strong>Мова</strong></td><td>{{ book.language }}</td></tr>
+                                        {% for characteristic in book.other_characteristics.all %}
+                                            <tr><td><strong>{{ characteristic.item.name}}</strong></td><td>{{ characteristic.value }}</td></tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="mb-4">
+                                    <h5>Відгуки покупців</h5>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="rating-stars me-3">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="h5 mb-0">4.8</span>
+                                        <span class="text-muted ms-2">(248 відгуків)</span>
+                                    </div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <strong>Олена К.</strong>
+                                            <div class="rating-stars small">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">15.12.2023</small>
+                                    </div>
+                                    <p class="mb-0">Чудова книга! Якісний переклад, гарна обкладинка. Дитина в захваті. Рекомендую!</p>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <strong>Андрій М.</strong>
+                                            <div class="rating-stars small">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">10.12.2023</small>
+                                    </div>
+                                    <p class="mb-0">Швидка доставка, книга в ідеальному стані. Ціна трохи висока, але якість того варта.</p>
+                                </div>
+
+                                <button class="btn btn-outline-primary mt-3">Показати всі відгуки</button>
+
+                                <!-- Форма для додавання відгуку -->
+                                <div class="mt-5 pt-4 border-top">
+                                    <h5 class="mb-4">Залишити відгук</h5>
+                                    <form id="reviewForm" class="review-form">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="reviewerName" class="form-label">Ваше ім'я <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="reviewerName" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="reviewerEmail" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="reviewerEmail" placeholder="Не буде опубліковано">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label class="form-label">Ваша оцінка <span class="text-danger">*</span></label>
+                                            <div class="rating-input d-flex align-items-center">
+                                                <div class="star-rating me-3">
+                                                    <input type="radio" name="rating" value="5" id="star5" required>
+                                                    <label for="star5" class="star"><i class="fas fa-star"></i></label>
+                                                    <input type="radio" name="rating" value="4" id="star4">
+                                                    <label for="star4" class="star"><i class="fas fa-star"></i></label>
+                                                    <input type="radio" name="rating" value="3" id="star3">
+                                                    <label for="star3" class="star"><i class="fas fa-star"></i></label>
+                                                    <input type="radio" name="rating" value="2" id="star2">
+                                                    <label for="star2" class="star"><i class="fas fa-star"></i></label>
+                                                    <input type="radio" name="rating" value="1" id="star1">
+                                                    <label for="star1" class="star"><i class="fas fa-star"></i></label>
+                                                </div>
+                                                <span class="rating-text text-muted">Оберіть оцінку</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="reviewText" class="form-label">Ваш відгук <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="reviewText" rows="4" placeholder="Поділіться своїми враженнями про книгу..." required></textarea>
+                                            <div class="form-text">Мінімум 10 символів</div>
+                                        </div>
+                                        
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                                            <label class="form-check-label" for="agreeTerms">
+                                                Я погоджуюся з <a href="#" class="text-decoration-none">правилами публікації відгуків</a> <span class="text-danger">*</span>
+                                            </label>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary-custom">
+                                            <i class="fas fa-paper-plane"></i> Опублікувати відгук
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+    <script>
+        // Quantity controls
+        document.addEventListener('DOMContentLoaded', function() {
+            const minusBtn = document.querySelector('.input-group button:first-child');
+            const plusBtn = document.querySelector('.input-group button:last-child');
+            const quantityInput = document.querySelector('.input-group input[type="number"]');
+            
+            minusBtn.addEventListener('click', function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                const currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+        });
+
+        // Обробка форми відгуків
+        const reviewForm = document.getElementById('reviewForm');
+        const ratingInputs = document.querySelectorAll('input[name="rating"]');
+        const ratingText = document.querySelector('.rating-text');
+
+        // Оновлення тексту рейтингу
+        ratingInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                const ratingTexts = {
+                    '1': 'Жахливо',
+                    '2': 'Погано', 
+                    '3': 'Нормально',
+                    '4': 'Добре',
+                    '5': 'Відмінно'
+                };
+                ratingText.textContent = ratingTexts[this.value];
+                ratingText.className = 'rating-text text-warning fw-bold';
+            });
+        });
+
+        // Відправка форми
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const reviewData = {
+                name: formData.get('reviewerName') || document.getElementById('reviewerName').value,
+                email: formData.get('reviewerEmail') || document.getElementById('reviewerEmail').value,
+                rating: document.querySelector('input[name="rating"]:checked')?.value,
+                text: document.getElementById('reviewText').value
+            };
+            
+            // Перевірка мінімальної довжини відгуку
+            if (reviewData.text.length < 10) {
+                alert('Відгук повинен містити мінімум 10 символів');
+                return;
+            }
+            
+            // Тут можна додати відправку на сервер
+            alert('Дякуємо за ваш відгук! Він буде опублікований після модерації.');
+            
+            // Очищення форми
+            this.reset();
+            ratingText.textContent = 'Оберіть оцінку';
+            ratingText.className = 'rating-text text-muted';
+        });
+    </script>
