@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # Installed apps
     "mptt",
     "view_breadcrumbs",
+    "ckeditor",
     # My applicatios
     "core",
     "core.main.apps.MainConfig",
@@ -124,3 +125,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Breadcrumbs
 BREADCRUMBS_HOME_LABEL = "HomeBook"
 BREADCRUMBS_TEMPLATE = "components/_breadcrumbs.html"
+
+# ckeitor
+CKEDITOR_UPLOAD_PATH = "media/"

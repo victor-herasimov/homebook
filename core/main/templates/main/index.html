@@ -50,11 +50,17 @@
             </div>
         </section>
     {% endif %}
-     <section class="info py-2">
-        <div class="container">
-            info
-        </div>
-    </section>
+    {% if informations %}
+        <section class="info py-3">
+            <div class="container">
+                {% for information in informations %}
+                <div>
+                    {{ information.text|safe }}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
 </main>
 {% endblock content %}
 

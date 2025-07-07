@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
 
-from core.main.models import Recommendations
+from core.main.models import Info, Recommendations
 from core.shop.models import Book, Category
 
 
@@ -19,4 +19,5 @@ class IndexView(TemplateView):
         context["set_books"] = Book.objects.filter(cateogry__id__in=category_ids).all()[
             :5
         ]
+        context["informations"] = Info.objects.order_by("created").all()
         return context

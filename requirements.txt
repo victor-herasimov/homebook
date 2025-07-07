@@ -1,5 +1,6 @@
 asgiref==3.8.1
 Django==5.2.3
+django-ckeditor==6.7.3
 django-js-asset==3.1.2
 django-mptt==0.17.0
 django-view-breadcrumbs==2.5.1
