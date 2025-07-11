@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "core",
     "core.main.apps.MainConfig",
     "core.shop.apps.ShopConfig",
+    "core.cart.apps.CartConfig",
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "core.shop.context_processors.main_catalog",
+                "core.cart.context_processors.cart",
             ],
         },
     },
@@ -128,3 +130,6 @@ BREADCRUMBS_TEMPLATE = "components/_breadcrumbs.html"
 
 # ckeitor
 CKEDITOR_UPLOAD_PATH = "media/"
+
+# cart
+CART_SESSION_ID = "cart"

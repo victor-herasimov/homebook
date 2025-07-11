@@ -1,0 +1,17 @@
+<div class="modal fade" id="cart-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cart-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary-subtle">
+        <h1 class="modal-title fs-5" id="cart-modal-label">Кошик</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body overflow-x-scroll" id="modal-cart-body">
+        {% include "components/_cart_body.html" %}
+      </div>
+      <div class="modal-footer bg-secondary-subtle justify-content-between">
+        <button type="button" class="btn btn-secondary btn-sm flex-fill" data-bs-dismiss="modal">Продовжити покупки</button>
+        <button type="button" class="btn btn-primary btn-sm flex-fill">Оформлення замовлення</button>
+      </div>
+    </div>
+  </div>
+</div>

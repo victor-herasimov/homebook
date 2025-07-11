@@ -8,6 +8,7 @@ urlpatterns = [
     path("ckeditor/", include("ckeditor_uploader.urls")),
     path("", include("core.main.urls", namespace="main")),
     path("catalog/", include("core.shop.urls", namespace="shop")),
+    path("cart/", include("core.cart.urls", namespace="cart")),
 ]
 
 if settings.DEBUG:

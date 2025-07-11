@@ -24,7 +24,12 @@
     </div>
     <div class="card-button-group text-center pb-3">
         {% if book.available %}
-            <a href="#" class="btn btn-primary text_uppercase position-relative z-3">В кошик</a>
+            <form action="{% url "cart:add" book.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="override" value="false">
+                <button type="submit" class="btn btn-primary text_uppercase position-relative z-3">В кошик</button>
+            </form>
         {% else %}
             <a href="#" class="btn btn-primary text_uppercase disabled position-relative z-3">Немає в наявності</a>
         {% endif %}

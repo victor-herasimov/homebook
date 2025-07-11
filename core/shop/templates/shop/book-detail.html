@@ -90,10 +90,10 @@
 
                     <div class="mb-3">
                         <label class="form-label">Кількість:</label>
-                        <div class="input-group" style="max-width: 120px;">
-                            <button class="btn btn-outline-secondary" type="button">-</button>
+                        <div class="input-group cart-input-group" style="max-width: 145px;">
+                            <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
                             <input type="number" class="form-control text-center" value="1" min="1">
-                            <button class="btn btn-outline-secondary" type="button">+</button>
+                            <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
                         </div>
                     </div>
 
@@ -277,70 +277,4 @@
     </div>
 {% endblock content %}
 
-    <script>
-        // Quantity controls
-        document.addEventListener('DOMContentLoaded', function() {
-            const minusBtn = document.querySelector('.input-group button:first-child');
-            const plusBtn = document.querySelector('.input-group button:last-child');
-            const quantityInput = document.querySelector('.input-group input[type="number"]');
-            
-            minusBtn.addEventListener('click', function() {
-                const currentValue = parseInt(quantityInput.value);
-                if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            });
-            
-            plusBtn.addEventListener('click', function() {
-                const currentValue = parseInt(quantityInput.value);
-                quantityInput.value = currentValue + 1;
-            });
-        });
-
-        // Обробка форми відгуків
-        const reviewForm = document.getElementById('reviewForm');
-        const ratingInputs = document.querySelectorAll('input[name="rating"]');
-        const ratingText = document.querySelector('.rating-text');
-
-        // Оновлення тексту рейтингу
-        ratingInputs.forEach(input => {
-            input.addEventListener('change', function() {
-                const ratingTexts = {
-                    '1': 'Жахливо',
-                    '2': 'Погано', 
-                    '3': 'Нормально',
-                    '4': 'Добре',
-                    '5': 'Відмінно'
-                };
-                ratingText.textContent = ratingTexts[this.value];
-                ratingText.className = 'rating-text text-warning fw-bold';
-            });
-        });
-
-        // Відправка форми
-        reviewForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const reviewData = {
-                name: formData.get('reviewerName') || document.getElementById('reviewerName').value,
-                email: formData.get('reviewerEmail') || document.getElementById('reviewerEmail').value,
-                rating: document.querySelector('input[name="rating"]:checked')?.value,
-                text: document.getElementById('reviewText').value
-            };
-            
-            // Перевірка мінімальної довжини відгуку
-            if (reviewData.text.length < 10) {
-                alert('Відгук повинен містити мінімум 10 символів');
-                return;
-            }
-            
-            // Тут можна додати відправку на сервер
-            alert('Дякуємо за ваш відгук! Він буде опублікований після модерації.');
-            
-            // Очищення форми
-            this.reset();
-            ratingText.textContent = 'Оберіть оцінку';
-            ratingText.className = 'rating-text text-muted';
-        });
-    </script>
+    

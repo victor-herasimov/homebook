@@ -1,0 +1,47 @@
+{% load static %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Фото</th>
+            <th scope="col">Назва</th>
+            <th scope="col">Кільність</th>
+            <th scope="col">Ціна</th>
+            <th scope="col">Разом</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+            {% with book=item.book %}
+                <tr>
+                    <td>
+                        {% if book.image %}
+                            <img src="{{book.image.url}}" width="80" alt="{{book.title}}">
+                            {% else %}
+                            <img src="{% static "images/no-image.jpg" %}" width="80" alt="{{ book.title }}">
+                        {% endif %}
+                        
+                    </td>
+                    <td>
+                        {{ book.title }}
+                    </td>
+                    <td>
+                        <form action="#" method="POST">
+                            <div class="input-group cart-input-group" style="max-width: 145px;">
+                                <button class="btn btn-outline-secondary d-none d-lg-block btn-minus" type="button">-</button>
+                                <input type="text" class="form-control text-center" value="{{ item.quantity }}" min="1" style="padding:unset">
+                                <button class="btn btn-outline-secondary d-none d-lg-block btn-plus" type="button">+</button>
+                                <button class="btn  bg-danger btn-remove" type="button"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </form>
+                    </td>
+                    <td>
+                        {{ item.price|floatformat:2 }} грн
+                    </td>
+                    <td>
+                        {{ item.total_price|floatformat:2  }} грн
+                    </td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+    </tbody>
+</table>
