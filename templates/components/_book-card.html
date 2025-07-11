@@ -28,7 +28,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
                 <input type="hidden" name="override" value="false">
-                <button type="submit" class="btn btn-primary text_uppercase position-relative z-3">В кошик</button>
+                <button type="submit" class="btn btn-primary text_uppercase position-relative z-3" data-bs-toggle="modal" data-bs-target="#cart-modal">В кошик</button>
             </form>
         {% else %}
             <a href="#" class="btn btn-primary text_uppercase disabled position-relative z-3">Немає в наявності</a>

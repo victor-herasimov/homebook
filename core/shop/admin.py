@@ -96,6 +96,7 @@ class BookAdmin(admin.ModelAdmin):
 
     get_authors.short_description = "Автори"
 
+    save_on_top = True
     list_display = ["title", "thumbnail", "get_authors", "isbn", "cateogry"]
     list_display_links = ["title", "thumbnail"]
     list_filter = ["author", "cateogry", "language"]
@@ -106,6 +107,7 @@ class BookAdmin(admin.ModelAdmin):
             {
                 "fields": [
                     "title",
+                    "slug",
                     "image",
                     "thumbnail",
                     "isbn",
@@ -134,4 +136,5 @@ class BookAdmin(admin.ModelAdmin):
             {"fields": ["description"]},
         ),
     ]
+    prepopulated_fields = {"slug": ["title"]}
     readonly_fields = ["thumbnail"]

@@ -1,4 +1,3 @@
-from django.core.serializers import serialize
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
@@ -20,11 +19,27 @@ class CartAdd(View):
             cart.add(
                 book=book, quantity=cd["quantity"], override_quantity=cd["override"]
             )
-        # print(cart.serialize())
-        cart_body = render_to_string("components/_cart_body.html", {"cart": cart})
         return JsonResponse(
             {
-                "cart_body": cart_body,
+                "cart_body": render_to_string(
+                    "components/_cart_body.html", {"cart": cart}, request=request
+                ),
+                "cart_quantity": len(cart),
+                "total_price": float(cart.get_total_price()),
+            },
+        )
+
+
+class CartRemove(View):
+    def post(self, request, *args, **kwargs):
+        cart = Cart(request)
+        book = get_object_or_404(Book, id=self.kwargs.get("book_id"))
+        cart.remove(book)
+        return JsonResponse(
+            {
+                "cart_body": render_to_string(
+                    "components/_cart_body.html", {"cart": cart}, request=request
+                ),
                 "cart_quantity": len(cart),
                 "total_price": float(cart.get_total_price()),
             },

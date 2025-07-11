@@ -79,13 +79,42 @@ function updateModalCartBody(body) {
   }
 }
 
+function updateCart(data) {
+  updateModalCartBody(data.cart_body);
+  setCartTotalPrice(parseFloat(data.total_price).toFixed(2));
+  setCartQuantity(data.cart_quantity);
+  removeBooksFromCart();
+}
+
+function removeBooksFromCart() {
+  // Remove book from modal cart
+  const removeModalFormElements =
+    document.querySelectorAll(".modal-remove-book");
+  if (removeModalFormElements) {
+    removeModalFormElements.forEach((removeModalForm) => {
+      removeModalForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(removeModalForm);
+        const url = removeModalForm.action;
+        fetch(url, { method: removeModalForm.method, body: formData })
+          .then((response) => {
+            return response.json();
+          })
+          .then((json) => {
+            updateCart(json);
+          });
+      });
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Add to cart one book from card (from catalog)
   const bookCards = document.querySelectorAll(".card");
   if (bookCards) {
     bookCards.forEach((card) => {
       const form = card.querySelector("form");
       if (form) {
-        console.log(form);
         form.addEventListener("submit", (e) => {
           e.preventDefault();
           const formData = new FormData(form);
@@ -95,14 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
               return response.json();
             })
             .then((json) => {
-              updateModalCartBody(json.cart_body);
-              setCartTotalPrice(parseFloat(json.total_price).toFixed(2));
-              setCartQuantity(json.cart_quantity);
+              updateCart(json);
             });
         });
       }
     });
   }
+  removeBooksFromCart();
 });
 
 // Обробка форми відгуків

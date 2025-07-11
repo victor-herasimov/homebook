@@ -22,17 +22,24 @@
                         
                     </td>
                     <td>
-                        {{ book.title }}
+                        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>
                     </td>
                     <td>
-                        <form action="#" method="POST">
-                            <div class="input-group cart-input-group" style="max-width: 145px;">
-                                <button class="btn btn-outline-secondary d-none d-lg-block btn-minus" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="{{ item.quantity }}" min="1" style="padding:unset">
-                                <button class="btn btn-outline-secondary d-none d-lg-block btn-plus" type="button">+</button>
-                                <button class="btn  bg-danger btn-remove" type="button"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                        </form>
+                        <div class="item-controll d-flex">
+                            <form action="#" method="POST">
+                                <div class="input-group cart-input-group h-100" style="max-width: 145px;">
+                                    <button class="btn btn-outline-secondary d-none d-lg-block btn-minus" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="{{ item.quantity }}" min="1" style="padding:unset">
+                                    <button class="btn btn-outline-secondary d-none d-lg-block btn-plus" type="button">+</button>   
+                                </div>
+                            </form>
+                            <form class="modal-remove-book" action="{% url "cart:remove" book.id %}" method="post">
+                                <button class="btn  bg-danger btn-remove" type="submit"><i class="fa-solid fa-xmark"></i></button>
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                        
+                        
                     </td>
                     <td>
                         {{ item.price|floatformat:2 }} грн
@@ -43,5 +50,8 @@
                 </tr>
             {% endwith %}
         {% endfor %}
+         <tr class="text-end">
+            <td colspan="5"><span class="fw-bold">Сума:</span>&nbsp;<span class="text-dark-emphasis">{{ cart.get_total_price|floatformat:2  }} грн</span></td>
+        </tr>
     </tbody>
 </table>

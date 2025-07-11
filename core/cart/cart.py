@@ -66,23 +66,6 @@ class Cart:
             item["total_price"] = item["price"] * item["quantity"]
             yield item
 
-    def serialize(self):
-        serialized = []
-        for item in self.get_items():
-            serialized.append(
-                {
-                    "book_id": item["book"].id,
-                    "book_image": (
-                        item["book"].image.url if item["book"].image else None
-                    ),
-                    "book.url": item["book"].get_absolute_url(),
-                    "price": float(item["price"]),
-                    "quantity": item["quantity"],
-                    "total_price": float(item["total_price"]),
-                }
-            )
-        return serialized
-
     def __len__(self) -> int:
         """
         Return length cart

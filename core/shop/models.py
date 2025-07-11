@@ -203,7 +203,7 @@ class Book(AbstractModel):
         )
 
     def get_absolute_url(self):
-        return reverse("shop:book_detail", kwargs={"pk": self.pk})
+        return reverse("shop:book_detail", kwargs={"slug": self.slug})
 
     def __str__(self):
         return f"{self.title}"

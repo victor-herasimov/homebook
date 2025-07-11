@@ -201,6 +201,19 @@ a:hover {
     object-fit: cover;
 }
 
+/* Modal Cart*/
+#modal-cart-body .input-group button:last-child {
+    border-radius: unset; 
+    border-top-left-radius: none;
+    border-bottom-left-radius: none;
+}
+#modal-cart-body .modal-remove-book button{
+    border-radius: unset; 
+    border-top-right-radius: var(--bs-btn-border-radius);
+    border-bottom-right-radius: var(--bs-btn-border-radius)
+
+}
+
 /* Book detail */
 .book-cover {
     max-width: 100%;
