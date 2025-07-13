@@ -68,7 +68,7 @@
                 <div class="mb-4">
                     <h5>Опис книги</h5>
                     <p class="text-muted">
-                        {{ book.short_description }}
+                        {{ book.short_description | safe }}
                     </p>
                 </div>
             </div>
@@ -105,9 +105,6 @@
                             </div>
                         </form>
                     </div>
-
-                    
-
                     <div class="text-center">
                         <small class="text-muted">
                             <i class="fas fa-undo"></i> Повернення протягом 14 днів
