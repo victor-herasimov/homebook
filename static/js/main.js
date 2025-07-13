@@ -32,31 +32,47 @@ function categoryMenuItemsToogleMobile() {
 }
 categoryMenuItemsToogleMobile();
 
+// Cart -------------------------------------------------------------------
 // Quantity controls
-document.addEventListener("DOMContentLoaded", function () {
+function updateQuantityControl() {
   const cartInputGroups = document.querySelectorAll(".cart-input-group");
   if (cartInputGroups) {
     cartInputGroups.forEach((item) => {
       const minusBtn = item.querySelector(".btn-minus");
       const plusBtn = item.querySelector(".btn-plus");
       const quantityInput = item.querySelector(
-        '.input-group input[type="number"]'
+        '.input-group input[type="text"]'
       );
+      const form = item.closest("form");
+
+      function send() {
+        if (quantityInput.value != "" && quantityInput.value != "0") {
+          formSend(form).then((json) => {
+            updateCart(json);
+          });
+        }
+      }
+
+      quantityInput.addEventListener("input", () => {
+        send();
+      });
 
       minusBtn.addEventListener("click", function () {
         const currentValue = parseInt(quantityInput.value);
         if (currentValue > 1) {
           quantityInput.value = currentValue - 1;
+          send();
         }
       });
 
       plusBtn.addEventListener("click", function () {
         const currentValue = parseInt(quantityInput.value);
         quantityInput.value = currentValue + 1;
+        send();
       });
     });
   }
-});
+}
 
 // Add book to cart
 function setCartQuantity(quantity) {
@@ -83,26 +99,49 @@ function updateCart(data) {
   updateModalCartBody(data.cart_body);
   setCartTotalPrice(parseFloat(data.total_price).toFixed(2));
   setCartQuantity(data.cart_quantity);
-  removeBooksFromCart();
+  removeBooksFromModalCart();
+  updateQuantityControl();
 }
 
-function removeBooksFromCart() {
-  // Remove book from modal cart
+async function formSend(form) {
+  const formData = new FormData(form);
+  const url = form.action;
+  const response = await fetch(url, {
+    method: form.method,
+    body: formData,
+  });
+
+  const json = await response.json();
+  return json;
+}
+
+function removeBookFromCart(form) {
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formSend(form).then((json) => {
+        updateCart(json);
+      });
+    });
+  }
+}
+
+function removeBooksFromModalCart() {
   const removeModalFormElements =
     document.querySelectorAll(".modal-remove-book");
   if (removeModalFormElements) {
     removeModalFormElements.forEach((removeModalForm) => {
-      removeModalForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const formData = new FormData(removeModalForm);
-        const url = removeModalForm.action;
-        fetch(url, { method: removeModalForm.method, body: formData })
-          .then((response) => {
-            return response.json();
-          })
-          .then((json) => {
-            updateCart(json);
-          });
+      removeBookFromCart(removeModalForm);
+    });
+  }
+}
+
+function addBookToCart(form) {
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formSend(form).then((json) => {
+        updateCart(json);
       });
     });
   }
@@ -114,72 +153,72 @@ document.addEventListener("DOMContentLoaded", function () {
   if (bookCards) {
     bookCards.forEach((card) => {
       const form = card.querySelector("form");
-      if (form) {
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          const url = form.action;
-          fetch(url, { method: form.method, body: formData })
-            .then((response) => {
-              return response.json();
-            })
-            .then((json) => {
-              updateCart(json);
-            });
-        });
-      }
+      addBookToCart(form);
     });
   }
-  removeBooksFromCart();
-});
 
-// Обробка форми відгуків
-const reviewForm = document.getElementById("reviewForm");
-const ratingInputs = document.querySelectorAll('input[name="rating"]');
-const ratingText = document.querySelector(".rating-text");
-
-// Оновлення тексту рейтингу
-ratingInputs.forEach((input) => {
-  input.addEventListener("change", function () {
-    const ratingTexts = {
-      1: "Жахливо",
-      2: "Погано",
-      3: "Нормально",
-      4: "Добре",
-      5: "Відмінно",
-    };
-    ratingText.textContent = ratingTexts[this.value];
-    ratingText.className = "rating-text text-warning fw-bold";
-  });
-});
-
-// Відправка форми
-reviewForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-  const reviewData = {
-    name:
-      formData.get("reviewerName") ||
-      document.getElementById("reviewerName").value,
-    email:
-      formData.get("reviewerEmail") ||
-      document.getElementById("reviewerEmail").value,
-    rating: document.querySelector('input[name="rating"]:checked')?.value,
-    text: document.getElementById("reviewText").value,
-  };
-
-  // Перевірка мінімальної довжини відгуку
-  if (reviewData.text.length < 10) {
-    alert("Відгук повинен містити мінімум 10 символів");
-    return;
+  // Remove books from cart
+  const removeModalFormElements =
+    document.querySelectorAll(".modal-remove-book");
+  if (removeModalFormElements) {
+    removeModalFormElements.forEach((removeModalForm) => {
+      removeBookFromCart(removeModalForm);
+    });
   }
 
-  // Тут можна додати відправку на сервер
-  alert("Дякуємо за ваш відгук! Він буде опублікований після модерації.");
-
-  // Очищення форми
-  this.reset();
-  ratingText.textContent = "Оберіть оцінку";
-  ratingText.className = "rating-text text-muted";
+  // Remove book from Modal cart
+  removeBooksFromModalCart();
+  updateQuantityControl();
 });
+// End cart ---------------------------------------------------------------------
+
+// // Обробка форми відгуків
+// const reviewForm = document.getElementById("reviewForm");
+// const ratingInputs = document.querySelectorAll('input[name="rating"]');
+// const ratingText = document.querySelector(".rating-text");
+
+// // Оновлення тексту рейтингу
+// ratingInputs.forEach((input) => {
+//   input.addEventListener("change", function () {
+//     const ratingTexts = {
+//       1: "Жахливо",
+//       2: "Погано",
+//       3: "Нормально",
+//       4: "Добре",
+//       5: "Відмінно",
+//     };
+//     ratingText.textContent = ratingTexts[this.value];
+//     ratingText.className = "rating-text text-warning fw-bold";
+//   });
+// });
+
+// // Відправка форми
+// reviewForm.addEventListener("submit", function (e) {
+//   e.preventDefault();
+
+//   const formData = new FormData(this);
+//   const reviewData = {
+//     name:
+//       formData.get("reviewerName") ||
+//       document.getElementById("reviewerName").value,
+//     email:
+//       formData.get("reviewerEmail") ||
+//       document.getElementById("reviewerEmail").value,
+//     rating: document.querySelector('input[name="rating"]:checked')?.value,
+//     text: document.getElementById("reviewText").value,
+//   };
+
+//   // Перевірка мінімальної довжини відгуку
+//   if (reviewData.text.length < 10) {
+//     alert("Відгук повинен містити мінімум 10 символів");
+//     return;
+//   }
+
+//   // Тут можна додати відправку на сервер
+//   alert("Дякуємо за ваш відгук! Він буде опублікований після модерації.");
+
+//   // Очищення форми
+//   this.reset();
+//   ratingText.textContent = "Оберіть оцінку";
+//   ratingText.className = "rating-text text-muted";
+// });
