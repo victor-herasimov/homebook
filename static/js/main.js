@@ -34,7 +34,31 @@ categoryMenuItemsToogleMobile();
 
 // Cart -------------------------------------------------------------------
 // Quantity controls
-function updateQuantityControl() {
+function updateDetailQuantityControl() {
+  const cartInputGroups = document.querySelectorAll(".cart-input-group");
+  if (cartInputGroups) {
+    cartInputGroups.forEach((item) => {
+      const minusBtn = item.querySelector(".btn-minus");
+      const plusBtn = item.querySelector(".btn-plus");
+      const quantityInput = item.querySelector(
+        '.input-group input[type="text"]'
+      );
+      minusBtn.addEventListener("click", function () {
+        const currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
+        }
+      });
+
+      plusBtn.addEventListener("click", function () {
+        const currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+      });
+    });
+  }
+}
+
+function updateModalCartQuantityControl() {
   const cartInputGroups = document.querySelectorAll(".modal-cart-input-group");
   if (cartInputGroups) {
     cartInputGroups.forEach((item) => {
@@ -100,7 +124,7 @@ function updateCart(data) {
   setCartTotalPrice(parseFloat(data.total_price).toFixed(2));
   setCartQuantity(data.cart_quantity);
   removeBooksFromModalCart();
-  updateQuantityControl();
+  updateModalCartQuantityControl();
 }
 
 async function formSend(form) {
@@ -121,12 +145,6 @@ async function formSend(form) {
     }
     return response.json();
   });
-
-  // const json = await response.json();
-  // if (modalSpinner) {
-  //   modalSpinner.classList.toggle("acitve");
-  // }
-  // return json;
 }
 
 function removeBookFromCart(form) {
@@ -152,9 +170,12 @@ function removeBooksFromModalCart() {
 
 function addBookToCart(form) {
   if (form) {
+    console.log("before submit");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      console.log("submit");
       formSend(form).then((json) => {
+        console.log(json);
         updateCart(json);
       });
     });
@@ -171,6 +192,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Add Book to cart from detail page
+  const detaillAddToCartForm = document.querySelector("#detail-add-to-cart");
+  if (detaillAddToCartForm) {
+    console.log(detaillAddToCartForm);
+    addBookToCart(detaillAddToCartForm);
+  }
+
   // Remove books from cart
   const removeModalFormElements =
     document.querySelectorAll(".modal-remove-book");
@@ -182,7 +210,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Remove book from Modal cart
   removeBooksFromModalCart();
-  updateQuantityControl();
+  updateModalCartQuantityControl();
+  updateDetailQuantityControl();
 });
 // End cart ---------------------------------------------------------------------
 
