@@ -31,7 +31,18 @@ class CatalogView(BaseBreadcrumbMixin, ListView):
         return queryset
 
 
-class BookView(DetailView):
+class BookView(BaseBreadcrumbMixin, DetailView):
     model = Book
     template_name = "shop/book-detail.html"
     context_object_name = "book"
+
+    @cached_property
+    def crumbs(self):
+        book = self.get_object()
+        category = book.cateogry
+        parent_categories = category.get_ancestors(include_self=True)
+        links = [
+            (category.name, reverse("shop:catalog", args=[category.slug]))
+            for category in parent_categories
+        ] + [(book.title, book.get_absolute_url())]
+        return links
