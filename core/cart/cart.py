@@ -77,6 +77,9 @@ class Cart:
             Decimal(item["price"]) * item["quantity"] for item in self.cart.values()
         )
 
+    def __bool__(self) -> bool:
+        return bool(self.cart)
+
     def clear(self) -> None:
         """
         Clear cart

@@ -27,7 +27,7 @@
                     </td>
                     <td>
                         <div class="item-controll d-flex">
-                            <form action="{% url "cart:add" book.id %}" method="POST">
+                            <form action="{% url "cart:add" book.id %}" method="POST" data-remove-url="{% url "cart:remove" book.id %}">
                                 {% csrf_token %}
                                 <input type="hidden" name="override" value="true">
                                 <div class="input-group modal-cart-input-group h-100" style="max-width: 145px;">

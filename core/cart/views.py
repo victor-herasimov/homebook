@@ -26,6 +26,7 @@ class CartAdd(View):
                 ),
                 "cart_quantity": len(cart),
                 "total_price": float(cart.get_total_price()),
+                "is_empty": not bool(cart),
             },
         )
 
@@ -42,5 +43,6 @@ class CartRemove(View):
                 ),
                 "cart_quantity": len(cart),
                 "total_price": float(cart.get_total_price()),
+                "is_empty": not bool(cart),
             },
         )

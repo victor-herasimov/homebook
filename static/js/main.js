@@ -75,6 +75,12 @@ function updateModalCartQuantityControl() {
             updateCart(json);
           });
         }
+        if (quantityInput.value == "0") {
+          form.setAttribute("action", form.dataset.removeUrl);
+          formSend(form).then((json) => {
+            updateCart(json);
+          });
+        }
       }
 
       quantityInput.addEventListener("input", () => {
@@ -119,12 +125,20 @@ function updateModalCartBody(body) {
   }
 }
 
+function updateModalOrderBtnStatus(status) {
+  const btn = document.querySelector("#modal-order-btn");
+  if (btn) {
+    btn.disabled = status;
+  }
+}
+
 function updateCart(data) {
   updateModalCartBody(data.cart_body);
   setCartTotalPrice(parseFloat(data.total_price).toFixed(2));
   setCartQuantity(data.cart_quantity);
   removeBooksFromModalCart();
   updateModalCartQuantityControl();
+  updateModalOrderBtnStatus(data.is_empty);
 }
 
 async function formSend(form) {
@@ -170,12 +184,9 @@ function removeBooksFromModalCart() {
 
 function addBookToCart(form) {
   if (form) {
-    console.log("before submit");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      console.log("submit");
       formSend(form).then((json) => {
-        console.log(json);
         updateCart(json);
       });
     });
