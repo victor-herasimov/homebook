@@ -1,4 +1,5 @@
 {% load static %}
+{% if cart %}
 <table class="table">
     <thead>
         <tr>
@@ -29,7 +30,7 @@
                             <form action="{% url "cart:add" book.id %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="override" value="true">
-                                <div class="input-group cart-input-group h-100" style="max-width: 145px;">
+                                <div class="input-group modal-cart-input-group h-100" style="max-width: 145px;">
                                     <button class="btn btn-outline-secondary d-none d-lg-block btn-minus" type="button">-</button>
                                     <input type="text" class="form-control text-center" value="{{ item.quantity }}" min="1" style="padding:unset" name="quantity">
                                     <button class="btn btn-outline-secondary d-none d-lg-block btn-plus" type="button">+</button>   
@@ -57,3 +58,6 @@
         </tr>
     </tbody>
 </table>
+{% else %}
+<p>Ваш кошик порожній</p>
+{% endif %}

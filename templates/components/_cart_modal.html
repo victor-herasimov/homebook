@@ -5,8 +5,15 @@
         <h1 class="modal-title fs-5" id="cart-modal-label">Кошик</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body overflow-x-scroll" id="modal-cart-body">
-        {% include "components/_cart_body.html" %}
+      <div class="modal-body overflow-x-auto position-relative">
+         <div class="spinner d-flex justify-content-center align-items-center bg-primary bg-opacity-10 position-absolute top-0 start-0 bottom-0 end-0 z-3">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        <div id="modal-cart-body" class="overflow-x-auto">
+          {% include "components/_cart_body.html" %}
+        </div>
       </div>
       <div class="modal-footer bg-secondary-subtle justify-content-between">
         <button type="button" class="btn btn-secondary btn-sm flex-fill" data-bs-dismiss="modal">Продовжити покупки</button>

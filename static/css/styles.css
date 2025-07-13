@@ -213,6 +213,13 @@ a:hover {
     border-bottom-right-radius: var(--bs-btn-border-radius)
 
 }
+.modal-body .spinner {
+    display: none !important;
+}
+
+.modal-body .spinner.active {
+    display: flex !important;
+}
 
 /* Book detail */
 .book-cover {

@@ -35,7 +35,7 @@ categoryMenuItemsToogleMobile();
 // Cart -------------------------------------------------------------------
 // Quantity controls
 function updateQuantityControl() {
-  const cartInputGroups = document.querySelectorAll(".cart-input-group");
+  const cartInputGroups = document.querySelectorAll(".modal-cart-input-group");
   if (cartInputGroups) {
     cartInputGroups.forEach((item) => {
       const minusBtn = item.querySelector(".btn-minus");
@@ -106,13 +106,27 @@ function updateCart(data) {
 async function formSend(form) {
   const formData = new FormData(form);
   const url = form.action;
-  const response = await fetch(url, {
+  const modalSpinner = document.querySelector(".modal-body .spinner");
+
+  if (modalSpinner) {
+    modalSpinner.classList.toggle("active");
+  }
+
+  return await fetch(url, {
     method: form.method,
     body: formData,
+  }).then((response) => {
+    if (modalSpinner) {
+      modalSpinner.classList.toggle("active");
+    }
+    return response.json();
   });
 
-  const json = await response.json();
-  return json;
+  // const json = await response.json();
+  // if (modalSpinner) {
+  //   modalSpinner.classList.toggle("acitve");
+  // }
+  // return json;
 }
 
 function removeBookFromCart(form) {
