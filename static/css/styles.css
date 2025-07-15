@@ -202,12 +202,14 @@ a:hover {
 }
 
 /* Modal Cart*/
-#modal-cart-body .input-group button:last-child {
+#modal-cart-body .input-group button:last-child,
+.order-info .input-group button:last-child{
     border-radius: unset; 
     border-top-left-radius: none;
     border-bottom-left-radius: none;
 }
-#modal-cart-body .modal-remove-book button{
+#modal-cart-body .cart-remove-book button,
+.order-info .cart-remove-book button {
     border-radius: unset; 
     border-top-right-radius: var(--bs-btn-border-radius);
     border-bottom-right-radius: var(--bs-btn-border-radius)

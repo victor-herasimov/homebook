@@ -1,6 +1,6 @@
 {% load static %}
 {% if cart %}
-<table class="table">
+<table class="table {% if border %}table-bordered{% endif %}">
     <thead>
         <tr>
             <th scope="col">Фото</th>
@@ -36,7 +36,7 @@
                                     <button class="btn btn-outline-secondary d-none d-lg-block btn-plus" type="button">+</button>   
                                 </div>
                             </form>
-                            <form class="modal-remove-book" action="{% url "cart:remove" book.id %}" method="post">
+                            <form class="cart-remove-book" action="{% url "cart:remove" book.id %}" method="post">
                                 <button class="btn  bg-danger btn-remove" type="submit"><i class="fa-solid fa-xmark"></i></button>
                                 {% csrf_token %}
                             </form>

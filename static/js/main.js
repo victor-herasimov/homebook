@@ -125,15 +125,28 @@ function updateModalCartBody(body) {
   }
 }
 
+function updateOrderInfo(body) {
+  const orderInfoBody = document.querySelector(".order-info__body");
+  if (orderInfoBody) {
+    orderInfoBody.innerHTML = body;
+    orderInfoBody.querySelector("table")?.classList.add("table-bordered");
+  }
+}
+
 function updateModalOrderBtnStatus(status) {
   const btn = document.querySelector("#modal-order-btn");
   if (btn) {
-    btn.disabled = status;
+    if (status) {
+      btn.classList.add("disabled");
+    } else {
+      btn.classList.remove("disabled");
+    }
   }
 }
 
 function updateCart(data) {
   updateModalCartBody(data.cart_body);
+  updateOrderInfo(data.cart_body);
   setCartTotalPrice(parseFloat(data.total_price).toFixed(2));
   setCartQuantity(data.cart_quantity);
   removeBooksFromModalCart();
@@ -174,7 +187,7 @@ function removeBookFromCart(form) {
 
 function removeBooksFromModalCart() {
   const removeModalFormElements =
-    document.querySelectorAll(".modal-remove-book");
+    document.querySelectorAll(".cart-remove-book");
   if (removeModalFormElements) {
     removeModalFormElements.forEach((removeModalForm) => {
       removeBookFromCart(removeModalForm);
@@ -212,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Remove books from cart
   const removeModalFormElements =
-    document.querySelectorAll(".modal-remove-book");
+    document.querySelectorAll(".cart-remove-book");
   if (removeModalFormElements) {
     removeModalFormElements.forEach((removeModalForm) => {
       removeBookFromCart(removeModalForm);

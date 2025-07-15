@@ -1,14 +1,20 @@
 from django.db import models
 
 from core.abstract.models import AbstractModel
+from core.orders.validators import PhoneNumberValidator
 from core.shop.models import Book
 
 
 class Order(AbstractModel):
     first_name = models.CharField(max_length=256, verbose_name="Ім'я")
     last_name = models.CharField(max_length=256, verbose_name="Прізвище")
-    phone = models.CharField(max_length=20, verbose_name="Ім'я")
-    email = models.EmailField(verbose_name="Email")
+    phone = models.CharField(
+        max_length=20,
+        verbose_name="Телефон",
+        unique=True,
+        validators=[PhoneNumberValidator()],
+    )
+    email = models.EmailField(verbose_name="Email", unique=True)
     delivery_address = models.CharField(max_length=512, verbose_name="Адреса доставки")
     comment = models.TextField(blank=True, null=True, verbose_name="Коментар")
 
