@@ -11,10 +11,10 @@ class Order(AbstractModel):
     phone = models.CharField(
         max_length=20,
         verbose_name="Телефон",
-        unique=True,
+        unique=False,
         validators=[PhoneNumberValidator()],
     )
-    email = models.EmailField(verbose_name="Email", unique=True)
+    email = models.EmailField(verbose_name="Email", unique=False)
     delivery_address = models.CharField(max_length=512, verbose_name="Адреса доставки")
     comment = models.TextField(blank=True, null=True, verbose_name="Коментар")
 
@@ -28,6 +28,9 @@ class Order(AbstractModel):
 
     def __str__(self):
         return f"Заказ {self.id}"
+
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.items.all())
 
 
 class OrderItem(models.Model):
@@ -44,4 +47,9 @@ class OrderItem(models.Model):
         return f"{self.id}"
 
     def get_cost(self):
+        print(self.price, self.quantity)
         return self.price * self.quantity
+
+    class Meta:
+        verbose_name = "Заказаний товар"
+        verbose_name_plural = "Заказані товари"
