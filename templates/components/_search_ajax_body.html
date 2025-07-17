@@ -1,0 +1,45 @@
+{% load static %}
+{% if books %}
+    <ul class="list-group autosearch position-absolute top-100 start-0 w-100 z-3">
+        {% for book in books %}
+            <li class="list-group-item list-group-item-action">
+                <a href="{{ book.get_absolute_url }}">
+                    <div class="d-flex g-1">
+                        <div class="autosearch__image">
+                            <img src="{% if book.image %}{{book.image.url}} {% else %}{% static "static/image/no-image.jpg" %}{% endif %}" alt="{{book.title}}">
+                        </div>
+                        <div class="autosearch__info">
+                            <div class="autosearch__title">
+                                <h6>{{book.title}}</h6>
+                            </div>
+                            <div class="autosearch__price">
+                                 {% if not book.available %}
+                                    <span>0 грн</span>
+                                {% else %}
+                                    {% if book.is_discount %}
+                                        <span class="text-secondary text-decoration-line-through">
+                                            {{ book.price|floatformat:2 }} грн
+                                        </span>
+                                        &nbsp;
+                                        <span class="text-danger">
+                                            {{ book.get_price_with_discount|floatformat:2 }} грн
+                                        </span>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        <li class="list-group-item list-group-item-action">
+            <a href="{% url "shop:search" %}?q={{query}}">Переглянути всі результати</a>
+        </li>
+    </ul>
+{% else %}
+<ul class="list-group autosearch position-absolute top-100 start-0 w-100 z-3">
+    <li class="list-group-item">
+        <p>За даним запитом нічого не знайдено</p>
+    </li>
+</ul>
+{% endif %}

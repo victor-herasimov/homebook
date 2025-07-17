@@ -42,10 +42,13 @@
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 header__search d-flex align-items-center">
-                    <form class="w-100" method="GET" action="#">
+                    <form class="w-100 position-relative" method="GET" action="{% url "shop:search" %}" data-ajax-url="{% url "shop:ajax-search" %}" id="search-form">
                         <div class="d-flex" >
-                            <input type="text" class="form-control" placeholder="Пошук" name="search">
+                            <input type="text" class="form-control" placeholder="Пошук" name="q">
                             <button type="submit" class="btn btn-primary">Пошук</button>
+                        </div>
+                        <div id="autosearch-handler">
+
                         </div>
                     </form>
                 </div>

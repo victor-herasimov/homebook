@@ -11,7 +11,7 @@
             {% else %}
                 {% if book.is_discount %}
                     <span class="text-secondary text-decoration-line-through">
-                        {{ book.price }} грн
+                        {{ book.price | floatformat:2 }} грн
                     </span>
                     &nbsp;
                     <span class="text-danger">

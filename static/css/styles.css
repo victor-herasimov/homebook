@@ -141,6 +141,17 @@ a:hover {
     /* Menu finush */
 }
 
+.autosearch .autosearch__image {
+    width: 50px;
+    height: 50px;
+}
+
+.autosearch .autosearch__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 @media(max-width: 767px) {
     .header .shopping-cart .btn {
         width: 100%;

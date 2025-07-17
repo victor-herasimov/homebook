@@ -239,6 +239,46 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // End cart ---------------------------------------------------------------------
 
+// Start ajax search ------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  async function sendForm(form) {
+    const formData = new FormData(form);
+    const params = new URLSearchParams();
+
+    for (const pair of formData.entries()) {
+      params.append(pair[0], pair[1]);
+    }
+    const url = `${form.dataset.ajaxUrl}?${params.toString()}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
+  function renderAjaxSearchList(body) {
+    const ajaxListHandler = document.querySelector("#autosearch-handler");
+    ajaxListHandler.innerHTML = body;
+  }
+  function ajaxSearchFormHandler() {
+    const searchInput = document.querySelector(
+      '#search-form input[type="text"]'
+    );
+    searchInput.addEventListener("input", (e) => {
+      if (searchInput.value.length >= 3) {
+        console.log(searchInput.value);
+        const searchFormElement = searchInput.closest("#search-form");
+        sendForm(searchFormElement).then((data) => {
+          renderAjaxSearchList(data.body);
+        });
+      } else {
+        renderAjaxSearchList("");
+      }
+    });
+  }
+  ajaxSearchFormHandler();
+});
+
+// End ajax search --------------------------------------------------------------
+
 // // Обробка форми відгуків
 // const reviewForm = document.getElementById("reviewForm");
 // const ratingInputs = document.querySelectorAll('input[name="rating"]');
