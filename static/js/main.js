@@ -277,6 +277,100 @@ document.addEventListener("DOMContentLoaded", () => {
   ajaxSearchFormHandler();
 });
 
+// Catalog filters start --------------------------------------------------------
+// Функція для оновлення діапазону цін (десктоп)
+function updatePriceRange() {
+  const minPriceSlider = document.getElementById("minPrice");
+  const maxPriceSlider = document.getElementById("maxPrice");
+  const minPriceValue = document.getElementById("minPriceValue");
+  const maxPriceValue = document.getElementById("maxPriceValue");
+  const priceTrack = document.getElementById("priceTrack");
+
+  if (!minPriceSlider) return;
+
+  const minVal = parseInt(minPriceSlider.value);
+  const maxVal = parseInt(maxPriceSlider.value);
+
+  if (minVal >= maxVal) {
+    if (this === minPriceSlider) {
+      minPriceSlider.value = maxVal - 10;
+    } else {
+      maxPriceSlider.value = minVal + 10;
+    }
+  }
+
+  const minPercent = (minPriceSlider.value / minPriceSlider.max) * 100;
+  const maxPercent = (maxPriceSlider.value / maxPriceSlider.max) * 100;
+
+  priceTrack.style.left = minPercent + "%";
+  priceTrack.style.width = maxPercent - minPercent + "%";
+
+  minPriceValue.textContent = minPriceSlider.value;
+  maxPriceValue.textContent = maxPriceSlider.value;
+}
+
+function toogleMobileFilters() {
+  const mobileFilterBtn = document.querySelector(".mobile-filter-btn");
+  const filtersSidebar = document.querySelector(".filters-sidebar");
+  if (mobileFilterBtn && filtersSidebar) {
+    mobileFilterBtn.addEventListener("click", () => {
+      mobileFilterBtn.classList.toggle("hide");
+      filtersSidebar.classList.toggle("active");
+    });
+  }
+  const closeMobileFilters = document.querySelector(
+    ".filters-sidebar .btn-close"
+  );
+  console.log(closeMobileFilters);
+  if (closeMobileFilters) {
+    closeMobileFilters.addEventListener("click", () => {
+      mobileFilterBtn.classList.toggle("hide");
+      filtersSidebar.classList.toggle("active");
+    });
+  }
+}
+
+// Ініціалізація після завантаження DOM
+document.addEventListener("DOMContentLoaded", function () {
+  // Десктопні слайдери
+  const minPriceSlider = document.getElementById("minPrice");
+  const maxPriceSlider = document.getElementById("maxPrice");
+
+  if (minPriceSlider && maxPriceSlider) {
+    minPriceSlider.addEventListener("input", updatePriceRange);
+    maxPriceSlider.addEventListener("input", updatePriceRange);
+    updatePriceRange();
+  }
+
+  toogleMobileFilters();
+  // Кнопки очищення
+  document
+    .querySelector(".clear-filters")
+    ?.addEventListener("click", function () {
+      document
+        .querySelectorAll('.desktop-filters input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+
+      if (minPriceSlider && maxPriceSlider) {
+        minPriceSlider.value = 0;
+        maxPriceSlider.value = 2000;
+        updatePriceRange();
+      }
+    });
+
+  // Закрити offcanvas після застосування
+  const offcanvas = bootstrap.Offcanvas.getInstance(
+    document.getElementById("mobileFilters")
+  );
+  if (offcanvas) {
+    offcanvas.hide();
+  }
+});
+
+// Catalog filters end ----------------------------------------------------------
+
 // End ajax search --------------------------------------------------------------
 
 // // Обробка форми відгуків

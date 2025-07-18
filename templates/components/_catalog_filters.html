@@ -1,0 +1,92 @@
+    <button class="mobile-filter-btn">
+        <i class="fa-solid fa-filter"></i>
+    </button>
+
+    <div class="filters-sidebar p-3">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="mb-0">
+            <i class="fa-solid fa-filter"></i> Фільтри
+        </h5>
+        <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+    <form action="#">
+        <div class="accordion" id="filtersAccordion">
+            <!-- Категорії -->
+            <div class="accordion-item filter-section">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#categoryFilter">
+                        Категорії
+                    </button>
+                </h2>
+                <div id="categoryFilter" class="accordion-collapse collapse show" data-bs-parent="#filtersAccordion">
+                    <div class="accordion-body">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="fiction">
+                            <label class="form-check-label d-flex justify-content-between" for="fiction">
+                                Художня література
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ціна -->
+            <div class="accordion-item filter-section">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#priceFilter">
+                        Ціна
+                    </button>
+                </h2>
+                <div id="priceFilter" class="accordion-collapse collapse" data-bs-parent="#filtersAccordion">
+                    <div class="accordion-body">
+                        <div class="dual-range-container">
+                            <div class="dual-range-slider">
+                                <div class="track" id="priceTrack"></div>
+                                <input type="range" id="minPrice" class="dual-range-input" min="0" max="2000" value="100" step="10">
+                                <input type="range" id="maxPrice" class="dual-range-input" min="0" max="2000" value="1500" step="10">
+                            </div>
+                            <div class="price-display">
+                                <div class="price-value">
+                                    <span id="minPriceValue">100</span> ₴
+                                </div>
+                                <span class="text-muted">—</span>
+                                <div class="price-value">
+                                    <span id="maxPriceValue">1500</span> ₴
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Інші фільтри (скорочено для прикладу) -->
+            <div class="accordion-item filter-section">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#authorFilter">
+                        Автори
+                    </button>
+                </h2>
+                <div id="authorFilter" class="accordion-collapse collapse" data-bs-parent="#filtersAccordion">
+                    <div class="accordion-body">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input filter-checkbox" type="checkbox" id="author1">
+                            <label class="form-check-label" for="author1">Тарас Шевченко</label>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопки дій -->
+        <div class="mt-4 d-grid gap-2">
+            <button class="btn btn-primary apply-filters">
+                <i class="fa-solid fa-magnifying-glass"></i> Застосувати фільтри
+            </button>
+            <button class="btn btn-outline-secondary clear-filters">
+                <i class="fa-solid fa-broom"></i> Очистити
+            </button>
+        </div>
+    </form>
+</div>

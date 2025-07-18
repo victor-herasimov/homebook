@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.views import View
 from django.views.generic import DetailView, ListView
 from django.utils.functional import cached_property
+from django.conf import settings
 from view_breadcrumbs import BaseBreadcrumbMixin
 
 from core.shop.models import Book, Category
@@ -14,6 +15,8 @@ class CatalogView(BaseBreadcrumbMixin, ListView):
     model = Book
     template_name = "shop/catalog.html"
     context_object_name = "books"
+    paginate_by = settings.ITEMS_PER_PAGE
+    allow_empty = True
 
     @cached_property
     def crumbs(self):
@@ -32,6 +35,9 @@ class CatalogView(BaseBreadcrumbMixin, ListView):
         )
         queryset = Book.objects.filter(cateogry__id__in=category_ids).all()
         return queryset
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
 
 
 class BookView(BaseBreadcrumbMixin, DetailView):

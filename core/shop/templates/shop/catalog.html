@@ -1,22 +1,23 @@
 {% extends "base.html" %}
-
 {% block content %}
     <div class="container">
         <div class="row">
-            <aside class="col-sm-12 col-md-3">
-                aside
+            <aside class="col-sm-12 col-lg-4 col-xl-3">
+                {% include "components/_catalog_filters.html" %}
             </aside>
-            <main class="col-sm-12 col-md-9">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+            <main class="col-sm-12 col-lg-8 col-xl-9">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
                     {% for book in books %}
                         <div class="col">
                             {% include "components/_book-card.html" with book=book %}
                         </div>
                     {% endfor %}
                 </div>
-                <div class="catalog-pagination mt-2 py-2">
-                    {% include "components/_pagination.html" %}
-                </div>
+                {% if page_obj.has_other_pages %}
+                    <div class="catalog-pagination mt-2 py-2">
+                        {% include "components/_pagination.html" %}
+                    </div>
+                {% endif %}
             </main>
         </div>
     </div>

@@ -379,3 +379,257 @@ a:hover {
 .rating-text {
     font-size: 0.9rem;
 }
+
+/*Catalog filters start -------------------------------------------------*/
+        .filters-sidebar {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .filters-sidebar .btn-close {
+            display: none;
+        }
+        
+        .filter-section {
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+        
+        .price-range-container {
+            position: relative;
+        }
+        
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .price-input {
+            width: 80px;
+        }
+        
+        .rating-stars {
+            color: #ffc107;
+        }
+        
+        .filter-checkbox:checked + label {
+            color: #0d6efd;
+            font-weight: 500;
+        }
+        
+        .clear-filters {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-filters:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+        
+        .apply-filters {
+            background: linear-gradient(45deg, #198754, #20c997);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-filters:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: #e7f3ff;
+            color: #0d6efd;
+        }
+        
+        .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+        
+        .badge-count {
+            background-color: #6c757d;
+            font-size: 0.75rem;
+        }
+
+        .dual-range-container {
+            position: relative;
+            height: 40px;
+            margin: 20px 0;
+        }
+
+        .dual-range-slider {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            background: #ddd;
+            border-radius: 3px;
+            margin: 15px 0;
+        }
+
+        .dual-range-slider .track {
+            position: absolute;
+            height: 6px;
+            background: #0d6efd;
+            border-radius: 3px;
+        }
+
+        .dual-range-input {
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            background: none;
+            pointer-events: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .dual-range-input::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #0d6efd;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            -webkit-appearance: none;
+            pointer-events: all;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dual-range-input::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #0d6efd;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            pointer-events: all;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            font-weight: 500;
+            color: #0d6efd;
+        }
+
+        .price-value {
+            background: #e7f3ff;
+            padding: 4px 8px;
+            border-radius: 3px;
+            border: 1px solid #b6d7ff;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        /* Мобільна кнопка фільтрів */
+        .mobile-filter-btn {
+            position: fixed;
+            left: 0;
+            top: 30%;
+            transform: translateY(-50%);
+            z-index: 1050;
+            background: linear-gradient(45deg, #0d6efd, #6610f2);
+            border: none;
+            border-radius: 0 15px 15px 0;
+            padding: 15px 8px;
+            box-shadow: 2px 0 15px rgba(13, 110, 253, 0.3);
+            transition: all 0.3s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            color: white;
+            font-weight: 500;
+            display: none;
+        }
+
+        .mobile-filter-btn:hover {
+            background: linear-gradient(45deg, #0b5ed7, #5a0fc8);
+            transform: translateY(-50%) translateX(5px);
+            color: white;
+        }
+
+        .mobile-filter-btn i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Показувати кнопку тільки на мобільних */
+        @media (max-width: 991.98px) {
+            .mobile-filter-btn {
+                display: block;
+            }
+            .mobile-filter-btn.hide {
+                display: none;
+            }
+
+            .filters-sidebar .btn-close {
+                display: block;
+            }
+        }
+
+        /* Стилі для offcanvas */
+        .offcanvas-start {
+            width: 320px;
+        }
+
+        .offcanvas-body {
+            padding: 0;
+        }
+        /* Адаптація для мобільних фільтрів */
+        @media (max-width: 991.98px) {
+            .filters-sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                height: 100%;
+                width: 90%;
+                border-radius: 0;
+                box-shadow: none;
+                height: 100%;
+                transition: left .3s linear;
+                z-index: 999;
+            }
+            .filters-sidebar.active {
+                left: 0;
+            }
+        }
+
+        /* Індикатор активних фільтрів */
+        .filter-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .accordion {
+            --bs-accordion-btn-focus-box-shadow: #34268f;;
+            --bs-accordion-body-padding-x: 0.8rem;
+            --bs-accordion-body-padding-y: 1rem;
+            --bs-accordion-btn-padding-y: .6rem
+ 
+        }
+/*Catalog filters end ---------------------------------------------------*/

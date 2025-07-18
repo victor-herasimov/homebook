@@ -1,17 +1,25 @@
+{% load shop_tags %}
 <nav aria-label="Catalog navigation">
+    {% elided_page_range number=page_obj.number on_each_side=1 on_ends=1 as pages%}
     <ul class="pagination pagination-sm justify-content-center">
-        <li class="page-item ">
-        <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-        </a>
+        <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+            <a class="page-link" href="{% if page_obj.has_previous %}?{% change_params page=page_obj.previous_page_number %}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
         </li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-        </a>
+        {% for page in pages %}
+            {% if page == page_obj.number %}
+                <li class="page-item active"><a class="page-link" href="?{% change_params page=page %}">{{ page }}</a></li>
+            {% elif page == page_obj.paginator.ELLIPSIS %}
+                <li class="page-item active disabled"><a class="page-link" href="#">{{ page }}</a></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="?{% change_params page=page %}">{{ page }}</a></li>
+            {% endif %}
+        {% endfor %}
+        <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+            <a class="page-link" href="{% if page_obj.has_next %}?{% change_params page=page_obj.next_page_number %}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
         </li>
     </ul>
 </nav>

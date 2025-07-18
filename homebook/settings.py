@@ -134,3 +134,6 @@ CKEDITOR_UPLOAD_PATH = "media/"
 
 # cart
 CART_SESSION_ID = "cart"
+
+# Paginations
+ITEMS_PER_PAGE = 8
