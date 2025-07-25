@@ -299,11 +299,17 @@ function updatePriceRange() {
     }
   }
 
-  const minPercent = (minPriceSlider.value / minPriceSlider.max) * 100;
-  const maxPercent = (maxPriceSlider.value / maxPriceSlider.max) * 100;
+  const minPercent =
+    ((minPriceSlider.value - minPriceSlider.min) /
+      (minPriceSlider.max - minPriceSlider.min)) *
+    100;
+  const maxPercent =
+    ((maxPriceSlider.value - maxPriceSlider.min) /
+      (maxPriceSlider.max - maxPriceSlider.min)) *
+    100;
 
   priceTrack.style.left = minPercent + "%";
-  priceTrack.style.width = maxPercent - minPercent + "%";
+  priceTrack.style.right = 100 - maxPercent + "%";
 
   minPriceValue.textContent = minPriceSlider.value;
   maxPriceValue.textContent = maxPriceSlider.value;
@@ -321,7 +327,6 @@ function toogleMobileFilters() {
   const closeMobileFilters = document.querySelector(
     ".filters-sidebar .btn-close"
   );
-  console.log(closeMobileFilters);
   if (closeMobileFilters) {
     closeMobileFilters.addEventListener("click", () => {
       mobileFilterBtn.classList.toggle("hide");
@@ -348,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelector(".clear-filters")
     ?.addEventListener("click", function () {
       document
-        .querySelectorAll('.desktop-filters input[type="checkbox"]')
+        .querySelectorAll('.catalog-filters input[type="checkbox"]')
         .forEach((checkbox) => {
           checkbox.checked = false;
         });

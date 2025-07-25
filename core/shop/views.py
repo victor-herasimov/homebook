@@ -8,15 +8,20 @@ from django.utils.functional import cached_property
 from django.conf import settings
 from view_breadcrumbs import BaseBreadcrumbMixin
 
+from django_filters.views import FilterView
+
 from core.shop.models import Book, Category
+from .filters import BookFilter
 
 
-class CatalogView(BaseBreadcrumbMixin, ListView):
+class CatalogView(BaseBreadcrumbMixin, FilterView):
     model = Book
     template_name = "shop/catalog.html"
     context_object_name = "books"
     paginate_by = settings.ITEMS_PER_PAGE
     allow_empty = True
+    filterset_fields = ["author"]
+    filterset_class = BookFilter
 
     @cached_property
     def crumbs(self):
@@ -28,6 +33,33 @@ class CatalogView(BaseBreadcrumbMixin, ListView):
         ]
         return links
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # filter = context["filter"]
+        # for fields in filter.form:
+        #     print(fields.label)
+        #     for field in fields:
+        #         print(field.data)
+        #         break
+        return context
+
+    # class CatalogView(BaseBreadcrumbMixin, ListView):
+    #     model = Book
+    #     template_name = "shop/catalog.html"
+    #     context_object_name = "books"
+    #     paginate_by = settings.ITEMS_PER_PAGE
+    #     allow_empty = True
+
+    #     @cached_property
+    #     def crumbs(self):
+    #         category = get_object_or_404(Category, slug=self.kwargs["category_slug"])
+    #         parent_categories = category.get_ancestors(include_self=True)
+    #         links = [
+    #             (category.name, reverse("shop:catalog", args=[category.slug]))
+    #             for category in parent_categories
+    #         ]
+    #         return links
+
     def get_queryset(self):
         category = get_object_or_404(Category, slug=self.kwargs["category_slug"])
         category_ids = category.get_descendants(include_self=True).values_list(
@@ -35,9 +67,6 @@ class CatalogView(BaseBreadcrumbMixin, ListView):
         )
         queryset = Book.objects.filter(cateogry__id__in=category_ids).all()
         return queryset
-
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
 
 
 class BookView(BaseBreadcrumbMixin, DetailView):

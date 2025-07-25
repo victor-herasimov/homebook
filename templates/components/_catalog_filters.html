@@ -1,3 +1,5 @@
+    {% load shop_tags %}
+    
     <button class="mobile-filter-btn">
         <i class="fa-solid fa-filter"></i>
     </button>
@@ -9,42 +11,38 @@
         </h5>
         <button type="button" class="btn-close" aria-label="Close"></button>
     </div>
-    <form action="#">
+    <form action="{{ request.path }}" method="get" class="catalog-filters">
         <div class="accordion" id="filtersAccordion">
-            <!-- Категорії -->
+             <!-- Ціна -->
             <div class="accordion-item filter-section">
                 <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#categoryFilter">
-                        Категорії
-                    </button>
-                </h2>
-                <div id="categoryFilter" class="accordion-collapse collapse show" data-bs-parent="#filtersAccordion">
-                    <div class="accordion-body">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="fiction">
-                            <label class="form-check-label d-flex justify-content-between" for="fiction">
-                                Художня література
-                            </label>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ціна -->
-            <div class="accordion-item filter-section">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#priceFilter">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#priceFilter">
                         Ціна
                     </button>
                 </h2>
-                <div id="priceFilter" class="accordion-collapse collapse" data-bs-parent="#filtersAccordion">
+                <div id="priceFilter" class="accordion-collapse collapse show" >
                     <div class="accordion-body">
                         <div class="dual-range-container">
                             <div class="dual-range-slider">
                                 <div class="track" id="priceTrack"></div>
-                                <input type="range" id="minPrice" class="dual-range-input" min="0" max="2000" value="100" step="10">
-                                <input type="range" id="maxPrice" class="dual-range-input" min="0" max="2000" value="1500" step="10">
+                                {% for fields in filter.form %}
+                                    {% if forloop.counter0 < 2 %}   
+                                        {% if fields.label == 'price' %}
+                                            {% for field in fields %}
+                                                <input 
+                                                type="{{field.data.type}}" 
+                                                name="{{ field.data.name }}"  
+                                                id="{{field.data.attrs.id}}" 
+                                                min="{{field.data.attrs.min}}" 
+                                                max="{{field.data.attrs.max}}" 
+                                                class="dual-range-input" 
+                                                value="{% if field.data.value %}{{ field.data.value }}{% else %}{{ field.data.attrs.initial}}{% endif %}"
+                                                step="1"
+                                                >
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                             <div class="price-display">
                                 <div class="price-value">
@@ -59,24 +57,37 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Інші фільтри (скорочено для прикладу) -->
-            <div class="accordion-item filter-section">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#authorFilter">
-                        Автори
-                    </button>
-                </h2>
-                <div id="authorFilter" class="accordion-collapse collapse" data-bs-parent="#filtersAccordion">
-                    <div class="accordion-body">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input filter-checkbox" type="checkbox" id="author1">
-                            <label class="form-check-label" for="author1">Тарас Шевченко</label>
+            {% for fields in filter.form %}
+                {% if forloop.counter0 >= 2 %}
+                     <div class="accordion-item filter-section">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ fields.name }}Filter">
+                                {{ fields.label }}
+                            </button>
+                        </h2>
+                        {% check_param name=fields.name as show %}
+                        <div id="{{ fields.name }}Filter" class="accordion-collapse collapse {% if show %}show{% endif %}" >
+                            <div class="accordion-body overflow-y-auto" s>
+                                {% for field in fields %}
+                                    <div class="form-check mb-2">
+                                        <input 
+                                        class="form-check-input filter-checkbox" 
+                                        type="{{field.data.type}}" 
+                                        name="{{ field.data.name }}" 
+                                        id="{{field.data.attrs.id}}"
+                                        value="{{ field.data.value }}"
+                                        {% if field.data.selected %}checked{% endif %}
+                                        >
+                                        <label class="form-check-label d-flex justify-content-between" for="{{field.data.attrs.id}}">
+                                            {{ field.data.label }}
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
-                        
                     </div>
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
         </div>
 
         <!-- Кнопки дій -->

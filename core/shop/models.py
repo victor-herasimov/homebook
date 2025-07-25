@@ -100,19 +100,14 @@ class OtherCharacteristic(models.Model):
         OtherCharacteristicItem, on_delete=models.CASCADE, verbose_name="Характеристика"
     )
     value = models.CharField(max_length=64, verbose_name="Значення характеристики")
-    books = models.ForeignKey(
-        "Book",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="other_characteristics",
-        verbose_name="Книга",
-    )
 
     class Meta:
         ordering = ["item"]
         verbose_name = "Додаткову характеристика"
         verbose_name_plural = "Додаткові характеристики"
+        constraints = [
+            models.UniqueConstraint(fields=("item", "value"), name="unique_item_value")
+        ]
 
     def __str__(self):
         return f"{self.item} - {self.value}"
@@ -165,6 +160,16 @@ class Book(AbstractModel):
         null=True,
         blank=True,
         verbose_name="Знижка",
+        default=0,
+    )
+
+    other_characteristics = models.ManyToManyField(
+        OtherCharacteristic,
+        null=True,
+        blank=True,
+        default=None,
+        related_name="books",
+        verbose_name="Інші Характеристики",
     )
 
     class Meta:

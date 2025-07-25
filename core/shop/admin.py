@@ -70,11 +70,11 @@ class OtherCharacteristicItemAdmin(admin.ModelAdmin):
 class OtherCharacteristicAdmin(admin.ModelAdmin):
     list_display = ["item", "value"]
     list_display_links = ["item", "value"]
-    fields = ["item", "value", "books"]
+    fields = ["item", "value"]
 
 
 class OtherCharacteristicInline(admin.TabularInline):
-    model = OtherCharacteristic
+    model = Book.other_characteristics.through
     extra = 1
 
 
@@ -101,6 +101,7 @@ class BookAdmin(admin.ModelAdmin):
     list_display_links = ["title", "thumbnail"]
     list_filter = ["author", "cateogry", "language"]
     inlines = [OtherCharacteristicInline]
+    exclude = ["other_characteristics"]
     fieldsets = [
         (
             None,

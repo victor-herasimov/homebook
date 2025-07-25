@@ -632,4 +632,7 @@ a:hover {
             --bs-accordion-btn-padding-y: .6rem
  
         }
+        .catalog-filters .accordion-body {
+            max-height: 200px;
+        }
 /*Catalog filters end ---------------------------------------------------*/

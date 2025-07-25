@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     "mptt",
     "view_breadcrumbs",
     "ckeditor",
+    "django_filters",
+    "django_property_filter",
     # My applicatios
     "core",
     "core.main.apps.MainConfig",
