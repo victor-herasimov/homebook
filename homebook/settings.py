@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "core.shop.apps.ShopConfig",
     "core.cart.apps.CartConfig",
     "core.orders.apps.OrdersConfig",
+    "core.account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,6 @@ CART_SESSION_ID = "cart"
 
 # Paginations
 ITEMS_PER_PAGE = 8
+
+# Account
+AUTH_USER_MODEL = "core_account.User"

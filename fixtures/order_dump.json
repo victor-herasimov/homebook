@@ -1,0 +1,32 @@
+[
+{
+  "model": "core_orders.order",
+  "pk": 1,
+  "fields": {
+    "slug": "",
+    "created": "2025-07-16T10:56:19.495Z",
+    "updated": "2025-07-16T10:56:19.495Z",
+    "first_name": "Name",
+    "last_name": "Last Name",
+    "phone": "+38(096)139-47-48",
+    "email": "a@admin.com",
+    "delivery_address": "np1",
+    "comment": ""
+  }
+},
+{
+  "model": "core_orders.order",
+  "pk": 2,
+  "fields": {
+    "slug": "",
+    "created": "2025-07-16T11:13:16.597Z",
+    "updated": "2025-07-16T11:13:16.597Z",
+    "first_name": "GERASIMOV",
+    "last_name": "VIKTOR",
+    "phone": "+29(096)139-47-48",
+    "email": "a@admin.com",
+    "delivery_address": "np1",
+    "comment": ""
+  }
+}
+]

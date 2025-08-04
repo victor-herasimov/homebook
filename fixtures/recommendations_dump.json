@@ -1,0 +1,38 @@
+[
+{
+  "model": "core_main.recommendations",
+  "pk": 1,
+  "fields": {
+    "title": "Big Money: принципы первых. Откровенно о бизнесе и жизни успешных предпринимателей",
+    "image": "recommendations/bigmoneybanner-1140x380.jpg",
+    "book": 10,
+    "show": true,
+    "created": "2025-07-03T07:15:22.431Z",
+    "updated": "2025-07-03T07:15:22.431Z"
+  }
+},
+{
+  "model": "core_main.recommendations",
+  "pk": 2,
+  "fields": {
+    "title": "Казки на ніч для дівчат-бунтарок 2",
+    "image": "recommendations/kazky-na-nich-dlya-divchat-buntarok-2-914383-1140x380.jpg",
+    "book": 11,
+    "show": true,
+    "created": "2025-07-03T07:16:13.003Z",
+    "updated": "2025-07-03T07:16:13.003Z"
+  }
+},
+{
+  "model": "core_main.recommendations",
+  "pk": 3,
+  "fields": {
+    "title": "Bad Blood | Дурна кров. Таємниці та брехні стартапу Кремнієвої долини",
+    "image": "recommendations/badblood-1140x380.png",
+    "book": 13,
+    "show": true,
+    "created": "2025-07-03T07:17:08.589Z",
+    "updated": "2025-07-03T07:17:08.589Z"
+  }
+}
+]
