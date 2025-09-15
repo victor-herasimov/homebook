@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="login mt-2">
+        <div class="container">
+            <h1 class="mb-3">Швидка реєстрація</h1>
+            <p>Якщо ви вже зареєстровані, перейдіть на сторінку <a href="{% url "account:login" %}">входу в систему</a>.</p>
+            <div class="login-form">
+                 <form action="{% url "account:registration" %}" method="post">
+                    {% csrf_token %}
+                   
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Email:</label>
+                        <input 
+                        type="email" 
+                        class="form-control" 
+                        id="id_email" 
+                        name="email" 
+                        required
+                        
+                        value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
+                        >
+                        {% if form.email.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.email.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_password1" class="form-label">Пароль:</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="id_password1" 
+                        required 
+                        name="password1"
+                        value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
+                        >
+                        {% if form.password1.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.password1.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                     <div class="mb-3">
+                        <label for="id_password2" class="form-label">Підтвердіть пароль:</label>
+                        <input 
+                        type="password" 
+                        class="form-control" 
+                        id="id_password2" 
+                        required 
+                        name="password2"
+                        value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
+                        >
+                        {% if form.password2.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.password2.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_first_name" class="form-label">Ім'я:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="id_first_name" 
+                        required 
+                        name="first_name"
+                        value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
+                        >
+                        {% if form.first_name.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.first_name.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_last_name" class="form-label">Прізвище:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="id_last_name" 
+                        required 
+                        name="last_name"
+                        value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                        >
+                        {% if form.last_name.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.last_name.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_phone" class="form-label">Телефон:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="id_phone" 
+                        required 
+                        name="phone"
+                        value="{% if form.phone.value %}{{ form.phone.value }}{% endif %}"
+                        >
+                        {% if form.phone.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.phone.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_delivery_address" class="form-label">Адреса доставки:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="id_delivery_address" 
+                        required 
+                        name="delivery_address"
+                        value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}"
+                        >
+                        {% if form.delivery_address.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.delivery_address.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                
+                    {% if form.non_field_errors %}
+                        <div class="mb-3">
+                        <ul class="text-danger">
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        </div>
+                    {% endif %}
+                
+                    <button type="submit" class="btn btn-primary">Продовжити</button>
+                    </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

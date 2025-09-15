@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="login">
+        <div class="container">
+            <h1 class="mb-3">Авторизація</h1>
+            <div class="login-form">
+                 <form action="{% url "account:login" %}" method="post">
+                    {% csrf_token %}
+                    {% if request.GET.next %}
+                        <input type="hidden" name="next" value={{request.GET.next}}>
+                    {% endif %}
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Email:</label>
+                        <input 
+                        type="email" 
+                        class="form-control" 
+                        id="id_username" 
+                        name="username" 
+                        required
+                        autofocus
+                        value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                        >
+                        {% if form.username.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.username.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="id_password" required name="password">
+                        {% if form.password.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.password.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url "account:password_reset" %}">Забули пароль!</a> | <a href="{% url "account:registration" %}">Реєстрація</a>
+                    </div>
+                
+                    {% if form.non_field_errors %}
+                        <div class="mb-3">
+                        <ul class="text-danger">
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        </div>
+                    {% endif %}
+                
+                    <button type="submit" class="btn btn-primary">Увійти</button>
+                    </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+

@@ -1,0 +1,63 @@
+{% load login_form %}
+<div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+    <div class="modal-header bg-secondary-subtle">
+        <h1 class="modal-title fs-5" id="cart-modal-label">Авторизація</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url "account:login" %}" method="post">
+          {% csrf_token %}
+          {% comment %} {% user_login_form %} {% endcomment %}
+          <div class="mb-3">
+            <label for="id_username" class="form-label">Email:</label>
+            <input 
+            type="email" 
+            class="form-control" 
+            id="id_username" 
+            name="username" 
+            required
+            autofocus
+            value="{% if user_login_form.username.value %}{{ user_login_form.username.value }}{% endif %}"
+            >
+            {% if user_login_form.username.errors %}
+              <ul class="text-danger">
+                  {% for error in user_login_form.username.errors %}
+                    <li>{{error}}</li>
+                  {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <div class="mb-3">
+            <label for="id_password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="id_password" required name="password">
+            {% if user_login_form.password.errors %}
+              <ul class="text-danger">
+                  {% for error in user_login_form.password.errors %}
+                    <li>{{error}}</li>
+                  {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+       
+          {% if user_login_form.non_field_errors %}
+            <div class="mb-3">
+              <ul class="test-danger">
+                {% for error in user_login_form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+       
+          <button type="submit" class="btn btn-primary">Увійти</button>
+        </form>
+      </div>
+      <div class="modal-footer bg-secondary-subtle justify-content-center">
+        <a href="{% url "account:registration" %}">Реєстрація</a> |
+        <a href="{% url "account:password_reset" %}">Забули пароль</a>
+      </div>
+    </div>
+  </div>
+</div>

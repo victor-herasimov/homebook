@@ -9,13 +9,26 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="nav-item dropdown order-lg-3">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Особистий кабінет
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Реєстрація</a></li>
-                        <li><a class="dropdown-item" href="#">Авторизація</a></li>
-                    </ul>
+                    {% if not user.is_authenticated %}
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Особистий кабінет
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url "account:registration" %}">Реєстрація</a></li>
+                            <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#login-modal">Авторизація</button></li>
+                        </ul>
+                    {% else %}
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Привіт {{ ser.user_name|default:user.email }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Особистий кабінет</a></li>
+                            {% if user.is_admin or user.is_staff %}
+                                <li><a class="dropdown-item" href="{% url "admin:index" %}">Панель адміністратора</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{% url "account:logout" %}">Вийти</a></li>
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">

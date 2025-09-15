@@ -143,3 +143,10 @@ ITEMS_PER_PAGE = 8
 
 # Account
 AUTH_USER_MODEL = "core_account.User"
+LOGIN_URL = "/account/login/"
+
+# Email
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+if DEBUG:
+    EMAIL_HOST = "0.0.0.0"
+    EMAIL_PORT = 8025

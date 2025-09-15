@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page</title>
+    <title>
+        {% block title %}
+            page
+        {% endblock title %}
+
+
+    </title>
     {% block styles %}
         {% include "components/_styles.html" %}
     {% endblock styles %}
@@ -12,6 +18,7 @@
 </head>
 <body class="d-flex flex-column" style="min-height: 100vh">
     {% include "components/_cart_modal.html" %}
+    {% include "components/_login_modal.html" %}
     {% include "components/_header.html" %}
     <div class="content">   
         {% block content%} {% endblock content %}
