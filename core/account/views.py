@@ -1,9 +1,12 @@
-from django.views.generic import CreateView, FormView
+from django.utils.functional import cached_property
+from django.views.generic import CreateView, FormView, TemplateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from django.contrib import auth
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
+from view_breadcrumbs import BaseBreadcrumbMixin
 from core.account.forms import UserLoginForm, UserRegistrationForm
 
 
@@ -47,9 +50,26 @@ class UserRegistrationView(CreateView):
 @login_required
 def logout(request):
     cart = request.session["cart"]
-    print(request.session.session_key)
     auth.logout(request)
     if cart:
         request.session["cart"] = cart
-    print(request.session.session_key)
     return redirect(reverse("main:index"))
+
+
+class ProfileView(BaseBreadcrumbMixin, TemplateView):
+    template_name = "account/profile.html"
+
+    @cached_property
+    def crumbs(self):
+        return [("Особистий кабінет", reverse("account:profile"))]
+
+
+class CrumbsPasswordChangeView(BaseBreadcrumbMixin, PasswordChangeView):
+    template_name = "account/password_change_form.html"
+
+    @cached_property
+    def crumbs(self):
+        return [
+            ("Особистий кабінет", reverse("account:profile")),
+            ("Зінити пароль", reverse("account:password_change")),
+        ]

@@ -22,7 +22,7 @@
                             Привіт {{ ser.user_name|default:user.email }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Особистий кабінет</a></li>
+                            <li><a class="dropdown-item" href="{% url "account:profile" %}">Особистий кабінет</a></li>
                             {% if user.is_admin or user.is_staff %}
                                 <li><a class="dropdown-item" href="{% url "admin:index" %}">Панель адміністратора</a></li>
                             {% endif %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Особистий кабінет{% endblock title %}
+
+{% block content %}
+    <section class="main">
+        <div class="container">
+            <h1 class="my-3 text-center">Особістий кабінет</h1>
+            <div class="my-profile py-2">
+                <h2>Мій обліковий запис</h2>
+                <div class="list-group mt-2">
+                    <a href="#" class="list-group-item list-group-item-action">Змінити контактну інформацію</a>
+                    <a href="{% url "account:password_change" %}" class="list-group-item list-group-item-action">Змінити пароль</a>
+                    <a href="#" class="list-group-item list-group-item-action">Змінити мої адресу доставки</a>
+                    <a href="#" class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+                </div>
+            </div>
+            <div class="my-orders py-2">
+                <h2>Мої замовлення</h2>
+                <div class="list-group mt-2">
+                    <a href="#" class="list-group-item list-group-item-action">Історія замовлень</a>
+                </div>
+            </div>
+            <div class="general py-2">
+                <h2>Загальне</h2>
+                <div class="list-group mt-2">
+                    <a href="{% url "account:logout" %}" class="list-group-item list-group-item-action">Вийти</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

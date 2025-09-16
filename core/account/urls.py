@@ -8,11 +8,16 @@ urlpatterns = [
     path("login/", views.UserLoginView.as_view(), name="login"),
     path("registration/", views.UserRegistrationView.as_view(), name="registration"),
     path("logout/", views.logout, name="logout"),
+    # path(
+    #     "password-change/",
+    #     auth_views.PasswordChangeView.as_view(
+    #         template_name="account/password_change_form.html"
+    #     ),
+    #     name="password_change",
+    # ),
     path(
         "password-change/",
-        auth_views.PasswordChangeView.as_view(
-            template_name="account/password_change_form.html"
-        ),
+        views.CrumbsPasswordChangeView.as_view(),
         name="password_change",
     ),
     path(
@@ -55,4 +60,5 @@ urlpatterns = [
         ),
         name="password_reset_complete",
     ),
+    path("profile/", views.ProfileView.as_view(), name="profile"),
 ]
