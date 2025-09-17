@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Змінити адресс
+{% endblock title %}
+
+{% block content %}
+    <section class="main">
+        <div class="container">
+            <h1 class="mb-3">Змінити адресс</h1>
+            <div class="edit-info-form">
+                 <form method="post" action="{% url "account:edit_address" %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_delivery_address" class="form-label">Адреса доставки:</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="id_delivery_address" 
+                        name="delivery_address" 
+                        required
+                        autofocus
+                        value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}"
+                        >
+                        {% if form.delivery_address.errors %}
+                        <ul class="text-danger">
+                            {% for error in form.delivery_address.errors %}
+                                <li>{{error}}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                    {% if form.non_field_errors %}
+                        <div class="mb-3">
+                        <ul class="text-danger">
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        </div>
+                    {% endif %}
+                
+                    <button type="submit" class="btn btn-primary">Продовжити</button>
+                    </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

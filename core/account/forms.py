@@ -60,3 +60,13 @@ class UserChangeInfoForm(UserChangeForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
     phone = forms.CharField(validators=[PhoneNumberValidator])
+
+
+class UserChangeAddressForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = [
+            "delivery_address",
+        ]
+
+    delivery_address = forms.CharField()

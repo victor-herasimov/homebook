@@ -5,7 +5,6 @@ from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
     BaseUserManager,
-    AbstractUser,
 )
 
 from core.orders.validators import PhoneNumberValidator

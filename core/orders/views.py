@@ -12,6 +12,18 @@ class OrderView(FormView):
     template_name = "orders/order/create.html"
     form_class = OrderCreateForm
 
+    def get_initial(self):
+        user = self.request.user
+        if not user.is_anonymous:
+            return {
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "phone": user.phone,
+                "email": user.email,
+                "delivery_address": user.delivery_address,
+            }
+        return super().get_initial()
+
     def form_valid(self, form):
         with transaction.atomic():
             cart = Cart(self.request)

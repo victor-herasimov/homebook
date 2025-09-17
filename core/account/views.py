@@ -8,7 +8,12 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from view_breadcrumbs import BaseBreadcrumbMixin
-from core.account.forms import UserChangeInfoForm, UserLoginForm, UserRegistrationForm
+from core.account.forms import (
+    UserChangeAddressForm,
+    UserChangeInfoForm,
+    UserLoginForm,
+    UserRegistrationForm,
+)
 
 
 class UserLoginView(FormView):
@@ -94,6 +99,30 @@ class UserChangeInfoView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView):
         return [
             ("Особистий кабінет", reverse("account:profile")),
             ("Редагувати інформацію", reverse("account:edit_info")),
+        ]
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        messages.info(self.request, "Дані успішно змінено!")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Виникла помилка!")
+        return super().form_invalid(form)
+
+
+class UserChangeAddressView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView):
+    template_name = "account/edit_address.html"
+    form_class = UserChangeAddressForm
+    success_url = reverse_lazy("account:edit_address")
+
+    @cached_property
+    def crumbs(self):
+        return [
+            ("Особистий кабінет", reverse("account:profile")),
+            ("Редагувати адресу", reverse("account:edit_address")),
         ]
 
     def get_object(self, queryset=None):
