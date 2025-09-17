@@ -1,13 +1,14 @@
 from django.utils.functional import cached_property
-from django.views.generic import CreateView, FormView, TemplateView
+from django.views.generic import CreateView, FormView, TemplateView, UpdateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from view_breadcrumbs import BaseBreadcrumbMixin
-from core.account.forms import UserLoginForm, UserRegistrationForm
+from core.account.forms import UserChangeInfoForm, UserLoginForm, UserRegistrationForm
 
 
 class UserLoginView(FormView):
@@ -73,3 +74,35 @@ class CrumbsPasswordChangeView(BaseBreadcrumbMixin, PasswordChangeView):
             ("Особистий кабінет", reverse("account:profile")),
             ("Зінити пароль", reverse("account:password_change")),
         ]
+
+    def form_valid(self, form):
+        messages.info(self.request, "Пароль успішно змінено!")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Виникла помилка!")
+        return super().form_invalid(form)
+
+
+class UserChangeInfoView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView):
+    template_name = "account/edit_info.html"
+    form_class = UserChangeInfoForm
+    success_url = reverse_lazy("account:edit_info")
+
+    @cached_property
+    def crumbs(self):
+        return [
+            ("Особистий кабінет", reverse("account:profile")),
+            ("Редагувати інформацію", reverse("account:edit_info")),
+        ]
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        messages.info(self.request, "Дані успішно змінено!")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Виникла помилка!")
+        return super().form_invalid(form)

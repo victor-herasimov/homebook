@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import (
     AuthenticationForm,
     UserCreationForm,
+    UserChangeForm,
 )
 
 from core.account.models import User
@@ -45,18 +46,17 @@ class UserRegistrationForm(UserCreationForm):
         return password2
 
 
-# class ProfileForm(UserChangeForm):
-#     class Meta:
-#         model = User
-#         fields = (
-#             "image",
-#             "first_name",
-#             "last_name",
-#             "username",
-#             "email",)
+class UserChangeInfoForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = (
+            "email",
+            "first_name",
+            "last_name",
+            "phone",
+        )
 
-#     image = forms.ImageField(required=False)
-#     first_name = forms.CharField()
-#     last_name = forms.CharField()
-#     username = forms.CharField()
-#     email = forms.CharField()
+    email = forms.CharField()
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    phone = forms.CharField(validators=[PhoneNumberValidator])

@@ -9,9 +9,9 @@
             <div class="my-profile py-2">
                 <h2>Мій обліковий запис</h2>
                 <div class="list-group mt-2">
-                    <a href="#" class="list-group-item list-group-item-action">Змінити контактну інформацію</a>
+                    <a href="{% url "account:edit_info" %}" class="list-group-item list-group-item-action">Змінити контактну інформацію</a>
                     <a href="{% url "account:password_change" %}" class="list-group-item list-group-item-action">Змінити пароль</a>
-                    <a href="#" class="list-group-item list-group-item-action">Змінити мої адресу доставки</a>
+                    <a href="#" class="list-group-item list-group-item-action">Змінити мою адресу доставки</a>
                     <a href="#" class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
                 </div>
             </div>
