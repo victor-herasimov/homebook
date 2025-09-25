@@ -57,7 +57,6 @@ class OrderItem(models.Model):
         return f"{self.id}"
 
     def get_cost(self):
-        print(self.price, self.quantity)
         return self.price * self.quantity
 
     class Meta:

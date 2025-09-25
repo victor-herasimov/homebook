@@ -27,7 +27,10 @@ class OrderView(FormView):
     def form_valid(self, form):
         with transaction.atomic():
             cart = Cart(self.request)
-            order = form.save()
+            order = form.save(commit=False)
+            if not self.request.user.is_anonymous:
+                order.user = self.request.user
+            order.save()
             for item in cart:
                 book = item["book"]
                 OrderItem.objects.create(

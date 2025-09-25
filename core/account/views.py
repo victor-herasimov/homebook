@@ -1,5 +1,12 @@
+from django.db.models import Prefetch
 from django.utils.functional import cached_property
-from django.views.generic import CreateView, FormView, TemplateView, UpdateView
+from django.views.generic import (
+    CreateView,
+    FormView,
+    ListView,
+    TemplateView,
+    UpdateView,
+)
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
@@ -14,6 +21,7 @@ from core.account.forms import (
     UserLoginForm,
     UserRegistrationForm,
 )
+from core.orders.models import Order, OrderItem
 
 
 class UserLoginView(FormView):
@@ -135,3 +143,20 @@ class UserChangeAddressView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView)
     def form_invalid(self, form):
         messages.error(self.request, "Виникла помилка!")
         return super().form_invalid(form)
+
+
+class UserOrdersView(LoginRequiredMixin, ListView):
+    template_name = "account/orders.html"
+    context_object_name = "orders"
+
+    def get_queryset(self):
+        return (
+            Order.objects.filter(user=self.request.user)
+            .prefetch_related(
+                Prefetch(
+                    "items",
+                    queryset=OrderItem.objects.select_related("book"),
+                )
+            )
+            .order_by("-created")
+        )
