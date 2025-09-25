@@ -145,9 +145,16 @@ class UserChangeAddressView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView)
         return super().form_invalid(form)
 
 
-class UserOrdersView(LoginRequiredMixin, ListView):
+class UserOrdersView(BaseBreadcrumbMixin, LoginRequiredMixin, ListView):
     template_name = "account/orders.html"
     context_object_name = "orders"
+
+    @cached_property
+    def crumbs(self):
+        return [
+            ("Особистий кабінет", reverse("account:profile")),
+            ("Історія замовлень", reverse("account:user_orders")),
+        ]
 
     def get_queryset(self):
         return (
