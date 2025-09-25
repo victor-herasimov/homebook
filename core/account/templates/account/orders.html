@@ -6,45 +6,49 @@
     <section class="main">
         <div class="container">
             <h1 class="my-3 text-center">Мої Закази</h1>
-            <div class="accordion" id="accordionExample">
-                {% for order in orders %}
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading{{ order.id }}">
-                        <button class="accordion-button {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
-                            Заказ № {{ order.id }} - {{ order.created|date:"d.m.Y H:i"}} | Статус: <strong class="mx-2">{{order.status}}</strong>
-                        </button>
-                    </h2>
-                    <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <table class="table table-secondary table-hover table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Товар</th>
-                                        <th>Кількість</th>
-                                        <th>Ціна</th>
-                                        <th>Загальна вартість</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for item in order.items.all %}
-                                    <tr>
-                                        <td><a href="{% url 'shop:book_detail' item.book.slug %}">{{ item.book.title }}</a></td>
-                                        <td>{{ item.quantity }}</td>
-                                        <td>{{ item.price }}</td>
-                                        <td>{{ item.get_cost }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                    <tr>
-                                        <td colspan="3" class="text-end">Сумма</td>
-                                        <td>{{ order.get_total_cost }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            {% if orders %}
+                <div class="accordion" id="accordionExample">
+                    {% for order in orders %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading{{ order.id }}">
+                            <button class="accordion-button {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
+                                Заказ № {{ order.id }} - {{ order.created|date:"d.m.Y H:i"}} | Статус: <strong class="mx-2">{{order.get_status_display }}</strong>
+                            </button>
+                        </h2>
+                        <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <table class="table table-info table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Товар</th>
+                                            <th>Кількість</th>
+                                            <th>Ціна</th>
+                                            <th>Загальна вартість</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in order.items.all %}
+                                        <tr>
+                                            <td><a href="{% url 'shop:book_detail' item.book.slug %}">{{ item.book.title }}</a></td>
+                                            <td>{{ item.quantity }}</td>
+                                            <td>{{ item.price }}</td>
+                                            <td>{{ item.get_cost }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td colspan="3" class="text-end">Сумма</td>
+                                            <td>{{ order.get_total_cost }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
+            {% else %}
+                <p>У Вас поки замовлень не має.</p>
+            {% endif %}
             
         </div>
     </section>

@@ -48,6 +48,7 @@ class OrderAdmin(admin.ModelAdmin):
         "id",
         "first_name",
         "last_name",
+        "status",
         "phone",
         "email",
         "delivery_address",
@@ -69,6 +70,7 @@ class OrderAdmin(admin.ModelAdmin):
             {
                 "fields": [
                     "id",
+                    "status",
                     "user",
                     "first_name",
                     "last_name",

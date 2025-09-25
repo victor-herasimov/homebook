@@ -7,6 +7,15 @@ from core.account.models import User
 
 
 class Order(AbstractModel):
+
+    class Status(models.TextChoices):
+        NEW = ("NEW", "Новий")
+        IN_WORK = "IN_WORK", "В роботі"
+        SENT = "SENT", "Відправлено"
+        DELIVERED = "DELIVERED", "Доставлено"
+        CANSELED = "CANSELED", "Відмінено"
+        DONE = "DONE", "Виконано"
+
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -15,6 +24,9 @@ class Order(AbstractModel):
         default=None,
         related_name="orders",
         verbose_name="Корисувач",
+    )
+    status = models.CharField(
+        max_length=9, verbose_name="Статус", choices=Status, default=Status.NEW
     )
     first_name = models.CharField(max_length=256, verbose_name="Ім'я")
     last_name = models.CharField(max_length=256, verbose_name="Прізвище")
