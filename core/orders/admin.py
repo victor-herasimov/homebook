@@ -69,6 +69,7 @@ class OrderAdmin(admin.ModelAdmin):
             {
                 "fields": [
                     "id",
+                    "user",
                     "first_name",
                     "last_name",
                     "phone",

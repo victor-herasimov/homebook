@@ -3,9 +3,19 @@ from django.db import models
 from core.abstract.models import AbstractModel
 from core.orders.validators import PhoneNumberValidator
 from core.shop.models import Book
+from core.account.models import User
 
 
 class Order(AbstractModel):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+        related_name="orders",
+        verbose_name="Корисувач",
+    )
     first_name = models.CharField(max_length=256, verbose_name="Ім'я")
     last_name = models.CharField(max_length=256, verbose_name="Прізвище")
     phone = models.CharField(
