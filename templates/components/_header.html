@@ -105,9 +105,8 @@
                 </div>
                 <div class="col-sm-12 col-md-9 col-lg-8 d-none d-md-block">
                     <div class="recommended p-1 rounded bg-body-secondary d-flex gap-4 border">
-                        <a class="btn btn-primary btn-sm px-3 text-uppercase" href="#">Кращі ціни</a>
-                        <a class="btn btn-primary btn-sm px-3 text-uppercase" href="#">Подарункові видання</a>
-                        <a class="btn btn-primary btn-sm px-3 text-uppercase" href="#">Новинки</a>
+                        <a class="btn btn-primary btn-sm px-3 text-uppercase" href="{% url "shop:best_price" %}">Кращі ціни</a>
+                        <a class="btn btn-primary btn-sm px-3 text-uppercase" href="{% url "shop:catalog_all" %}">Новинки</a>
                     </div>
                 </div>
             </div>

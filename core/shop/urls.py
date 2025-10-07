@@ -6,6 +6,8 @@ app_name = "shop"
 urlpatterns = [
     path("search/", views.SearchView.as_view(), name="search"),
     path("ajax-search/", views.SearchAjaxView.as_view(), name="ajax-search"),
+    path("all/", views.CatalogAllView.as_view(), name="catalog_all"),
+    path("best-price/", views.CatalogBestPriceView.as_view(), name="best_price"),
     path("<slug:category_slug>/", views.CatalogView.as_view(), name="catalog"),
     path("books/<slug:slug>/", views.BookView.as_view(), name="book_detail"),
 ]

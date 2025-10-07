@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "core.cart.apps.CartConfig",
     "core.orders.apps.OrdersConfig",
     "core.account.apps.AccountConfig",
+    "core.comment.apps.CommentConfig",
 ]
 
 MIDDLEWARE = [
