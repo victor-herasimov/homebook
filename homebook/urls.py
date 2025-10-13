@@ -11,6 +11,7 @@ urlpatterns = [
     path("cart/", include("core.cart.urls", namespace="cart")),
     path("orders/", include("core.orders.urls", namespace="orders")),
     path("account/", include("core.account.urls", namespace="account")),
+    path("comment/", include("core.comment.urls", namespace="comments")),
 ]
 
 if settings.DEBUG:

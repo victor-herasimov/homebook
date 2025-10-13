@@ -1,0 +1,23 @@
+<div class="review-card">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+        <div>
+            <strong>{{ comment.name }}</strong>
+            <div class="rating-stars small">
+                <div class="star-rating me-3" >
+                    <div class="star-rating__body" data-rating-value="{{ comment.rating }}">
+                        <div class="star-rating__active"></div>
+                        <div class="star-rating__items">
+                            <input type="radio" name="rating" value="1" class="star-rating__item">
+                            <input type="radio" name="rating" value="2" class="star-rating__item">
+                            <input type="radio" name="rating" value="3" class="star-rating__item">
+                            <input type="radio" name="rating" value="4" class="star-rating__item">
+                            <input type="radio" name="rating" value="5" class="star-rating__item">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <small class="text-muted">{{ comment.created|date:"d.m.Y"}}</small>
+    </div>
+    <p class="mb-0">{{ comment.body }}</p>
+</div>

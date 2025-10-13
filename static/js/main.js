@@ -378,53 +378,152 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // End ajax search --------------------------------------------------------------
 
-// // Обробка форми відгуків
-// const reviewForm = document.getElementById("reviewForm");
-// const ratingInputs = document.querySelectorAll('input[name="rating"]');
-// const ratingText = document.querySelector(".rating-text");
+// show ratings
+let ratings = document.querySelectorAll(".star-rating");
 
-// // Оновлення тексту рейтингу
-// ratingInputs.forEach((input) => {
-//   input.addEventListener("change", function () {
-//     const ratingTexts = {
-//       1: "Жахливо",
-//       2: "Погано",
-//       3: "Нормально",
-//       4: "Добре",
-//       5: "Відмінно",
-//     };
-//     ratingText.textContent = ratingTexts[this.value];
-//     ratingText.className = "rating-text text-warning fw-bold";
-//   });
-// });
+if (ratings.length > 0) {
+  initRatings();
+}
 
-// // Відправка форми
-// reviewForm.addEventListener("submit", function (e) {
-//   e.preventDefault();
+function initRatings() {
+  ratings = document.querySelectorAll(".star-rating");
+  console.log(ratings);
+  let ratingActive, ratingBody;
+  ratings.forEach((rating) => {
+    initRating(rating);
+  });
 
-//   const formData = new FormData(this);
-//   const reviewData = {
-//     name:
-//       formData.get("reviewerName") ||
-//       document.getElementById("reviewerName").value,
-//     email:
-//       formData.get("reviewerEmail") ||
-//       document.getElementById("reviewerEmail").value,
-//     rating: document.querySelector('input[name="rating"]:checked')?.value,
-//     text: document.getElementById("reviewText").value,
-//   };
+  function initRating(rating) {
+    initRatingVars(rating);
+    setRatingActiveWidth();
 
-//   // Перевірка мінімальної довжини відгуку
-//   if (reviewData.text.length < 10) {
-//     alert("Відгук повинен містити мінімум 10 символів");
-//     return;
-//   }
+    if (rating.classList.contains("rating-set")) {
+      setRating(rating);
+    }
+  }
 
-//   // Тут можна додати відправку на сервер
-//   alert("Дякуємо за ваш відгук! Він буде опублікований після модерації.");
+  function initRatingVars(rating) {
+    ratingActive = rating.querySelector(".star-rating__active");
+    ratingBody = rating.querySelector(".star-rating__body");
+  }
 
-//   // Очищення форми
-//   this.reset();
-//   ratingText.textContent = "Оберіть оцінку";
-//   ratingText.className = "rating-text text-muted";
-// });
+  function setRatingActiveWidth(index = ratingBody.dataset.ratingValue) {
+    const ratingActiveWidth = index / 0.05;
+    ratingActive.style.width = `${ratingActiveWidth}%`;
+  }
+
+  function clearRatingChacked(rating) {
+    const items = rating.querySelectorAll(".star-rating__item");
+    items.forEach((item) => {
+      item.removeAttribute("checked");
+    });
+  }
+  function setRatingChacked(rating, value) {
+    const items = rating.querySelectorAll(".star-rating__item");
+    items.forEach((item, index) => {
+      if (index == value - 1) {
+        item.setAttribute("checked", true);
+      }
+    });
+  }
+  // end show ratings
+
+  function setRating(rating) {
+    const ratingItems = rating.querySelectorAll(".star-rating__item");
+    clearRatingChacked(rating);
+    setRatingChacked(rating, ratingBody.dataset.ratingValue);
+    ratingItems.forEach((ratingItem, index) => {
+      ratingItem.addEventListener("mouseenter", function (e) {
+        initRatingVars(rating);
+        setRatingActiveWidth(ratingItem.value);
+      });
+      ratingItem.addEventListener("mouseleave", function (e) {
+        setRatingActiveWidth();
+      });
+      ratingItem.addEventListener("click", function (e) {
+        initRatingVars(rating);
+        ratingBody.dataset.ratingValue = index + 1;
+        setRatingActiveWidth();
+        clearRatingChacked(rating);
+        setRatingChacked(rating, index + 1);
+      });
+    });
+  }
+}
+
+// Обробка форми відгуків
+
+const reviewForm = document.querySelector(".review-form");
+if (reviewForm) {
+  reviewFormSubmitBtn = reviewForm.querySelector('button[type="submit"]');
+  reviewFormSubmitBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const reviewFormData = new FormData(reviewForm);
+    fetch(reviewForm.action, {
+      method: "POST",
+      body: reviewFormData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        reviewForm.querySelector("textarea").value = "";
+        reviewForm.querySelector(".star-rating__body").dataset.ratingValue = 1;
+        initRatings();
+        getReviews();
+        scrollToComment();
+        document.querySelector(
+          "#comment-btn"
+        ).innerHTML = `Відгуки (${data.count})`;
+      })
+      .catch((error) => console.log(error));
+  });
+}
+
+function scrollToComment() {
+  const reviewHolder = document.querySelector(".reviews-holder");
+  reviewHolder.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
+
+// Get rewiews
+
+function getReviews(params = null) {
+  console.log("review");
+  const reviewsHolder = document.querySelector(".reviews-holder");
+  if (reviewsHolder) {
+    let url = reviewsHolder.dataset.urlReview;
+    if (params) {
+      url = `${url}${params}`;
+    }
+    fetch(url)
+      .then((response) => response.text())
+      .then((html) => {
+        reviewsHolder.innerHTML = html;
+        initRatings();
+        paginateReview();
+      })
+      .catch((error) => console.log(error));
+  }
+}
+
+getReviews();
+
+// Get reviews by paginate
+
+function paginateReview() {
+  const paginationLinks = document.querySelectorAll(
+    ".comment-pagination a.page-link"
+  );
+  if (paginationLinks) {
+    paginationLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const params = this.getAttribute("href");
+        getReviews(params);
+        scrollToComment();
+      });
+    });
+  }
+}

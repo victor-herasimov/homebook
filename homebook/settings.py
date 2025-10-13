@@ -141,6 +141,7 @@ CART_SESSION_ID = "cart"
 
 # Paginations
 ITEMS_PER_PAGE = 8
+COMMENTS_PER_PAGE = 8
 
 # Account
 AUTH_USER_MODEL = "core_account.User"

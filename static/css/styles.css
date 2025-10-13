@@ -260,9 +260,6 @@ a:hover {
     font-size: 1.5rem;
 }
 
-.rating-stars {
-    color: #ffc107;
-}
 
 .book-info-section {
     background: #f8f9fa;
@@ -352,33 +349,6 @@ a:hover {
     border: 1px solid #e9ecef;
 }
 
-.star-rating {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
-
-.star-rating input[type="radio"] {
-    display: none;
-}
-
-.star-rating label {
-    cursor: pointer;
-    color: #ddd;
-    font-size: 1.2rem;
-    transition: color 0.2s;
-    margin-right: 0.2rem;
-}
-
-.star-rating label:hover,
-.star-rating label:hover ~ label,
-.star-rating input[type="radio"]:checked ~ label {
-    color: #ffc107;
-}
-
-.rating-text {
-    font-size: 0.9rem;
-}
 
 /*Catalog filters start -------------------------------------------------*/
         .filters-sidebar {
@@ -413,9 +383,6 @@ a:hover {
             width: 80px;
         }
         
-        .rating-stars {
-            color: #ffc107;
-        }
         
         .filter-checkbox:checked + label {
             color: #0d6efd;

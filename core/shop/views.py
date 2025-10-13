@@ -13,6 +13,7 @@ from view_breadcrumbs import BaseBreadcrumbMixin
 
 from django_filters.views import FilterView
 
+from core.comment.forms import CommentForm
 from core.shop.models import Book, Category
 from .filters import BookFilter
 
@@ -130,6 +131,24 @@ class BookView(BaseBreadcrumbMixin, DetailView):
             for category in parent_categories
         ] + [(book.title, book.get_absolute_url())]
         return links
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["comment_form"] = CommentForm(
+            initial={
+                "user": (
+                    self.request.user if not self.request.user.is_anonymous else ""
+                ),
+                "name": (
+                    f"{self.request.user.first_name} {self.request.user.last_name}"
+                    if not self.request.user.is_anonymous
+                    else ""
+                ),
+                "book": self.get_object(),
+                "rating": 1,
+            }
+        )
+        return context
 
 
 class SearchView(BaseBreadcrumbMixin, ListView):

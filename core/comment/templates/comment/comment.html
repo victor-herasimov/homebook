@@ -1,0 +1,26 @@
+<div class="mb-4">
+    <h5>Відгуки покупців</h5>
+    <div class="d-flex align-items-center mb-3">
+        <div class="star-rating me-3" >
+            <div class="star-rating__body" data-rating-value="{{ average|floatformat:"1u" }}">
+                <div class="star-rating__active"></div>
+                <div class="star-rating__items">
+                    <input type="radio" name="rating" value="1" class="star-rating__item">
+                    <input type="radio" name="rating" value="2" class="star-rating__item">
+                    <input type="radio" name="rating" value="3" class="star-rating__item">
+                    <input type="radio" name="rating" value="4" class="star-rating__item">
+                    <input type="radio" name="rating" value="5" class="star-rating__item">
+                </div>
+            </div>
+        </div>
+        <span class="h5 mb-0">{{ average|floatformat:"1u" }}</span>
+        <span class="text-muted ms-2">({{ page_obj.paginator.count }} відгуків)</span>
+    </div>
+</div>
+{% for comment in comments %}
+    {% include "comment/components/comment_item.html" with comment=comment %}
+{% endfor %}
+
+<div class="py-2 comment-pagination">
+    {% include "components/_pagination.html" %}
+</div>

@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block styles %}
+        {% include "components/_styles.html" %}
+        <link rel="stylesheet" href="{% static "css/starrating.css" %}">
+{% endblock styles %}
+
 {% block content %}
     <div class="container my-4">
         <div class="row">
@@ -129,8 +135,8 @@
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">
-                            Відгуки (248)
+                        <button id="comment-btn" class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">
+                            Відгуки ({{book.comments.count}})
                         </button>
                     </li>
                 </ul>
@@ -167,103 +173,68 @@
                     <div class="tab-pane fade" id="reviews" role="tabpanel">
                         <div class="row">
                             <div class="col-lg-8">
-                                <div class="mb-4">
-                                    <h5>Відгуки покупців</h5>
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="rating-stars me-3">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <span class="h5 mb-0">4.8</span>
-                                        <span class="text-muted ms-2">(248 відгуків)</span>
-                                    </div>
-                                </div>
+                                
 
-                                <div class="review-card">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <div>
-                                            <strong>Олена К.</strong>
-                                            <div class="rating-stars small">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <small class="text-muted">15.12.2023</small>
-                                    </div>
-                                    <p class="mb-0">Чудова книга! Якісний переклад, гарна обкладинка. Дитина в захваті. Рекомендую!</p>
-                                </div>
-
-                                <div class="review-card">
-                                    <div class="d-flex justify-content-between align-items-start mb-2">
-                                        <div>
-                                            <strong>Андрій М.</strong>
-                                            <div class="rating-stars small">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <small class="text-muted">10.12.2023</small>
-                                    </div>
-                                    <p class="mb-0">Швидка доставка, книга в ідеальному стані. Ціна трохи висока, але якість того варта.</p>
-                                </div>
-
-                                <button class="btn btn-outline-primary mt-3">Показати всі відгуки</button>
-
+                                <div class="reviews-holder" data-url-review="{% url "comments:comment_list" book_id=book.id %}"></div>
+                                
                                 <!-- Форма для додавання відгуку -->
                                 <div class="mt-5 pt-4 border-top">
                                     <h5 class="mb-4">Залишити відгук</h5>
-                                    <form id="reviewForm" class="review-form">
+                                    {% comment %} {{comment_form}} {% endcomment %}
+                                    <form id="reviewForm" class="review-form" action="{% url "comments:comment_create" %}">
                                         <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="reviewerName" class="form-label">Ваше ім'я <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="reviewerName" required>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="reviewerEmail" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="reviewerEmail" placeholder="Не буде опубліковано">
+                                            <div class="col mb-3">
+                                                <label for="id_name" class="form-label">Ваше ім'я <span class="text-danger">*</span></label>
+                                                <input 
+                                                type="text" 
+                                                name="name"
+                                                value="{% if comment_form.name.value %}{{ comment_form.name.value }}{% endif %}"
+                                                class="form-control"
+                                                id="id_name"
+                                                required
+                                                >
                                             </div>
                                         </div>
                                         
                                         <div class="mb-3">
                                             <label class="form-label">Ваша оцінка <span class="text-danger">*</span></label>
-                                            <div class="rating-input d-flex align-items-center">
-                                                <div class="star-rating me-3">
-                                                    <input type="radio" name="rating" value="5" id="star5" required>
-                                                    <label for="star5" class="star"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" name="rating" value="4" id="star4">
-                                                    <label for="star4" class="star"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" name="rating" value="3" id="star3">
-                                                    <label for="star3" class="star"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" name="rating" value="2" id="star2">
-                                                    <label for="star2" class="star"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" name="rating" value="1" id="star1">
-                                                    <label for="star1" class="star"><i class="fas fa-star"></i></label>
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-3">
+                                                    <div  class="star-rating rating-set"> 
+                                                        <div class="star-rating__body" data-rating-value="{{comment_form.rating.value}}">
+                                                            <div class="star-rating__active"></div>
+                
+                                                            <div class="star-rating__items">
+                                                                {% for k, v in comment_form.rating.field.choices %}
+                                                                    <input 
+                                                                    type="radio" 
+                                                                    name="rating"
+                                                                    value={{ v }}
+                                                                    class="star-rating__item"
+                                                                    {% if comment_form.rating.value == k %}checked{% endif %}
+                                                                    >
+                                                                {% endfor %}
+                                                                {% comment %} <input type="radio" name="rating" value="1" class="star-rating__item">
+                                                                <input type="radio" name="rating" value="2" class="star-rating__item">
+                                                                <input type="radio" name="rating" value="3" class="star-rating__item">
+                                                                <input type="radio" name="rating" value="4" class="star-rating__item">
+                                                                <input type="radio" name="rating" value="5" class="star-rating__item"> {% endcomment %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <span class="rating-text text-muted">Оберіть оцінку</span>
                                             </div>
                                         </div>
                                         
                                         <div class="mb-3">
-                                            <label for="reviewText" class="form-label">Ваш відгук <span class="text-danger">*</span></label>
-                                            <textarea class="form-control" id="reviewText" rows="4" placeholder="Поділіться своїми враженнями про книгу..." required></textarea>
+                                            <label for="id_body" class="form-label">Ваш відгук <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" name="body" maxlength="{{comment_form.body.field.max_length}}" id="id_body" rows="4" placeholder="Поділіться своїми враженнями про книгу..." required></textarea>
                                             <div class="form-text">Мінімум 10 символів</div>
                                         </div>
-                                        
-                                        <div class="mb-3 form-check">
-                                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
-                                            <label class="form-check-label" for="agreeTerms">
-                                                Я погоджуюся з <a href="#" class="text-decoration-none">правилами публікації відгуків</a> <span class="text-danger">*</span>
-                                            </label>
-                                        </div>
+                                        <input type="hidden" name="user" id="id_user" value={{ comment_form.user.value }}>
+                                        <input type="hidden" name="book" id="id_book" value={{ comment_form.book.value }}>
+                                        {% csrf_token %}
                                         
                                         <button type="submit" class="btn btn-primary-custom">
                                             <i class="fas fa-paper-plane"></i> Опублікувати відгук
@@ -278,5 +249,11 @@
         </div>
     </div>
 {% endblock content %}
+
+
+    {% comment %} {% block scripts %}
+        {% include "components/_scripts.html" %}
+        <script src="{% static "js/starrating.js" %}"></script>
+    {% endblock scripts %} {% endcomment %}
 
     
