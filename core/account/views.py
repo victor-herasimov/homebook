@@ -70,7 +70,7 @@ def logout(request):
     return redirect(reverse("main:index"))
 
 
-class ProfileView(BaseBreadcrumbMixin, TemplateView):
+class ProfileView(BaseBreadcrumbMixin, LoginRequiredMixin, TemplateView):
     template_name = "account/profile.html"
 
     @cached_property

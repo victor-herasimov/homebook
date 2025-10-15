@@ -26,11 +26,22 @@ class Recommendations(models.Model):
 
 class Info(models.Model):
     text = RichTextField(verbose_name="Текст")
-
     created = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
     updated = models.DateTimeField(auto_now=True, verbose_name="Дата оновлення")
 
     class Meta:
         verbose_name = "Інформацію"
         verbose_name_plural = "Інформація"
+        ordering = ["-created"]
+
+
+class Document(models.Model):
+    title = models.CharField(max_length=255, verbose_name="Заголовок")
+    text = RichTextField(verbose_name="Текст")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Дата оновлення")
+
+    class Meta:
+        verbose_name = "Документ"
+        verbose_name_plural = "Документи"
         ordering = ["-created"]

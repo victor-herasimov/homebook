@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Recommendations, Info
+from .models import Recommendations, Info, Document
 
 
 @admin.register(Recommendations)
@@ -15,3 +15,10 @@ class InfoAdmin(admin.ModelAdmin):
     list_display = ["id", "created", "updated"]
     fields = ["text", "created", "updated"]
     readonly_fields = ["created", "updated"]
+
+
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ["id", "title", "created", "updated"]
+    fields = ["id", "title", "text", "created", "updated"]
+    readonly_fields = ["id", "created", "updated"]

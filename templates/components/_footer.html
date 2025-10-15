@@ -8,64 +8,44 @@
                 <p class="text-body-secondary">© 2025</p>
             </div> 
             <div class="col mb-3"></div>
+             <div class="col mb-3"> 
+                <h5>Інформація</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2">
+                        <a href="{% url "main:information" pk=3 %}" class="nav-link p-0 text-body-secondary">Про нас</a>
+                    </li> 
+                    <li class="nav-item mb-2">
+                        <a href="{% url "main:information" pk=2 %}" class="nav-link p-0 text-body-secondary">Оплата і доставка</a>
+                    </li> 
+                    <li class="nav-item mb-2">
+                        <a href="{% url "main:information" pk=4 %}" class="nav-link p-0 text-body-secondary">Договір публійної оферти</a>
+                    </li>
+                        <li class="nav-item mb-2">
+                        <a href="{% url "main:information" pk=1 %}" class="nav-link p-0 text-body-secondary">Політика конфіденційності</a>
+                </ul> 
+            </div>
             <div class="col mb-3"> 
-                <h5>Section</h5>
+                <h5>Особистий кабінет</h5>
                 <ul class="nav flex-column"> 
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+                        <a href="{% url "account:profile" %}" class="nav-link p-0 text-body-secondary">Особистий кабінет</a>
                     </li> 
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
-                    </li> 
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-                    </li> 
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-                    </li> 
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+                        <a href="{% url "account:user_orders" %}" class="nav-link p-0 text-body-secondary">Історія замовлень</a>
                     </li> 
                 </ul> 
             </div> 
-            <div class="col mb-3"> 
-                <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-                    </li> 
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
-                    </li> 
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-                    </li>
-                        <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-                    </li>
-                        <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-                    </li> 
-                </ul> 
-            </div>
+           
             <div class="col mb-3">
-                <h5>Section</h5>
+                <h5>Сдужба підтримки</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+                        <a href="#" class="nav-link p-0 text-body-secondary">Контакти</a>
                     </li> 
                     <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Features</a>
+                        <a href="#" class="nav-link p-0 text-body-secondary">Карта сайту</a>
                     </li>
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

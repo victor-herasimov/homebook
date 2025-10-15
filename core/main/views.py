@@ -1,7 +1,10 @@
-from django.views.generic import TemplateView
+from django.urls import reverse
+from django.utils.functional import cached_property
+from django.views.generic import DetailView, TemplateView
 from django.shortcuts import get_object_or_404
+from view_breadcrumbs import BaseBreadcrumbMixin
 
-from core.main.models import Info, Recommendations
+from core.main.models import Info, Recommendations, Document
 from core.shop.models import Book, Category
 
 
@@ -21,3 +24,14 @@ class IndexView(TemplateView):
         ]
         context["informations"] = Info.objects.order_by("created").all()
         return context
+
+
+class DocumentView(BaseBreadcrumbMixin, DetailView):
+    model = Document
+    template_name = "main/information.html"
+    context_object_name = "document"
+
+    @cached_property
+    def crumbs(self):
+        object = self.get_object()
+        return [(object.title, reverse("main:information", kwargs={"pk": object.id}))]
