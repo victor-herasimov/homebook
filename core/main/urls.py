@@ -5,5 +5,6 @@ app_name = "main"
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
+    path("contact/", views.ContactView.as_view(), name="contact"),
     path("information/<int:pk>/", views.DocumentView.as_view(), name="information"),
 ]

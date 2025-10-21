@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+
+{% block content %}
+    <main>
+        <section class="contact py-2">
+            <div class="container">
+                <h1>{{ title }}</h1>
+                <div class="content mt-2 row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
+                    <div class="col">
+                        <div class="p-2">
+                            <img src="{% static "images/logo.png" %}" alt="logo" class="w-100">
+                            {% if emails %}
+                                <ul style="list-style: none; padding-left: 0;">
+                                    {% for email in emails %}
+                                        <li>
+                                            <a href="mailto:{{ email.email }}">{{ email.email }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2">
+                            <h6>HomeBook: HomeBook: Книгарня. Тільки гарні книги</h6>
+                            {% if addresses %}
+                                <ul >
+                                    {% for address in addresses %}
+                                        <li>
+                                            {{ address.address }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2">
+                            <h6>Телефон</h6>
+                            {% if phones %}
+                                <ul>
+                                    {% for phone in phones %}
+                                        <li>
+                                            <a href="tel:{{ phone.clean_number }}">{{ phone.phone }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-2">
+                            <h6>Режим роботи</h6>
+                            <p>
+                                Точка видачі замовлень працює в робочі дні з 10:00 до 18:00 та у вихідні дні з 11:00 до 16:00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
