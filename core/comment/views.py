@@ -22,9 +22,12 @@ class CommentListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["average"] = float(
-            self.get_queryset().aggregate(average=Avg("rating"))["average"]
-        )
+        try:
+            context["average"] = float(
+                self.get_queryset().aggregate(average=Avg("rating"))["average"]
+            )
+        except TypeError:
+            context["average"] = 0
         return context
 
 

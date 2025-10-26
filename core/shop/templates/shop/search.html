@@ -17,9 +17,11 @@
                     <p>Пошук не дав результатів</p>
                 {% endfor %}
             </div>
-            <div class="search-pagination mt-2 py-2">
-                {% include "components/_pagination.html" %}
-            </div>
+            {% if page_obj.has_other_pages %}
+                <div class="search-pagination mt-2 py-2">
+                    {% include "components/_pagination.html" %}
+                </div>
+            {% endif %}
         </div>
     </main>
 {% endblock content %}

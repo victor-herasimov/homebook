@@ -21,6 +21,8 @@
     {% include "comment/components/comment_item.html" with comment=comment %}
 {% endfor %}
 
-<div class="py-2 comment-pagination">
-    {% include "components/_pagination.html" %}
-</div>
+{% if page_obj.has_other_pages %}
+    <div class="py-2 comment-pagination">
+        {% include "components/_pagination.html" %}
+    </div>
+{% endif %}

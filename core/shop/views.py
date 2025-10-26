@@ -1,4 +1,3 @@
-from decimal import Decimal
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models import QuerySet, F, Case, When, BooleanField
 from django.http import JsonResponse
@@ -9,6 +8,7 @@ from django.views import View
 from django.views.generic import DetailView, ListView
 from django.utils.functional import cached_property
 from django.conf import settings
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from view_breadcrumbs import BaseBreadcrumbMixin
 
 from django_filters.views import FilterView
@@ -57,6 +57,13 @@ class CatalogView(BaseBreadcrumbMixin, FilterView):
                 )
             )
         return queryset.order_by("-is_available", "-updated")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = get_object_or_404(
+            Category, slug=self.kwargs["category_slug"]
+        ).name
+        return context
 
 
 class CatalogAllView(CatalogView):
@@ -134,6 +141,7 @@ class BookView(BaseBreadcrumbMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        object = self.get_object()
         context["comment_form"] = CommentForm(
             initial={
                 "user": (
@@ -144,10 +152,11 @@ class BookView(BaseBreadcrumbMixin, DetailView):
                     if not self.request.user.is_anonymous
                     else ""
                 ),
-                "book": self.get_object(),
+                "book": object,
                 "rating": 1,
             }
         )
+        context["title"] = object.title
         return context
 
 
@@ -155,14 +164,23 @@ class SearchView(BaseBreadcrumbMixin, ListView):
     model = Book
     template_name = "shop/search.html"
     context_object_name = "books"
+    paginate_by = settings.ITEMS_PER_PAGE
 
     def get_queryset(self):
         query = self.request.GET.get("q")
-
-        # TODO make smart search
-
         if query:
-            return self.model.objects.filter(title__icontains=query)
+            # return self.model.objects.filter(title__icontains=query)
+            search_vector = SearchVector(
+                "title", "description", "author__name", "publisher__name"
+            )
+            search_query = SearchQuery(query)
+            return (
+                self.model.objects.annotate(
+                    search=search_vector, rank=SearchRank(search_vector, search_query)
+                )
+                .filter(search=search_query)
+                .order_by("-rank")
+            )
         return super().get_queryset()
 
     @cached_property
@@ -180,10 +198,19 @@ class SearchAjaxView(View):
 
     def get_queryset(self):
         query = self.request.GET.get("q")
-        # TODO make smart search
-
         if query:
-            return self.model.objects.filter(title__icontains=query)[:5]
+            # return self.model.objects.filter(title__icontains=query)[:5]
+            search_vector = SearchVector(
+                "title", "description", "author__name", "publisher__name"
+            )
+            search_query = SearchQuery(query)
+            return (
+                self.model.objects.annotate(
+                    search=search_vector, rank=SearchRank(search_vector, search_query)
+                )
+                .filter(search=search_query)
+                .order_by("-rank")
+            )
         return []
 
     def get(self, request, *args, **kwargs):

@@ -1,0 +1,3290 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-08-04T11:40:30.496Z",
+    "user": 2,
+    "content_type": 18,
+    "object_id": "2",
+    "object_repr": "admin admin",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0406\\u043c'\\u044f\", \"\\u041f\\u0440\\u0456\\u0437\\u0432\\u0438\\u0449\\u0435\", \"\\u0410\\u0434\\u0440\\u0435\\u0441\\u0430 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-08-04T11:41:50.988Z",
+    "user": 2,
+    "content_type": 18,
+    "object_id": "3",
+    "object_repr": "a a",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-09-25T08:35:58.742Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "Заказ 3",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-09-25T08:38:39.324Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "4",
+    "object_repr": "Заказ 4",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-09-25T08:47:06.006Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "5",
+    "object_repr": "Заказ 5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-09-25T08:50:44.654Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "6",
+    "object_repr": "Заказ 6",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-09-25T08:51:40.709Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "7",
+    "object_repr": "Заказ 7",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-09-25T08:52:29.626Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "8",
+    "object_repr": "Заказ 8",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-09-25T08:53:34.848Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "9",
+    "object_repr": "Заказ 9",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-09-25T13:08:02.934Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "10",
+    "object_repr": "Заказ 10",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-10-15T07:36:35.008Z",
+    "user": 2,
+    "content_type": 20,
+    "object_id": "1",
+    "object_repr": "Document object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-10-15T07:48:33.098Z",
+    "user": 2,
+    "content_type": 20,
+    "object_id": "2",
+    "object_repr": "Document object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-10-15T07:51:23.514Z",
+    "user": 2,
+    "content_type": 20,
+    "object_id": "3",
+    "object_repr": "Document object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-10-15T07:53:52.153Z",
+    "user": 2,
+    "content_type": 20,
+    "object_id": "4",
+    "object_repr": "Document object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-10-15T07:56:24.974Z",
+    "user": 2,
+    "content_type": 20,
+    "object_id": "4",
+    "object_repr": "Document object (4)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u0433\\u043e\\u043b\\u043e\\u0432\\u043e\\u043a\", \"\\u0422\\u0435\\u043a\\u0441\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-10-21T06:22:35.683Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "9",
+    "object_repr": "Брайт Букс",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-10-21T06:25:33.860Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Комплекти книг",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-10-21T06:25:54.430Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Комплекти дитячих книг",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-10-21T06:25:54.482Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Комплекти книг про війну",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-10-21T06:25:54.515Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Комплекти книг із саморозвитку",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-10-21T06:25:54.546Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Комплекти історичниг книг",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-10-21T07:12:20.030Z",
+    "user": 2,
+    "content_type": 23,
+    "object_id": "1",
+    "object_repr": "+38(999)999-99-99",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-10-21T07:13:46.802Z",
+    "user": 2,
+    "content_type": 22,
+    "object_id": "1",
+    "object_repr": "admin@example.com",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-10-21T07:16:00.706Z",
+    "user": 2,
+    "content_type": 21,
+    "object_id": "1",
+    "object_repr": "Україна, м.Київ, вул. Князя, 43",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-10-21T07:16:52.035Z",
+    "user": 2,
+    "content_type": 21,
+    "object_id": "2",
+    "object_repr": "Україна, м.Харків, вул. Тополі, 41",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add Рекомендацію",
+    "content_type": 6,
+    "codename": "add_recommendations"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change Рекомендацію",
+    "content_type": 6,
+    "codename": "change_recommendations"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete Рекомендацію",
+    "content_type": 6,
+    "codename": "delete_recommendations"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view Рекомендацію",
+    "content_type": 6,
+    "codename": "view_recommendations"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Інформацію",
+    "content_type": 7,
+    "codename": "add_info"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Інформацію",
+    "content_type": 7,
+    "codename": "change_info"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Інформацію",
+    "content_type": 7,
+    "codename": "delete_info"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Інформацію",
+    "content_type": 7,
+    "codename": "view_info"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Категорію",
+    "content_type": 8,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Категорію",
+    "content_type": 8,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Категорію",
+    "content_type": 8,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Категорію",
+    "content_type": 8,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Автора",
+    "content_type": 9,
+    "codename": "add_author"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Автора",
+    "content_type": 9,
+    "codename": "change_author"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Автора",
+    "content_type": 9,
+    "codename": "delete_author"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Автора",
+    "content_type": 9,
+    "codename": "view_author"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Обкладинку",
+    "content_type": 10,
+    "codename": "add_cover"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Обкладинку",
+    "content_type": 10,
+    "codename": "change_cover"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Обкладинку",
+    "content_type": 10,
+    "codename": "delete_cover"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Обкладинку",
+    "content_type": 10,
+    "codename": "view_cover"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add Мову",
+    "content_type": 11,
+    "codename": "add_language"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change Мову",
+    "content_type": 11,
+    "codename": "change_language"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete Мову",
+    "content_type": 11,
+    "codename": "delete_language"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view Мову",
+    "content_type": 11,
+    "codename": "view_language"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add Назву додаткової характеристики",
+    "content_type": 12,
+    "codename": "add_othercharacteristicitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change Назву додаткової характеристики",
+    "content_type": 12,
+    "codename": "change_othercharacteristicitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete Назву додаткової характеристики",
+    "content_type": 12,
+    "codename": "delete_othercharacteristicitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view Назву додаткової характеристики",
+    "content_type": 12,
+    "codename": "view_othercharacteristicitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add Видавництво",
+    "content_type": 13,
+    "codename": "add_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change Видавництво",
+    "content_type": 13,
+    "codename": "change_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete Видавництво",
+    "content_type": 13,
+    "codename": "delete_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view Видавництво",
+    "content_type": 13,
+    "codename": "view_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add Книгу",
+    "content_type": 14,
+    "codename": "add_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change Книгу",
+    "content_type": 14,
+    "codename": "change_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete Книгу",
+    "content_type": 14,
+    "codename": "delete_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view Книгу",
+    "content_type": 14,
+    "codename": "view_book"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add Додаткову характеристика",
+    "content_type": 15,
+    "codename": "add_othercharacteristic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change Додаткову характеристика",
+    "content_type": 15,
+    "codename": "change_othercharacteristic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete Додаткову характеристика",
+    "content_type": 15,
+    "codename": "delete_othercharacteristic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view Додаткову характеристика",
+    "content_type": 15,
+    "codename": "view_othercharacteristic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add Заказ",
+    "content_type": 16,
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change Заказ",
+    "content_type": 16,
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete Заказ",
+    "content_type": 16,
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view Заказ",
+    "content_type": 16,
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add Заказаний товар",
+    "content_type": 17,
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change Заказаний товар",
+    "content_type": 17,
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete Заказаний товар",
+    "content_type": 17,
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view Заказаний товар",
+    "content_type": 17,
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 18,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 18,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 18,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 18,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add Коментар",
+    "content_type": 19,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change Коментар",
+    "content_type": 19,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete Коментар",
+    "content_type": 19,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can view Коментар",
+    "content_type": 19,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 77,
+  "fields": {
+    "name": "Can add Документ",
+    "content_type": 20,
+    "codename": "add_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 78,
+  "fields": {
+    "name": "Can change Документ",
+    "content_type": 20,
+    "codename": "change_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 79,
+  "fields": {
+    "name": "Can delete Документ",
+    "content_type": 20,
+    "codename": "delete_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 80,
+  "fields": {
+    "name": "Can view Документ",
+    "content_type": 20,
+    "codename": "view_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 81,
+  "fields": {
+    "name": "Can add Address",
+    "content_type": 21,
+    "codename": "add_address"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 82,
+  "fields": {
+    "name": "Can change Address",
+    "content_type": 21,
+    "codename": "change_address"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 83,
+  "fields": {
+    "name": "Can delete Address",
+    "content_type": 21,
+    "codename": "delete_address"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 84,
+  "fields": {
+    "name": "Can view Address",
+    "content_type": 21,
+    "codename": "view_address"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 85,
+  "fields": {
+    "name": "Can add Email",
+    "content_type": 22,
+    "codename": "add_email"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 86,
+  "fields": {
+    "name": "Can change Email",
+    "content_type": 22,
+    "codename": "change_email"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 87,
+  "fields": {
+    "name": "Can delete Email",
+    "content_type": 22,
+    "codename": "delete_email"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 88,
+  "fields": {
+    "name": "Can view Email",
+    "content_type": 22,
+    "codename": "view_email"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 89,
+  "fields": {
+    "name": "Can add Телефон",
+    "content_type": 23,
+    "codename": "add_phone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 90,
+  "fields": {
+    "name": "Can change Телефон",
+    "content_type": 23,
+    "codename": "change_phone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 91,
+  "fields": {
+    "name": "Can delete Телефон",
+    "content_type": 23,
+    "codename": "delete_phone"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 92,
+  "fields": {
+    "name": "Can view Телефон",
+    "content_type": 23,
+    "codename": "view_phone"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "core_main",
+    "model": "recommendations"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "core_main",
+    "model": "info"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "31am2wtmgp3gp0nf9aauwczfk74fopdc",
+  "fields": {
+    "session_data": ".eJyrVkpOLCpRsqpWMgIRhaWJeSWZJZVKVoY6SgVFmcmpSlZKJsZGegbIwMjY0sLAwtDc2NjQUqm2thYAu7USnQ:1uy4hw:T-cwLsYgzEcl2WHaq0CyYTJaYCelUQHZTL7E1bF7tqM",
+    "expire_date": "2025-09-29T08:37:08.804Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6cny6pjpcfjrprf947zhw8ioccvmf7e6",
+  "fields": {
+    "session_data": "eyJjYXJ0Ijp7fX0:1uy4iW:MNsi7ixbIeD6jYkf1KSqCJTqKy2IGA8LfvQ6o_DduSg",
+    "expire_date": "2025-09-29T08:37:44.029Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8yrq51scea9p6mcobsk3wjb0dp6vfkke",
+  "fields": {
+    "session_data": ".eJxVjDsOgzAQRO-ydWTZm_gDZfqcAXk_BJIIJAwV4u4BiQZpqnlvZgXO0wz1ut2gycvcNUvRqekFakC4dJT5q8MB5JOH92h4HOapJ3Mo5qTFvEbR3_N0LwddLt2-dpTivSUhFqlasTERCmmFzJ4SUrAh7tGA7FL2Ea2XiC6oF3UWH7D9AU56O0g:1uitZg:czKM0XAdE2w32AhQor2XU9sbQEQ08Cl1xWPZkY9B9oc",
+    "expire_date": "2025-08-18T11:41:52.942Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qxsldo1yu4w7owzs9pf5erbzhoqclclt",
+  "fields": {
+    "session_data": ".eJxVjDsOgzAQRO-ydWTZm_gDZfqcAXk_BJIIJAwV4u4BiQZpqnlvZgXO0wz1ut2gycvcNUvRqekFakC4dJT5q8MB5JOH92h4HOapJ3Mo5qTFvEbR3_N0LwddLt2-dpTivSUhFqlasTERCmmFzJ4SUrAh7tGA7FL2Ea2XiC6oF3UWH7D9AU56O0g:1vBqwv:z_SO_yxOwC_ESxXMI0cxmSiGhPGEIe4ZdPA9Q_thCVk",
+    "expire_date": "2025-11-06T08:45:33.509Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "unztpdwpm83zmmouz8ztkcxd9bepgvsu",
+  "fields": {
+    "session_data": ".eJxVjDluwzAURO_COhHEH3FzmT5nIP6mSEkgGiQNF4bvHhpwY2CqmTfvZhhrN6fb_c3kM7Z2LVVy1aY99_KrhzkZvnrc3buITYGiJUValyUIK3NSv6zeQUjRDANe-pYvTWveZTzhtSPkYXwM8oPHd5m4HL3uND2Q6bm26auI_n0-2RfBhm0bb0sxfKwkxCJplTlEAiFNwOwoAvnZhxH1wDaiCzA7CWC9OlE7w2Lu_40iUK4:1uyYur:FwCQWTyJSg74Dwci_NWX5YpF7jySP4yZ5qadJhZG4iI",
+    "expire_date": "2025-09-30T16:52:29.636Z"
+  }
+},
+{
+  "model": "core_main.email",
+  "pk": 1,
+  "fields": {
+    "email": "admin@example.com",
+    "active": true
+  }
+},
+{
+  "model": "core_main.address",
+  "pk": 1,
+  "fields": {
+    "address": "Україна, м.Київ, вул. Князя, 43",
+    "active": true
+  }
+},
+{
+  "model": "core_main.address",
+  "pk": 2,
+  "fields": {
+    "address": "Україна, м.Харків, вул. Тополі, 41",
+    "active": true
+  }
+},
+{
+  "model": "core_main.phone",
+  "pk": 1,
+  "fields": {
+    "phone": "+38(999)999-99-99",
+    "active": true
+  }
+},
+{
+  "model": "core_main.recommendations",
+  "pk": 1,
+  "fields": {
+    "title": "Big Money: принципы первых. Откровенно о бизнесе и жизни успешных предпринимателей",
+    "image": "recommendations/bigmoneybanner-1140x380.jpg",
+    "book": 10,
+    "show": true,
+    "created": "2025-07-03T07:15:22.431Z",
+    "updated": "2025-07-03T07:15:22.431Z"
+  }
+},
+{
+  "model": "core_main.recommendations",
+  "pk": 2,
+  "fields": {
+    "title": "Казки на ніч для дівчат-бунтарок 2",
+    "image": "recommendations/kazky-na-nich-dlya-divchat-buntarok-2-914383-1140x380.jpg",
+    "book": 11,
+    "show": true,
+    "created": "2025-07-03T07:16:13.003Z",
+    "updated": "2025-07-03T07:16:13.003Z"
+  }
+},
+{
+  "model": "core_main.recommendations",
+  "pk": 3,
+  "fields": {
+    "title": "Bad Blood | Дурна кров. Таємниці та брехні стартапу Кремнієвої долини",
+    "image": "recommendations/badblood-1140x380.png",
+    "book": 13,
+    "show": true,
+    "created": "2025-07-03T07:17:08.589Z",
+    "updated": "2025-07-03T07:17:08.589Z"
+  }
+},
+{
+  "model": "core_main.info",
+  "pk": 1,
+  "fields": {
+    "text": "<h1>Книжковий магазин</h1>\r\n\r\n<p>У будь-яку пору року і в будь-якій ситуації, книги мають особливе сприйняття, піднімають нам настрій, радує наше почуття прекрасного, і наповнює новими силами та ідеями. Різноманітність книг робить наше життя її більш яскравим з кожною новою прочитаною книгою додає нам сприйняття навколо ближче. Купити книгу в Києві, Україні в інтернет-магазині тільки допоможе пришвидшити процес придбання та прочитанню корисної книги, адже книги допомагают нам бути більш різнобічно розвинутим.</p>",
+    "created": "2025-07-07T13:16:21.539Z",
+    "updated": "2025-07-07T13:16:27.696Z"
+  }
+},
+{
+  "model": "core_main.info",
+  "pk": 2,
+  "fields": {
+    "text": "<h2>Купити книгу Київ, Україна</h2>\r\n\r\n<p>Не варто покладатися на випадок і купувати книги для себе або в подарунок в найближчому магазинчику за рогом. Незважаючи на те, що книги в Києві продаються буквально на кожному кроці, при покупці в таких невідомих закладах, у вас не буде ніякої гарантії, що книги виявляться оригінальними. Наш інтернет-магазин книг завжди готовий запропонувати вам книги на замовлення в найширшому асортименті, як оптом, так і в роздріб, при цьому всі книги оригінальні. Наш книжковий інтернет-магазин може запропонувати Вам доставку книг по Києву і відправку по Україні. Прийнявши рішення купити книгу в Києві в нашому інтернет-магазині, ви можете бути впевнені в тому, що вони будуть оригінальними. Щоб підібрати саме для Вас книгу Ви можете звернутися до наших менеджерів, для підбору для Вас цікавої, корисної книги.</p>",
+    "created": "2025-07-07T13:16:41.632Z",
+    "updated": "2025-07-07T13:16:41.632Z"
+  }
+},
+{
+  "model": "core_main.info",
+  "pk": 3,
+  "fields": {
+    "text": "<h2>Книги з доставкою по Києву та Україні</h2>\r\n\r\n<p>Для того, щоб приємно здивувати близьку людину, не обов&#39;язково володіти особливим умінням робити сюрпризи. Якщо Ви хочете вибрати корисний подарунок, то книга - це саме той подарунок який завжди корисний, цікавий.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Купити книгу із Доставкою по Києву, Україні не важко- для того щоб дізнатися про умови доставки перейдіть на сторінку&nbsp;<a href=\"#\">Оплата і доставка</a></p>",
+    "created": "2025-07-07T13:17:25.943Z",
+    "updated": "2025-07-07T13:17:25.943Z"
+  }
+},
+{
+  "model": "core_main.document",
+  "pk": 1,
+  "fields": {
+    "title": "Політика конфіденційності",
+    "text": "<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Політика конфіденційності</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Дана Політика надає вам інформацію як продавець, у подальшому іменована - &laquo;ми&raquo; або похідними від займенника &laquo;ми&raquo;, обробляє (збирає, реєструє, накопичує, зберігає, адаптує, змінює, поновлює, використовує і поширює (розповсюджує, реалізує, передає), знеособлює, знищує, у тому числі з використанням інформаційних (автоматизованих) систем) персональні дані, що збираються через веб-сай(надалі &ndash; &laquo;Сайт&raquo;), а також порядок обробки таких персональних даних.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Персональні дані які ми обробляємо та мета обробки персональних даних</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми обробляємо наступні ваші персональні дані: прізвище, ім&rsquo;я та по-батькові, адресу, номери телефонів та/або адреси електронної пошти. Зазначені данні обробляються нами з метою надання вам інформації про наші товари, забезпечення можливості придбати такі товари, здійснення та виконання замовлення (укладення та виконання договору купівлі-продажу товару), пропонування та рекламування наших товарів, надіслання вам автоматичних повідомлень про вміст вашого кошику та запрошення придбати відповідний товар (для отримання подальших деталей ознайомтесь, будь ласка, з розділом &laquo;Імейл та мобільні нагадування&raquo; цієї Політики), а також ведення бухгалтерського та податкового обліку. Надаючи згоду ви погоджуєтесь на обробку ваших персональних даних відповідно до вищезазначеної мети.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми обробляємо персональні дані, які ви надаєте нам при створенні аккаунта (реєстрації особистого кабінету), розміщенні замовлення/укладенні договору. Ми також обробляємо дані, які отримуємо від вас та з будь-яких технічних пристроїв (включаючи мобільні пристрої), які ви використовуєте при вашому користуванні та знаходженні на Сайті.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">У випадку здійснення замовлення (укладення договору купівлі-продажу товару), надання вами персональних даних та їх подальша обробка є необхідною для виконання вашого замовлення (укладеного з вами договору купівлі-продажу товарів), а також ведення податкового та бухгалтерського обліку. Ваша відмова від надання необхідних персональних даних призведе до неможливості укладення та виконання вашого замовлення (договору купівлі-продажу товару).</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми також збираємо та обробляємо інформацію під час вашого перебування на Сайті, ваші рекламні вподобання та вашу комунікацію з нами для підтримки Сайту, для вивчення ринку та з маркетинговою метою (пропонування та рекламування наших товарів). Ми автоматично отримуємо зазначену інформацію з пристроїв (включаючи мобільні пристрої), коли ви заходите на Сайт. Така інформація може включати: ідентифікатор пристрою або унікальний ідентифікатор, тип пристрою та унікальний ключ пристрою, інформацію про місцезнаходження, включаючи інформацію про місцезнаходження з вашого мобільного пристрою, інформацію про комп&rsquo;ютер та зв&#39;язок, таку як статистику переглядів сторінки, трафік з сайтів, URL дані, вашу IP адресу, історію завантажень.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Вищезазначені дані обробляються разом з ІР адресою пристрою, який ви використовуєте для входу та знаходження на Сайті. Ця інформація використовується для коректного відображення даних та оптимізації роботи Сайту, для захисту від кібер атак та інших пошкоджень, а також для персоніфікації вашого споживацького досвіду.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ви можете повідомити нас в будь-який час, що не бажаєте, аби ми надалі обробляли надані вами персональні дані, внести застереження стосовно обмеження права обробляти ваші персональні дані, а також в будь-який час відмовитись від наших маркетингових пропозицій, написавши нам за наступною електронною адресою: online@goodbooks.com.ua.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми не робимо жодних висновків щодо вас в результаті вашого перебування на Сайті та зібраних даних. Ми лише оцінюємо персональні дані анонімно, за виключенням випадків, коли відповідні дані потрібні для збору відомостей про порушення.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Імейл та мобільні нагадування</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Якщо ви надали згоду на обробку ваших персональних даних, але не здійснили оплату вартості доданого до кошика товару (незалежносто від причин), на зазначену вами email адресу та/або номер мобільного телефону будуть надсилатися автоматичні нагадування з зазначенням вмісту кошику та запрошенням придбати відповідний товар. Надіслання автоматичних нагадувань на номери мобільних телефонів може також здійснюватися через SMS, Viber, Telegram.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Поширення (передача персональних даних третім особам)</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми можемо передавати персональні дані третім особам, які залучаються для обробки та виконання (пакування, маркування, доставки товарів, обробки та здійснення платежів, тощо) вашого замовлення (укладеного з вами договору купівлі-продажу товару).</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми також можемо передавати персональні дані третім особам, які здійснюють розповсюдження та налаштування реклами та/або пропонування вам наших товарів.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Залученні до обробки та виконання здійсненого вами замовлення (укладеного договору купівлі-продажу товару) треті особи самостійно визначають перелік та порядок обробки отриманих від нас персональних даних. Враховуючи зазначене, перед замовленням товару (укладенням договору купівлі-продажу товару) ми рекомендуємо ознайомитись з політиками конфіденційності таких осіб для розуміння яким саме чином ваші персональні дані обробляються відповідними платіжними системами та компаніями поштових/логістичних послуг. Ви можете знайти дані відповідних компаній за посиланням: Нова Пошта.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Замовляючи товари (укладаючи договір купівлі-продажу товару) ви підтверджуєте ваше розуміння та надаєте згоду на передачу ваших персональних даних платіжним системам, компаніям поштових/логістичних послуг, а також третім особам, які здійснюють розповсюдження та налаштування реклами та/або пропонування вам наших товарів. Ви також підтверджуєте ваше розуміння та надаєте згоду, що зазначені вище компанії можуть обробляти ваші персональні дані у будь якій країні світу та погоджуєтесь, що ваші персональні дані можуть розкриватись вищезазначеними компаніями згідно з вимогами законодавства, яке підлягає застосуванню до таких компаній.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ця Політика конфіденційності стосується лише обробки персональних даних, які ми отримуємо від вас під час розміщення та виконання замовлення (укладення та виконання договору купівлі-продажу товару), а також при додаванні товару у кошик та введенні вашого номеру телефону та/або адреси електронної пошти та/або у випадку, коли ви надаєте згоду з цією Політикою.&nbsp; Якщо ви надаєте свої персональні дані третій особі або потрапляєте на веб-сайт третьої особи через посилання/лінк розташований на Сайті, порядок обробки та зберігання ваших персональних даних регулюються політикою обробки персональних даних відповідної третьої особи. При цьому, ми не несемо відповідальності за дотримання такою третьою особою вимог законодавства щодо обробки персональних даних.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Період зберігання персональних даних</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Строки зберігання персональних даних визначається нами згідно положень відповідних нормативних актів (наприклад тих, що регулюють строки зберігання первинних документів бухгалтерського обліку). Після закінчення строку зберігання, відповідні дані будуть планово видалені, за умови відсутності необхідності виконання договірних зобов&rsquo;язань, захисту наших законних інтересів, відповідного запиту контролюючих чи правоохоронних органів або обов&rsquo;язку, що виник у зв&rsquo;язку із розслідуванням або судовим розглядом справ.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Кому і коли ми надаємо доступ до ваших персональних даних</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми надаємо доступ до ваших персональних даних контролюючим, правоохоронним та судовим органам, а також іншим особам:</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">на підставі запиту, постанови, судового рішення, клопотання тощо за умови достатніх підстав вважати, що це необхідно відповідно до вимог законодавства;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">якщо ми обґрунтовано вважаємо, що це необхідно для: відстеження, запобігання, усунення або розслідування: шахрайства, неавторизованого використання аккаунту або засобів платежу, або інших неправомірних дій;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">якщо надання доступу зумовлено необхідністю захисту наших прав та законних інтересів або обов&rsquo;язком, що виникла у зв&rsquo;язку із розслідуванням або судовим розглядом справ.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Надаючи згоду на обробку ваших персональних даних ви погоджуєтесь на зазначений у цьому розділі Політики конфіденційності порядок доступу до ваших персональних даних.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Безпека</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми зобов&rsquo;язані дотримуватись принципів безпеки та діючих положень захисту персональних даних.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ми вживаємо всі необхідні технічні та організаційні заходи для забезпечення належних стандартів захисту та збереження ваших персональних даних, зокрема від ризиків ненавмисного або незаконного руйнування, маніпуляцій, пошкоджень, змін або неавторизованого розкриття або доступу. Ми постійно працюємо над покращенням заходів безпеки намагаючись своєчасно впроваджувати новітні технологічні розробки.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Ваші права</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Як суб&rsquo;єкту персональних даних вам належать зазначені в статті 8 Закону України &laquo;Про захист персональних даних&raquo; права, а саме:</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право знати про джерела збирання, місцезнаходження ваших персональних даних, мету їх обробки, місцезнаходження або місце проживання (перебування) володільця персональних даних або дати відповідне доручення щодо отримання цієї інформації уповноваженими вами особам, крім випадків, встановлених законом;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право отримувати інформацію про умови надання доступу до персональних даних, зокрема інформацію про третіх осіб, яким передаються ваші персональні дані;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право на доступ до ваших персональних даних;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право отримувати не пізніш як за тридцять календарних днів з дня надходження запиту, крім випадків, передбачених законом, відповідь про те, чи обробляються ваші персональні дані, а також отримувати зміст таких персональних даних;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право пред&rsquo;являти вмотивовану вимогу із запереченням проти обробки ваших персональних даних;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право пред&#39;являти вмотивовану вимогу щодо зміни або знищення ваших персональних даних, якщо ці дані обробляються незаконно чи є недостовірними;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право на захист ваших персональних даних від незаконної обробки та випадкової втрати, знищення, пошкодження у зв&#39;язку з умисним приховуванням, ненаданням чи несвоєчасним їх наданням, а також на захист від надання відомостей, що є недостовірними чи ганьблять вашу честь, гідність та ділову репутацію;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право звертатися із скаргами на обробку своїх персональних даних до Уповноваженого Верховної Ради України з прав людини або до суду;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право застосовувати засоби правового захисту в разі порушення законодавства про захист персональних даних;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право вносити застереження стосовно обмеження права на обробку ваших персональних даних під час надання згоди;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право відкликати згоду на обробку персональних даних;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право знати механізм автоматичної обробки персональних даних;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">право на захист від автоматизованого рішення, яке має для вас правові наслідки.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Якщо у вас є будь-які запитання щодо ваших прав або ви хотіли б скористатись наданими вам правами, ви можете звернутись до нас в письмовій формі надіславши електронне звернення на адресу: online@goodbooks.com.ua</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Вікові обмеження</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Використовуючи Сайт ви підтверджуйте, що ви досягли повноліття згідно з вимогами законодавства України та дозволили будь-якому з неповнолітніх членів вашої сім&rsquo;ї використовувати Сайт.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Застереження щодо конфіденційності персональних даних</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Надаючи згоду на обробку ваших персональних даних ви підтверджуйте, що ваші персональні дані не віднесено до конфіденційної інформації.</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Дата набрання чинності та зміни до Політики конфіденційності</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">Для уникнення непорозумінь звертаємо увагу на необхідність ознайомлюватися з Політикою конфіденційності перед наданням згоди на обробку персональних даних. Наданням згоди на обробку ваших персональних даних ви погоджуєтесь на зазначений у цьому розділі спосіб повідомлення про суттєві зміни в Політиці конфіденційності.</span></span></p>",
+    "created": "2025-10-15T07:36:35.006Z",
+    "updated": "2025-10-15T07:36:35.006Z"
+  }
+},
+{
+  "model": "core_main.document",
+  "pk": 2,
+  "fields": {
+    "title": "Оплата і доставка",
+    "text": "<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\"><strong>Замовлення можна оформити:</strong></span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">- Зробивши замовлення через кошик сайту, там же можна і зареєструватися</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">- залишивши заявку на зворотній дзвінок на сайті</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">- Зателефонувавши нашому менеджеру</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\"><strong>Способи оплати:</strong></span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">-&nbsp;Післяплата, готівкою або карткою при отриманні товару у відділенні чи з поштомату (тільки карткою) або від кур&#39;єра компанії &quot;Нова Пошта&quot;&nbsp;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">- Оплата онлайн при оформленні замовлення, вибрати необхідно метод оплати Передплата</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">-&nbsp;Оплата на рахунок нашого ФОПа у Приватбанку або Монобанку &ndash; реквізити надасть менеджер після підтвердження замовлення&nbsp; &nbsp;</span></span></p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\">- Банківський переказ з рахунку ФОП / ТОВ на розрахунковий рахунок нашого ФОПа (ФОП 2-ї групи, ФОП 3-ї групи з ПДВ, або ТОВ з ПДВ)</span></span></p>\r\n\r\n<p><br />\r\n&nbsp;</p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\"><strong>Умови доставки:</strong></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\">Замовлення&nbsp;<strong>від 2500 грн.</strong>&nbsp;доставляємо&nbsp;<strong>безкоштовно</strong></span></span><br />\r\n&nbsp;</p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\">Замовлення зроблені до 10.00 ранку зазвичай відправляємо того ж дня, після 10.00 &ndash; на наступний робочий день або у вихідні, якщо товар є на нашому складі&nbsp;</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"background-color:#ffffff\"><span style=\"color:#666666\"><strong>Способи доставки:</strong></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div><span style=\"color:#666666\"><span style=\"background-color:#ffffff\"><strong>На відділення або у&nbsp; поштомат компанії&nbsp;&laquo;Нова Пошта&raquo;&nbsp;</strong>- Згідно з тарифами нової пошти (55-75 грн у середньому)</span></span></div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\"><strong>Кур&#39;єрською службою &laquo;Нова Пошта&raquo;</strong>&nbsp;- Згідно з тарифами нової пошти (95 грн у середньому)</span></span></p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\"><strong>Експрес доставка на ТАКСІ за тарифами перевізника</strong></span></span></p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\">(тільки за повною передоплатою)</span></span></p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\"><strong>Самовивіз</strong>&nbsp;- Безкоштовно - Графік роботи магазину на м. Почайна з 11.00 до 16.00,</span></span></p>\r\n\r\n<p><span style=\"color:#666666\"><span style=\"background-color:#ffffff\">Точне місцезнаходження місця самовивезення Вам повідомить менеджер під час підтвердження замовлення, оскільки книга може перебувати на різних складах підприємства.. 999 999 999</span></span></p>",
+    "created": "2025-10-15T07:48:33.096Z",
+    "updated": "2025-10-15T07:48:33.096Z"
+  }
+},
+{
+  "model": "core_main.document",
+  "pk": 3,
+  "fields": {
+    "title": "Про нас",
+    "text": "<p>Працюємо на пряму з видавцями спеціалізуємось на оригінальних книжках гарної якості.</p>\r\n\r\n<p>Принципово не продаємо підробки чи передруковані книги!</p>\r\n\r\n<p>Виконуємо як оптові так роздрібні замовлення роблячи все можливе, щоб Вас радували покупки у нас.</p>\r\n\r\n<p>З усіх питань звертайтесь за телефонами:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>+38(097)999-99-99</p>\r\n\r\n<p>+38(066)999-99-99</p>\r\n\r\n<p>+38(093)999-99-99</p>\r\n\r\n<p>або пишіть:</p>\r\n\r\n<p>online@example.com.ua</p>\r\n\r\n<p>Ласкаво просимо у світ хороших книжок! ;)</p>",
+    "created": "2025-10-15T07:51:23.513Z",
+    "updated": "2025-10-15T07:51:23.513Z"
+  }
+},
+{
+  "model": "core_main.document",
+  "pk": 4,
+  "fields": {
+    "title": "Договір публічної оферти",
+    "text": "<p>ПУБЛІЧНИЙ ДОГОВІР (ОФЕРТА)&nbsp;<br />\r\nна замовлення, купівлю-продаж і доставку товарів<br />\r\n<br />\r\nІнтернет магазин<br />\r\n<br />\r\nТЕРМІНИ ТА ВИЗНАЧЕННЯ:<br />\r\n<br />\r\nПокупець - фізична або юридична особа, яка розміщує Замовлення на Сайті, або зазначена як одержувач Товару. Погоджуючись з умовами оферти, ПОКУПЕЦЬ підтверджує, що він є дієздатним громадянином, які досягли 18 років, або представником діючої компанії, які мають необхідні документи для дії від імені цієї юридичної особи;<br />\r\n<br />\r\n<br />\r\nІнтернет-магазин - Інтернет-сайт, розташований має адресу в мережі Інтернет goodbooks.com.ua. На ньому представлені ТОВАРИ, пропоновані ПРОДАВЦЕМ своїм Покупцям, а також умови доставки, оплати, повернення та обміну цих товарів;<br />\r\n<br />\r\nСайт<br />\r\n<br />\r\nЗамовлення - Належним чином оформлений запит Покупця на доставку за вказаною адресою ТОВАРІВ, розміщений Покупцем самостійно на Сайті або по телефону;<br />\r\n<br />\r\nТовар - об&#39;єкт матеріального світу, не вилучений з цивільного обороту і представлений до продажу на Сайті. ТОВАРИ представлені на Сайті через фото-зразки, що є власністю Продавця.<br />\r\n<br />\r\n1. Предмет договору-оферти.<br />\r\n<br />\r\n1.1. ПРОДАВЕЦЬ зобов&#39;язується передати у власність ПОКУПЦЮ, а ПОКУПЕЦЬ зобов&#39;язується сплатити і прийняти замовлений в інтернет-магазині ТОВАР.<br />\r\n<br />\r\n2. Момент укладання договору.<br />\r\n<br />\r\n&nbsp;2.1. Текст даного Договору є публічною офертою (відповідно до статті 638 та статті 641 Цивільного кодексу України). 2.2. Відповідно до статті 642 Цивільного Кодексу України у разі прийняття викладених нижче умов і оплати послуг, юридична або фізична особа, яка провадить акцепт цієї оферти стає Покупцем (відповідно до ч.2 ст. 642 ЦК України акцепт оферти рівносильний укладенню договору на умовах, викладених в оферті), а ПРОДАВЕЦЬ і ПОКУПЕЦЬ спільно - сторонами договору оферти.<br />\r\n<br />\r\n2.3. Факт оформлення ЗАМОВЛЕННЯ ТОВАРУ у ПРОДАВЦЯ як самостійно, так і через оператора, є беззаперечним прийняттям даного Договору, і ПОКУПЕЦЬ розглядається як особа, яка вступила з ПРОДАВЦЕМ у договірні відносини. Якщо ПОКУПЕЦЬ не згоден з її умовами, або з будь-яким пунктом умов, ПРОДАВЕЦЬ пропонує ПОКУПЦЕВІ відмовитися від укладення Договору оферти і використання послуг ПРОДАВЦЯ.<br />\r\n<br />\r\n&nbsp;2.4. Оформлення заказу:<br />\r\n<br />\r\nПокупець проходить процедуру реєстрації на САЙТІ ПРОДАВЦЯ з обов&#39;язковим підтвердженням ознайомлення з умовами даного Договору оферти. ПОКУПЕЦЬ несе відповідальність за достовірність наданої при оформленні реєстрації та Замовлення інформації. В іншому випадку ПРОДАВЕЦЬ не несе відповідальності за своєчасну доставку.<br />\r\n<br />\r\nЗареєстрований ПОКУПЕЦЬ Інтернет-магазину має право оформити Замовлення на будь-який товар, представлений на Сайті і наявний на складі ПРОДАВЦЯ. Здійснюючи ЗАМОВЛЕННЯ на Сайті Інтернет-магазину, ПОКУПЕЦЬ приймає на себе зобов&#39;язання по оплаті ЗАМОВЛЕННЯ / ТОВАРУ і його приймання, а ПРОДАВЕЦЬ приймає зобов&#39;язання з доставки та передачі у власність покупця оплаченого ЗАМОВЛЕННЯ / ТОВАРУ. Замовлення приймаються ПРОДАВЦЕМ через систему прийняття ЗАМОВЛЕНЬ, інтегровану в Сайт ПРОДАВЦЯ, а також по телефону.<br />\r\n<br />\r\nПРОДАВЕЦЬ вправі обмежити кількість ТОВАРІВ, яке покупець оформляє в замовленні, проінформувавши про це ПОКУПЦЯ. Після отримання Замовлення ПРОДАВЕЦЬ надає відповідального менеджера, який від імені Продавця погоджує з Покупцем всі істотні умови, в т. ч. доставки, вартості замовлення і оплати ТОВАРУ.<br />\r\n<br />\r\nПри відсутності ТОВАРУ на складі ПРОДАВЦЯ останній зобов&#39;язаний проінформувати про це ПОКУПЦЯ в письмовій (за допомогою електронної пошти) або усній формі (за допомогою телефонного зв&#39;язку). В цьому випадку Покупець має право замінити відсутній ТОВАР аналогічним ТОВАРОМ / відмовитися від даного ТОВАРУ / скасувати Замовлення.<br />\r\n<br />\r\nПокупець має право повністю або частково відмовитися від придбання ТОВАРУ в будь-який момент до оплати ТОВАРУ, поставивши до відома ПРОДАВЦЯ по електронній пошті з адреси, вказаної Покупцем при реєстрації на Сайті, а також по телефону або при доставці ТОВАРУ представником служби доставки (власної або працює за договором з ПРОДАВЦЕМ).<br />\r\n<br />\r\nПРОДАВЕЦЬ залишає за собою право в односторонньому порядку припинити прийом Замовлень від покупця і відвантаження ТОВАРУ ПОКУПЦЮ, а також обмежити надання права участі покупця в акціях, що проводяться ПРОДАВЦЕМ, якщо ПОКУПЕЦЬ систематично порушує умови даного Договору оферти або робить негативний вплив на роботу Інтернет-магазину шляхом надмірної завантаження служб Інтернет-магазину. Підтвердження узгоджених умов відвантаження, доставки і оплати ТОВАРУ висилаються ПРОДАВЦЕМ по електронній пошті. На підставі отриманого Замовлення і узгоджених умов ПРОДАВЕЦЬ відвантажує Товар ПОКУПЦЕВІ.<br />\r\n<br />\r\n3. Ціна ТОВАРУ.<br />\r\n<br />\r\n3.1. Ціни в Інтернет-магазині вказані в гривнях за одиницю ТОВАРУ.<br />\r\n<br />\r\n3.2. Тарифи на надання послуг з доставки, навантаження-розвантаження, підйомі ТОВАРУ вказані в інтернет-магазині на кожен ТОВАР в залежності від його характеристики.<br />\r\n<br />\r\n3.3. У разі невірно зазначеної ціни ПРОДАВЕЦЬ зобов&#39;язується при першій можливості повідомити про це Покупця. При цьому ПОКУПЕЦЬ має право відмовитися від придбання ТОВАРУ повністю або частково. При неможливості зв&#39;язатися з Покупцем Замовлення вважається скасованим.<br />\r\n<br />\r\n3.4. ПРОДАВЕЦЬ залишає за собою право змінювати ціни в односторонньому порядку. При цьому ціна ТОВАРІВ, сплачених Покупцем, зміні не підлягає.<br />\r\n<br />\r\n4. Оплата ТОВАРУ.<br />\r\n<br />\r\n&nbsp;4.1. При готівковій формі оплати ПОКУПЕЦЬ зобов&#39;язаний сплатити ПРОДАВЦЕВІ ціну ТОВАРУ в момент його передачі, а ПРОДАВЕЦЬ зобов&#39;язаний надати ПОКУПЦЮ касовий або товарний чек, або інший документ, що підтверджує оплату ТОВАРУ.<br />\r\n<br />\r\n4.2. Повна вартість Замовлення складається з вартості ТОВАРУ в Інтернет-магазині і вартості доставки.<br />\r\n<br />\r\n&nbsp;4.3. ПОКУПЕЦЬ оплачує Замовлення будь-яким способом, обраним в Інтернет-магазині.<br />\r\n<br />\r\n4.4. При безготівковій формі оплати обов&#39;язок покупця щодо сплати ціни ТОВАРУ вважається виконаним з моменту надходження грошових коштів розрахунковий рахунок Продавця в розмірі 100% (ста відсотків) передоплати.<br />\r\n<br />\r\n4.5. При безготівковій формі оплати прострочення сплати Покупцем ціни ТОВАРУ на термін понад 3 (трьох) днів є істотним порушенням цього договору. В цьому випадку ПРОДАВЕЦЬ вправі в односторонньому порядку без застосування до нього штрафних санкцій відмовитися від виконання цього договору, повідомивши про це покупця.<br />\r\n<br />\r\n4.6. ТОВАРИ поставляються ПОКУПЦЕВІ за цінами, найменуванню, в кількості, що відповідає ЗАМОВЛЕННЮ Покупця.<br />\r\n<br />\r\n5. Доставка ТОВАРУ.<br />\r\n<br />\r\n5.1. ПРОДАВЕЦЬ здійснює доставку ТОВАРУ за допомогою власної або зовнішньої служби доставки. 5.2. Точна вартість доставки ТОВАРУ визначається менеджером ПРОДАВЦЯ при оформленні Замовлення і не може бути змінена після узгодження Замовлення з Покупцем.<br />\r\n<br />\r\n&nbsp;5.3. Вартість доставки може варіюватися в залежності від ваги, розмірів ТОВАРУ, а так само регіону і способу доставки.<br />\r\n<br />\r\n5.4. При передачі ТОВАРУ ПОКУПЦЕВІ представник служби доставки має право вимагати документ, що засвідчує особу покупця, з метою протидії шахрайству.<br />\r\n<br />\r\n5.5. ПРОДАВЕЦЬ зобов&#39;язується докласти всіх можливих зусиль для здійснення доставки ТОВАРУ, замовленого Покупцем, в терміни, зазначені на Сайті. Проте, ПРОДАВЕЦЬ не бере на себе відповідальність за затримки, що сталося не з вини ПРОДАВЦЯ.<br />\r\n<br />\r\n5.6. Право власності на ТОВАР і всі ризики, пов&#39;язані з правом власності, переходять до ПОКУПЦЯ в момент отримання ТОВАРУ ПОКУПЦЕМ, що підтверджується підписом ПОКУПЦЯ в відвантажувальних документах, що підтверджують доставку.<br />\r\n<br />\r\n5.7. У разі зміни терміну поставки, ПРОДАВЕЦЬ зобов&#39;язується негайно інформувати ПОКУПЦЯ про зміну умов поставки з метою отримання згоди на нові умови виконання Замовлення в цілому, або в частині. ПРОДАВЕЦЬ інформує ПОКУПЦЯ за допомогою телефонного або електронного зв&#39;язку.<br />\r\n<br />\r\n5.8. Доставка ТОВАРУ ПОКУПЦЮ здійснюється за адресою і в терміни, узгоджені Покупцем і менеджером ПРОДАВЦЯ при оформленні ЗАМОВЛЕННЯ.<br />\r\n<br />\r\n5.9. Неявка покупця або не вчинення інших необхідних дій для прийняття ТОВАРУ можуть розглядатися ПРОДАВЦЕМ в якості відмови покупця від виконання договору.<br />\r\n<br />\r\n6. Гарантії на ТОВАР.<br />\r\n<br />\r\n6.1. На весь товар, який реалізується в Інтернет-магазині, є всі необхідні сертифікати для продажу відповідно до законодавства України.<br />\r\n<br />\r\n6.2. Термін придатності на ТОВАР і умови його зберігання вказуються на упаковці ТОВАРУ, а також на Сайті.<br />\r\n<br />\r\n6.3. За винятком гарантій, прямо вказаних у тексті Оферти, ПРОДАВЕЦЬ не надає ніяких інших прямих або непрямих гарантій за Договором оферти.<br />\r\n<br />\r\n7. Права та обов&#39;язки сторін.<br />\r\n<br />\r\n7.1. ПРОДАВЕЦЬ зобов&#39;язується:<br />\r\n<br />\r\n7.1.1. До укладення договору надати ПОКУПЦЕВІ на сайті Інтернет-магазину інформацію про основні споживчі властивості ТОВАРУ, про адресу (місце знаходження) ПРОДАВЦЯ, про місце виготовлення ТОВАРУ, про повне фірмове найменування (найменування) Продавця, про ціну і про умови придбання ТОВАРУ, про його доставку , термін придатності, правила зберігання, про порядок оплати ТОВАРУ, а також про термін, протягом якого діє пропозиція про укладення Договору.<br />\r\n<br />\r\n7.1.2. Не розголошувати будь-яку приватну інформацію ПОКУПЦЯ і не надавати доступ до цієї інформації третім особам, за винятком випадків, передбачених українським законодавством.<br />\r\n<br />\r\n7.1.3. Надати ПОКУПЦЕВІ можливість отримання безкоштовних телефонних консультацій за телефонами, вказаними на Сайті Інтернет-магазину. Обсяг консультацій обмежується конкретними питаннями, пов&#39;язаними з виконанням ЗАМОВЛЕННЯ.<br />\r\n<br />\r\n7.1.4. ПРОДАВЕЦЬ залишає за собою право змінювати даний ДОГОВІР в односторонньому порядку до моменту його укладення.<br />\r\n<br />\r\n7.1.5. Надати ПОКУПЦЕВІ в письмовій формі на Сайті інформацію про товар, передбачену Законом України &laquo;Про захист прав споживачів&raquo;, а також передбачену пунктом 9 цього Договору інформацію про порядок і терміни повернення товару.<br />\r\n<br />\r\n7.2. Покупець зобов&#39;язується:<br />\r\n<br />\r\n7.2.1. До моменту укладення договору ознайомитися зі змістом договору-оферти, умовами оплати та доставки на Сайті Інтернет-магазину.<br />\r\n<br />\r\n7.2.2. Надавати достовірну інформацію про себе (ПІБ, контактні телефони, адресу електронної пошти) і реквізити для доставки ТОВАРУ.<br />\r\n<br />\r\n7.2.3. Прийняти та оплатити ТОВАР в зазначені в цьому ДОГОВОРІ терміни.<br />\r\n<br />\r\n8. Відповідальність сторін та вирішення спорів.<br />\r\n<br />\r\n8.1. Сторони несуть відповідальність за невиконання або неналежне виконання цього Договору в порядку, передбаченому цим Договором та чинним законодавством України.<br />\r\n<br />\r\n8.2. Продавець не несе відповідальності за доставку Замовлення, якщо Покупцем вказано неправильну адресу доставки.<br />\r\n<br />\r\n8.3. ПРОДАВЕЦЬ не несе відповідальності, якщо очікування ПОКУПЦЯ про споживчі властивості ТОВАРУ виявилися не виправдані.<br />\r\n<br />\r\n8.4. Покупець, оформляючи Замовлення, несе відповідальність за достовірність наданої інформації про себе, а також підтверджує, що з умовами цього Договору ознайомлений і згоден.<br />\r\n<br />\r\n8.5. ПРОДАВЕЦЬ не несе відповідальності за неможливість обслуговування ПОКУПЦЯ з яких-небудь незалежних від нього причин, включаючи порушення роботи ліній зв&#39;язку, несправність обладнання, невиконання зобов&#39;язань постачальників тих чи інших послуг.<br />\r\n<br />\r\n8.6. У разі якщо з якої-небудь причини ПРОДАВЕЦЬ не відвантажить ТОВАР Покупцеві або відвантажить ТОВАР з порушенням термінів, відповідальність Продавця за допущене порушення Договору оферти обмежуються виключно продовженням термінів доставки Товару.<br />\r\n<br />\r\n8.7. ПРОДАВЕЦЬ за жодних обставин не несе відповідальності за Договором оферти за: a) будь-які дії та / або бездіяльності, що є прямим або непрямим результатом дій / бездіяльності будь-яких третіх сторін; б) будь-які непрямі збитки та / або упущену вигоду покупця і / або третіх сторін незалежно від того, міг ПРОДАВЕЦЬ передбачити можливість таких збитків чи ні; в) використання (неможливість використання) і які б то не було наслідки використання (неможливості використання) Покупцем обраної ним форми оплати ТОВАРУ за Договором оферти.<br />\r\n<br />\r\n8.8. Сукупна відповідальність Продавця за Договором оферти, по будь-яким позовом або претензії щодо Договору оферти або його виконання, обмежується сумою платежу, сплаченого ПРОДАВЦЕВІ Покупцем за Договором оферти.<br />\r\n<br />\r\n8.9. Не вступаючи в суперечність із зазначеним вище, ПРОДАВЕЦЬ звільняється від відповідальності за порушення умов Договору оферти, якщо таке порушення викликане дією обставин непереборної сили (форс-мажор), включаючи: дії органів державної влади, пожежа, повінь, землетрус, інші стихійні дії, відсутність електроенергії та / або збоїв роботи комп&#39;ютерної мережі, страйки, громадянські заворушення, безлади, будь-які інші обставини, не обмежуючись перерахованим, які можуть вплинути на виконання ПРОДАВЦЕМ Договору оферти.<br />\r\n<br />\r\n8.10. Всі суперечки і розбіжності, що виникають при виконанні Сторонами зобов&#39;язань за цим Договором, вирішуються шляхом переговорів. У разі неможливості їх усунення, СТОРОНИ мають право звернутися за судовим захистом своїх інтересів.<br />\r\n<br />\r\n9. Повернення і обмін товару.<br />\r\n<br />\r\n9.1. Претензії по ТОВАРУ неналежної якості.<br />\r\n<br />\r\nПід ТОВАРОМ неналежної якості мається на увазі ТОВАР, який не може забезпечити виконання своїх функціональних якостей. Отриманий ТОВАР повинен відповідати опису на сайті. ТОВАР, елементи дизайну або оформлення якого відмінні від заявлених в описі на сайті - не є неналежним ТОВАРОМ.<br />\r\n<br />\r\nЗовнішній вигляд і асортимент ТОВАРУ, а також комплектність всього замовлення повинні бути перевірені Покупцем в момент доставки ТОВАРУ (крім доставки поштою або сторонньої службою доставки / кур&#39;єрською службою).<br />\r\n<br />\r\nПри доставці ТОВАРУ, ПОКУПЕЦЬ ставить свій підпис в Акті про доставку, в рядку: &laquo;Товар переданий в належному стані, в належному асортименті, упаковка зовнішніх механічних пошкоджень не має. Товар знаходиться у фірмовій упаковці &raquo;. Після отримання замовлення претензії до зовнішніх дефектів ТОВАРУ, його кількості, асортименту та / або товарному вигляду - не приймаються.<br />\r\n<br />\r\n&nbsp;Якщо ПОКУПЦЕВІ переданий ТОВАР неналежної якості, і воно не було заздалегідь обумовлено ПРОДАВЦЕМ, ПОКУПЕЦЬ має право скористатися положеннями Закону України &laquo;Про захист прав споживачів&raquo; і вимагати заміни ТОВАРУ, відмовитися від виконання договору купівлі-продажу, повернути ТОВАР неналежної якості і зажадати повернення сплаченої за товар грошової суми.<br />\r\n<br />\r\nПРОДАВЕЦЬ зобов&#39;язаний прийняти ТОВАР неналежної якості у Покупця і провести перевірку якості товару (експертизу) протягом 20 днів з дня пред&#39;явлення зазначеної вимоги. При підтвердженні неналежної якості ТОВАРУ, ПРОДАВЕЦЬ зобов&#39;язаний повернути сплачені за ТОВАР кошти.<br />\r\n<br />\r\nПовернення грошових коштів ПОКУПЦЕВІ проводиться протягом 10 (десяти) банківських днів після позитивного рішення експертизи (визнання експертизою якості ТОВАРУ неналежним) на банківський рахунок ПОКУПЦЯ. За додатковою угодою можливий переказ грошових коштів поштовим переказом або за допомогою кур&#39;єра. При поверненні ТОВАРУ належної якості сума повернення грошових коштів буде зменшена на розмір комісії на переказ грошових коштів на рахунок покупця або на виїзд кур&#39;єра для повернення грошових коштів, а також на вартість повернення ТОВАРУ від покупця назад ПРОДАВЦЕВІ. При поверненні ТОВАРУ неналежної якості ПРОДАВЕЦЬ відшкодовує ПОКУПЦЮ вартість повертається ТОВАРУ і, вартість комісії за переказ грошових коштів (або виїзд кур&#39;єра) і на вартість сплаченої споживачем доставки<br />\r\n<br />\r\nУ разі коректного виконання Замовлення ПРОДАВЦЕМ ПОКУПЕЦЬ має право повністю або частково відмовитися від придбання ТОВАРУ при передачі ТОВАРУ представником служби доставки, сплативши при цьому повну вартість доставки, узгоджену з Покупцем при оформленні Замовлення на Сайті Продавця.<br />\r\n<br />\r\n9.2. Будь-які з перерахованих вимог повинні бути пред&#39;явлені Покупцем у письмовій формі поштою.<br />\r\n<br />\r\n9.3. Вимога покупця про обмін або повернення ТОВАРУ підлягає задоволенню, якщо ТОВАР неналежної якості не був у споживанні, збережено його споживчі властивості, збережена і не порушена упаковка, збережені документи, що підтверджують факт купівлі цього ТОВАРУ в Інтернет-магазині.<br />\r\n<br />\r\n9.4. Строк повернення товару неналежної якості (поліграфічний брак) становить 6 календарних місяців з моменту передачі ТОВАРУ ПОКУПЦЮ, або в будь-який час до передачі ТОВАРУ ПОКУПЦЮ. 9.5. Покупець компенсує ПРОДАВЦЕВІ необхідні транспортні витрати, понесені у зв&#39;язку з організацією обміну або повернення ТОВАРУ.<br />\r\n<br />\r\n10. Форс-мажорні обставини.<br />\r\n<br />\r\n10.1. Сторони звільняються від відповідальності за невиконання або неналежне виконання зобов&#39;язань за Договором на час дії непереборної сили. Під непереборною силою розуміються надзвичайні і непереборні за даних умов обставини, що перешкоджають виконанню своїх зобов&#39;язань Сторонами за цим Договором. До них відносяться стихійні явища (землетруси, повені і т.д.), обставини суспільного життя (воєнні дії, надзвичайні стани, найбільші страйки, епідемії і т.д.), заборонні заходи державних органів (заборона перевезень, валютні обмеження, міжнародні санкції заборони на торгівлю і т.д.). Протягом цього часу СТОРОНИ не мають взаємних претензій, і кожна з сторін приймає на себе свій ризик наслідків форс-мажорних обставин.<br />\r\n<br />\r\n11. Термін дії договору.<br />\r\n<br />\r\n11.1. Даний Договір набирає чинності з моменту звернення покупця в Інтернет-магазин і оформлення ЗАМОВЛЕННЯ, і закінчується при повному виконанні зобов&#39;язань Сторонами.<br />\r\n<br />\r\n12. Персональні дані.<br />\r\n<br />\r\n12.1. ПРОДАВЕЦЬ збирає і обробляє персональні дані ПОКУПЦІВ (а саме: прізвище, ім&#39;я, по батькові покупця; адреса доставки; контактний телефон) з метою: - Виконання умов цього Договору; - Доставки Покупцеві замовленого Товару.<br />\r\n<br />\r\n12.2. Здійснюючи Замовлення ТОВАРУ в Інтернет-магазин, Покупець дає згоду на збір і обробку персональних даних про себе з метою здійснення доставки замовленого ТОВАРУ і виконання умов цього Договору.<br />\r\n<br />\r\n&nbsp;12.3. При зборі та обробці персональних даних ПОКУПЦІВ, ПРОДАВЕЦЬ не переслідує інших цілей, окрім встановлених в п.12.1 цього Договору.<br />\r\n<br />\r\n12.4. Доступ до персональних даних ПОКУПЦІВ мають тільки особи, що мають безпосереднє відношення до виконання ЗАМОВЛЕНЬ.<br />\r\n<br />\r\n12.5. Інформація про покупця може бути передана офіційним органам строго відповідно до вимог законодавства України.<br />\r\n<br />\r\n12.6. ПРОДАВЕЦЬ має право направляти ПОКУПЦЕВІ рекламні або інформаційні повідомлення. Покупець має право відмовитися від рекламно-інформаційних повідомлень, направивши ПРОДАВЦЕВІ відповідне письмове повідомлення.<br />\r\n<br />\r\n13. Конфіденційність і захист персональних даних.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>13.1 Надаючи свої персональні дані на сайті Інтернет-магазину при реєстрації або оформленні Замовлення, Покупець надає Продавцеві свою добровільну згоду на обробку, використання (у тому числі і передачу) своїх персональних даних, а також вчинення інших дій, передбачених Законом України &laquo;Про захист персональних даних&raquo;, без обмеження терміну дії такої згоди.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>13.2 Продавець зобов&#39;язується не розголошувати отриману від Покупця інформацію. Не вважається порушенням надання Продавцем інформації контрагентам і третім особам, що діють на підставі договору з Продавцем, в тому числі і для виконання зобов&#39;язань перед Покупцем, а також у випадках, коли розкриття такої інформації встановлено вимогами чинного законодавства України.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>13.3 Покупець несе відповідальність за підтримання своїх персональних даних в актуальному стані. Продавець не несе відповідальності за неякісне виконання або невиконання своїх зобов&#39;язань у зв&#39;язку з неактуальністю інформації про Покупця або невідповідністю її дійсності.</p>",
+    "created": "2025-10-15T07:53:52.152Z",
+    "updated": "2025-10-15T07:56:24.972Z"
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 6,
+  "fields": {
+    "name": "Книги",
+    "parent": null,
+    "slug": "knigi",
+    "created": "2025-06-30T12:18:13.063Z",
+    "updated": "2025-06-30T12:18:13.063Z",
+    "lft": 1,
+    "rght": 50,
+    "tree_id": 3,
+    "level": 0
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 7,
+  "fields": {
+    "name": "Художня",
+    "parent": 6,
+    "slug": "hudozhnya",
+    "created": "2025-06-30T12:18:34.671Z",
+    "updated": "2025-06-30T12:18:34.672Z",
+    "lft": 30,
+    "rght": 49,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 8,
+  "fields": {
+    "name": "Дитяча",
+    "parent": 6,
+    "slug": "dityacha",
+    "created": "2025-06-30T12:18:47.499Z",
+    "updated": "2025-06-30T12:19:22.565Z",
+    "lft": 4,
+    "rght": 15,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 9,
+  "fields": {
+    "name": "Хобі",
+    "parent": 6,
+    "slug": "hobi",
+    "created": "2025-06-30T12:18:58.801Z",
+    "updated": "2025-06-30T12:19:30.582Z",
+    "lft": 28,
+    "rght": 29,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 10,
+  "fields": {
+    "name": "Бізнес",
+    "parent": 6,
+    "slug": "biznes",
+    "created": "2025-06-30T12:19:09.450Z",
+    "updated": "2025-06-30T12:19:26.518Z",
+    "lft": 2,
+    "rght": 3,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 11,
+  "fields": {
+    "name": "Міфи, Легенди",
+    "parent": 7,
+    "slug": "mifi-legendi",
+    "created": "2025-06-30T12:20:32.136Z",
+    "updated": "2025-06-30T12:20:32.136Z",
+    "lft": 31,
+    "rght": 32,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 12,
+  "fields": {
+    "name": "Поезія",
+    "parent": 7,
+    "slug": "poeziya",
+    "created": "2025-06-30T12:21:01.845Z",
+    "updated": "2025-06-30T12:21:01.845Z",
+    "lft": 33,
+    "rght": 34,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 13,
+  "fields": {
+    "name": "Проза",
+    "parent": 7,
+    "slug": "proza",
+    "created": "2025-06-30T12:21:11.512Z",
+    "updated": "2025-06-30T12:21:11.512Z",
+    "lft": 35,
+    "rght": 48,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 14,
+  "fields": {
+    "name": "Романи",
+    "parent": 13,
+    "slug": "romani",
+    "created": "2025-06-30T12:21:49.717Z",
+    "updated": "2025-06-30T12:21:49.717Z",
+    "lft": 40,
+    "rght": 41,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 15,
+  "fields": {
+    "name": "Хорор",
+    "parent": 13,
+    "slug": "horor",
+    "created": "2025-06-30T12:22:01.248Z",
+    "updated": "2025-06-30T12:22:01.248Z",
+    "lft": 46,
+    "rght": 47,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 16,
+  "fields": {
+    "name": "Головоломки для дітей",
+    "parent": 8,
+    "slug": "golovolomki-dlya-ditej",
+    "created": "2025-06-30T12:22:50.770Z",
+    "updated": "2025-06-30T12:22:50.770Z",
+    "lft": 5,
+    "rght": 6,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 17,
+  "fields": {
+    "name": "Дитяча Розважальна",
+    "parent": 8,
+    "slug": "dityacha-rozvazhalna",
+    "created": "2025-06-30T12:23:03.628Z",
+    "updated": "2025-06-30T12:23:03.628Z",
+    "lft": 7,
+    "rght": 8,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 18,
+  "fields": {
+    "name": "Детективи",
+    "parent": 13,
+    "slug": "detektivi",
+    "created": "2025-07-01T09:55:20.262Z",
+    "updated": "2025-07-01T09:55:20.262Z",
+    "lft": 38,
+    "rght": 39,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 19,
+  "fields": {
+    "name": "Фантастика",
+    "parent": 13,
+    "slug": "fantastika",
+    "created": "2025-07-01T11:22:12.810Z",
+    "updated": "2025-07-01T11:22:12.810Z",
+    "lft": 44,
+    "rght": 45,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 20,
+  "fields": {
+    "name": "Сучасна проза",
+    "parent": 13,
+    "slug": "suchasna-proza",
+    "created": "2025-07-01T11:36:19.660Z",
+    "updated": "2025-07-01T11:36:19.660Z",
+    "lft": 42,
+    "rght": 43,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 21,
+  "fields": {
+    "name": "Саморозвиток",
+    "parent": 6,
+    "slug": "samorozvitok",
+    "created": "2025-07-01T11:40:12.659Z",
+    "updated": "2025-07-01T11:40:12.659Z",
+    "lft": 24,
+    "rght": 27,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 22,
+  "fields": {
+    "name": "Особисті фінанси",
+    "parent": 21,
+    "slug": "osobisti-finansi",
+    "created": "2025-07-01T11:40:29.891Z",
+    "updated": "2025-07-01T11:40:29.891Z",
+    "lft": 25,
+    "rght": 26,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 23,
+  "fields": {
+    "name": "Історичні романи",
+    "parent": 13,
+    "slug": "istorichni-romani",
+    "created": "2025-07-01T11:46:54.029Z",
+    "updated": "2025-07-01T11:46:54.029Z",
+    "lft": 36,
+    "rght": 37,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 24,
+  "fields": {
+    "name": "Науково-популярна",
+    "parent": 6,
+    "slug": "naukovo-populyarna",
+    "created": "2025-07-01T11:50:24.730Z",
+    "updated": "2025-07-01T11:50:24.730Z",
+    "lft": 16,
+    "rght": 23,
+    "tree_id": 3,
+    "level": 1
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 25,
+  "fields": {
+    "name": "Гумонітарні науки",
+    "parent": 24,
+    "slug": "gumonitarni-nauki",
+    "created": "2025-07-01T11:50:41.313Z",
+    "updated": "2025-07-01T11:50:41.313Z",
+    "lft": 17,
+    "rght": 22,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 26,
+  "fields": {
+    "name": "Історія",
+    "parent": 25,
+    "slug": "istoriya",
+    "created": "2025-07-01T11:51:04.961Z",
+    "updated": "2025-07-01T11:51:04.961Z",
+    "lft": 18,
+    "rght": 21,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 27,
+  "fields": {
+    "name": "Історія держав",
+    "parent": 26,
+    "slug": "istoriya-derzhav",
+    "created": "2025-07-01T11:51:22.078Z",
+    "updated": "2025-07-01T11:51:22.078Z",
+    "lft": 19,
+    "rght": 20,
+    "tree_id": 3,
+    "level": 4
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 28,
+  "fields": {
+    "name": "Дитяча художня",
+    "parent": 8,
+    "slug": "dityacha-hudozhnya",
+    "created": "2025-07-01T11:55:32.246Z",
+    "updated": "2025-07-01T11:55:32.246Z",
+    "lft": 9,
+    "rght": 14,
+    "tree_id": 3,
+    "level": 2
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 29,
+  "fields": {
+    "name": "Дитяча проза",
+    "parent": 28,
+    "slug": "dityacha-proza",
+    "created": "2025-07-01T11:55:45.379Z",
+    "updated": "2025-07-01T11:55:45.379Z",
+    "lft": 10,
+    "rght": 13,
+    "tree_id": 3,
+    "level": 3
+  }
+},
+{
+  "model": "core_shop.category",
+  "pk": 30,
+  "fields": {
+    "name": "Підліткова проза",
+    "parent": 29,
+    "slug": "pidlitkova-proza",
+    "created": "2025-07-01T11:55:58.968Z",
+    "updated": "2025-07-01T11:55:58.968Z",
+    "lft": 11,
+    "rght": 12,
+    "tree_id": 3,
+    "level": 4
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 1,
+  "fields": {
+    "slug": "braun-d",
+    "created": "2025-07-01T08:59:22.759Z",
+    "updated": "2025-07-01T08:59:22.759Z",
+    "name": "Браун Д."
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 2,
+  "fields": {
+    "slug": "stiven-king",
+    "created": "2025-07-01T11:21:26.772Z",
+    "updated": "2025-07-01T11:21:26.772Z",
+    "name": "Стівен Кінг"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 3,
+  "fields": {
+    "slug": "yansi-r",
+    "created": "2025-07-01T11:30:41.438Z",
+    "updated": "2025-07-01T11:30:41.438Z",
+    "name": "Янсі Р."
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 4,
+  "fields": {
+    "slug": "illarion-pavlyuk",
+    "created": "2025-07-01T11:35:00.966Z",
+    "updated": "2025-07-01T11:35:00.966Z",
+    "name": "Ілларіон Павлюк"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 5,
+  "fields": {
+    "slug": "napoleon-gill",
+    "created": "2025-07-01T11:39:33.322Z",
+    "updated": "2025-07-01T11:39:33.322Z",
+    "name": "Наполеон Гілл"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 6,
+  "fields": {
+    "slug": "tess-gerritsen",
+    "created": "2025-07-01T11:42:51.513Z",
+    "updated": "2025-07-01T11:42:51.514Z",
+    "name": "Тесс Ґеррітсен"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 7,
+  "fields": {
+    "slug": "sergij-baturin",
+    "created": "2025-07-01T11:46:04.907Z",
+    "updated": "2025-07-01T11:46:04.907Z",
+    "name": "Сергій Батурин"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 8,
+  "fields": {
+    "slug": "krasovickij-o",
+    "created": "2025-07-01T11:49:21.154Z",
+    "updated": "2025-07-01T11:49:21.154Z",
+    "name": "Красовицький О."
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 9,
+  "fields": {
+    "slug": "krasnozhon-a",
+    "created": "2025-07-01T11:49:33.960Z",
+    "updated": "2025-07-01T11:49:33.960Z",
+    "name": "Красножон А"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 10,
+  "fields": {
+    "slug": "snou",
+    "created": "2025-07-01T11:54:48.418Z",
+    "updated": "2025-07-01T11:54:48.418Z",
+    "name": "Сноу"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 11,
+  "fields": {
+    "slug": "evgenij-chernyak",
+    "created": "2025-07-03T06:54:19.161Z",
+    "updated": "2025-07-03T06:54:19.161Z",
+    "name": "Евгений Черняк"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 12,
+  "fields": {
+    "slug": "kavallo",
+    "created": "2025-07-03T06:58:48.174Z",
+    "updated": "2025-07-03T06:58:48.174Z",
+    "name": "Кавалло"
+  }
+},
+{
+  "model": "core_shop.author",
+  "pk": 13,
+  "fields": {
+    "slug": "dzhon-kerrejru",
+    "created": "2025-07-03T07:06:38.542Z",
+    "updated": "2025-07-03T07:06:38.542Z",
+    "name": "Джон Керрейру"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 1,
+  "fields": {
+    "slug": "ksd-klub-semejnogo-dosuga",
+    "created": "2025-07-01T09:01:37.847Z",
+    "updated": "2025-07-01T09:01:37.847Z",
+    "name": "КСД. Клуб Семейного Досуга"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 2,
+  "fields": {
+    "slug": "km-buks",
+    "created": "2025-07-01T11:31:05.747Z",
+    "updated": "2025-07-01T11:31:05.747Z",
+    "name": "КМ-Букс"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 3,
+  "fields": {
+    "slug": "vsl-vidavnictvo-starogo-leva",
+    "created": "2025-07-01T11:35:17.250Z",
+    "updated": "2025-07-01T11:35:23.409Z",
+    "name": "ВСЛ. Видавництво Старого Лева"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 4,
+  "fields": {
+    "slug": "fabula",
+    "created": "2025-07-01T11:46:20.544Z",
+    "updated": "2025-07-01T11:46:20.544Z",
+    "name": "Фабула"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 5,
+  "fields": {
+    "slug": "folio",
+    "created": "2025-07-01T11:49:53.428Z",
+    "updated": "2025-07-01T11:49:53.428Z",
+    "name": "Фоліо"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 6,
+  "fields": {
+    "slug": "shkola",
+    "created": "2025-07-01T11:55:00.719Z",
+    "updated": "2025-07-01T11:55:00.719Z",
+    "name": "Школа"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 7,
+  "fields": {
+    "slug": "book-chef",
+    "created": "2025-07-03T06:54:40.643Z",
+    "updated": "2025-07-03T06:54:40.643Z",
+    "name": "Book Chef"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 8,
+  "fields": {
+    "slug": "knigolav",
+    "created": "2025-07-03T06:59:03.150Z",
+    "updated": "2025-07-03T06:59:03.150Z",
+    "name": "#книголав"
+  }
+},
+{
+  "model": "core_shop.publisher",
+  "pk": 9,
+  "fields": {
+    "slug": "brajt-buks",
+    "created": "2025-10-21T06:22:35.675Z",
+    "updated": "2025-10-21T06:22:35.675Z",
+    "name": "Брайт Букс"
+  }
+},
+{
+  "model": "core_shop.language",
+  "pk": 1,
+  "fields": {
+    "slug": "ukrayinska",
+    "created": "2025-07-01T09:03:27.731Z",
+    "updated": "2025-07-01T09:03:27.731Z",
+    "language": "Українська"
+  }
+},
+{
+  "model": "core_shop.language",
+  "pk": 2,
+  "fields": {
+    "slug": "rosijska",
+    "created": "2025-07-03T06:55:22.478Z",
+    "updated": "2025-07-03T06:55:22.478Z",
+    "language": "Російська"
+  }
+},
+{
+  "model": "core_shop.cover",
+  "pk": 1,
+  "fields": {
+    "slug": "tverda",
+    "created": "2025-07-01T09:05:36.767Z",
+    "updated": "2025-07-01T09:05:36.767Z",
+    "cover": "Тверда"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 1,
+  "fields": {
+    "name": "Рік"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 2,
+  "fields": {
+    "name": "Формат"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 3,
+  "fields": {
+    "name": "Сторінки"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 4,
+  "fields": {
+    "name": "Вага"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 5,
+  "fields": {
+    "name": "Серія"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 6,
+  "fields": {
+    "name": "Країна виробник"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 7,
+  "fields": {
+    "name": "Папір"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 8,
+  "fields": {
+    "name": "Перекладач"
+  }
+},
+{
+  "model": "core_shop.othercharacteristicitem",
+  "pk": 9,
+  "fields": {
+    "name": "Вік"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 5,
+  "fields": {
+    "item": 4,
+    "value": "547"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 7,
+  "fields": {
+    "item": 3,
+    "value": "544"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 8,
+  "fields": {
+    "item": 2,
+    "value": "211*150*32"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 9,
+  "fields": {
+    "item": 4,
+    "value": "738"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 10,
+  "fields": {
+    "item": 5,
+    "value": "КСД"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 11,
+  "fields": {
+    "item": 3,
+    "value": "976"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 13,
+  "fields": {
+    "item": 2,
+    "value": "206х135"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 14,
+  "fields": {
+    "item": 6,
+    "value": "Україна"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 15,
+  "fields": {
+    "item": 4,
+    "value": "400"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 16,
+  "fields": {
+    "item": 7,
+    "value": "Офсетний"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 17,
+  "fields": {
+    "item": 8,
+    "value": "Ольга Бойко"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 18,
+  "fields": {
+    "item": 1,
+    "value": "2024"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 19,
+  "fields": {
+    "item": 5,
+    "value": "5-а хвиля"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 20,
+  "fields": {
+    "item": 3,
+    "value": "448"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 21,
+  "fields": {
+    "item": 2,
+    "value": "130х200мм"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 22,
+  "fields": {
+    "item": 9,
+    "value": "Для дорослих"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 23,
+  "fields": {
+    "item": 4,
+    "value": "620"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 24,
+  "fields": {
+    "item": 1,
+    "value": "2022"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 25,
+  "fields": {
+    "item": 5,
+    "value": "Художня проза"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 26,
+  "fields": {
+    "item": 3,
+    "value": "639"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 27,
+  "fields": {
+    "item": 2,
+    "value": "135х205х46"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 28,
+  "fields": {
+    "item": 4,
+    "value": "357"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 29,
+  "fields": {
+    "item": 1,
+    "value": "2021"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 31,
+  "fields": {
+    "item": 3,
+    "value": "256"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 32,
+  "fields": {
+    "item": 2,
+    "value": "220х150"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 33,
+  "fields": {
+    "item": 4,
+    "value": "360"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 35,
+  "fields": {
+    "item": 5,
+    "value": "Ріццолі та Айлс"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 36,
+  "fields": {
+    "item": 3,
+    "value": "352"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 37,
+  "fields": {
+    "item": 2,
+    "value": "205х135"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 38,
+  "fields": {
+    "item": 1,
+    "value": "2019"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 39,
+  "fields": {
+    "item": 5,
+    "value": "Фабула-Сучасна проза України"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 40,
+  "fields": {
+    "item": 4,
+    "value": "622"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 42,
+  "fields": {
+    "item": 5,
+    "value": "Великий науковий проєкт"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 43,
+  "fields": {
+    "item": 3,
+    "value": "384"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 44,
+  "fields": {
+    "item": 2,
+    "value": "70х100 1/16"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 45,
+  "fields": {
+    "item": 4,
+    "value": "320"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 47,
+  "fields": {
+    "item": 1,
+    "value": "2020"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 48,
+  "fields": {
+    "item": 5,
+    "value": "Школа"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 49,
+  "fields": {
+    "item": 3,
+    "value": "304"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 51,
+  "fields": {
+    "item": 4,
+    "value": "200"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 54,
+  "fields": {
+    "item": 3,
+    "value": "272"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 55,
+  "fields": {
+    "item": 2,
+    "value": "84х108х32"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 58,
+  "fields": {
+    "item": 5,
+    "value": "Дитяча полиця"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 59,
+  "fields": {
+    "item": 3,
+    "value": "224"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 60,
+  "fields": {
+    "item": 2,
+    "value": "180х240 мм."
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 62,
+  "fields": {
+    "item": 3,
+    "value": "464"
+  }
+},
+{
+  "model": "core_shop.othercharacteristic",
+  "pk": 67,
+  "fields": {
+    "item": 2,
+    "value": "130х200 мм (середній формат)"
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 1,
+  "fields": {
+    "slug": "inferno",
+    "created": "2025-07-01T10:05:11.279Z",
+    "updated": "2025-07-11T14:59:31.158Z",
+    "title": "Інферно",
+    "image": "books/Інферно.jpg",
+    "isbn": "978-617-15-0618-3",
+    "publisher": 1,
+    "cateogry": 18,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Роман &laquo;Інферно&raquo; визнаний найкращим твором Дена Брауна! &bull; Перевидання в оновленому оформленні та збільшеному форматі Запаморочливі пригоди, загадкові символи, небезпечні таємниці у кращих традиціях &laquo;Коду да Вінчі&raquo;! Професор Ленґдон прийшов до тями у лікарні у Флоренції. Як він опинився тут? Чому його хотіли вбити? І як він потрапив до італійського міста, сповненого стародавніх секретів? Роберт нічого не пам`ятає. Лише в моторошних видіннях він бачить жінку з дивним амулетом, яка благає про допомогу. А в кишені знаходить вказівку на картину Боттічеллі &laquo;Мапа пекла&raquo;. Але картину дивно змінено... Зашифровані у витворах мистецтва послання, таємні тунелі і новітні технології &mdash; ось що чекає Ленґдона та його помічницю Сієнну на шляху до розкриття загадки божевільного генія. Та невідомий ворог випереджає їх на крок...</p>",
+    "count": 5,
+    "price": "460.00",
+    "discount": 16,
+    "author": [
+      1
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 2,
+  "fields": {
+    "slug": "112263-ukr",
+    "created": "2025-07-01T11:25:25.845Z",
+    "updated": "2025-07-21T14:46:43.696Z",
+    "title": "11/22/63 укр",
+    "image": "books/11_22_6__укр.jpg",
+    "isbn": "978-617-12-8842-3",
+    "publisher": 1,
+    "cateogry": 19,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>22 листопада 1963 року &mdash; дата вбивства Джона Кеннеді. Пролунали три постріли &mdash; і світ змінився назавжди. Сьогодення. Дізнавшись, що в барі його приятеля розташований портал до 1958 року, звичайний шкільний учитель Джейк Еппінг не може опиратися спокусі почати нове життя у рок-н-рольні часи Елвіса Преслі. Хіба гостю з майбутнього важко познайомитися з відлюдником Лі Гарві Освальдом і завадити йому вбити президента? Та чи варто гратися з минулим? Яким буде світ, де Кеннеді виживе?</p>",
+    "count": 3,
+    "price": "540.00",
+    "discount": 20,
+    "author": [
+      2
+    ],
+    "other_characteristics": [
+      23,
+      29,
+      54,
+      44
+    ]
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 3,
+  "fields": {
+    "slug": "5-a-hvilya-kniga-1",
+    "created": "2025-07-01T11:34:17.632Z",
+    "updated": "2025-07-11T14:59:01.547Z",
+    "title": "5-а хвиля. Книга 1",
+    "image": "books/00000393609-280x280.jpg",
+    "isbn": "978-966-948-891-6",
+    "publisher": 2,
+    "cateogry": 19,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Це війна двох світів, двох цивілізацій. Після першої хвилі чужопланетного вторгнення Земля поринула в морок. Друга хвиля &mdash; всесвітній потоп. Третя хвиля &mdash; жахлива пошесть, яку не пережило дев&rsquo;яносто сім відсотків людства. А після четвертої хвилі працює єдине правило: не довіряй нікому. Шістнадцятирічна Кассі Салліван, сама-одна в пустельному ворожому світі, змушена тікати від істот, які зовні дуже схожі на людей, але мета яких &mdash; винищити останніх людей до ноги, щоб розчистити простір для себе. Як же Кассі вижити і як розшукати меншого братика &mdash; єдиного вцілілого з колись щасливої родини, якщо не можеш довіряти навіть людині, котра тебе врятувала,&mdash; загадковому хлопцю на ім&rsquo;я Еван Вокер?</p>",
+    "count": 0,
+    "price": "550.00",
+    "discount": 14,
+    "author": [
+      3
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 4,
+  "fields": {
+    "slug": "ya-bachu-vas-cikavit-pitma",
+    "created": "2025-07-01T11:38:15.933Z",
+    "updated": "2025-07-11T14:59:48.016Z",
+    "title": "Я бачу, вас цікавить пітьма",
+    "image": "books/Я_бачу_вас_цікавить_пітьма.jpg",
+    "isbn": "978-617-679-832-3",
+    "publisher": 3,
+    "cateogry": 20,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Київського кримінального психолога Андрія Гайстера відправляють консультантом у богом забуте селище Буськів Сад. Зимової ночі там зникла маленька дівчинка. А ще там водиться Звір &mdash; серійний маніяк, убивств якого тамтешні мешканці воліють не помічати... У цьому проклятому селищі, де все по колу і всі живуть життям, яке ненавидять, розслідування постійно заходить у глухий кут. Андрій вірить, що загублена дівчинка, попри все, жива і він її знайде. Але нікому, крім нього, це не потрібно. &laquo;Я бачу, вас цікавить пітьма&raquo; &mdash; історія про непробивну людську байдужість і пітьму всередині нас. Про чесність із собою й ціну, яку ми готові заплатити за забуття. Про гріхи, що матеріалізуються, і спокуту, дорожчу за спокій.</p>",
+    "count": 1,
+    "price": "600.00",
+    "discount": 20,
+    "author": [
+      4
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 5,
+  "fields": {
+    "slug": "dumaj-i-bagatij",
+    "created": "2025-07-01T11:41:57.850Z",
+    "updated": "2025-07-11T14:59:35.143Z",
+    "title": "Думай і багатій",
+    "image": "books/Думай_і_багатій.jpg",
+    "isbn": "978-617-12-9144-7",
+    "publisher": 1,
+    "cateogry": 22,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Наполеон Гілл &ndash; радник президента Франкліна Рузвельта, один із найбільш відомих письменників, чиї книжки про успіх допомогли мільйонам людей у всьому світі. Його книжка &laquo;Думай і багатій&raquo; досі має шалений попит у читачів. Після доленосної розмови зі знаменитим мультимільйонером та філантропом Ендрю Карнеґі ще у студентські роки Наполеон Гілл вирішує прислухатися до його порад і на основі життєвих історій багатих та успішних вивести універсальну формулу успіху, якою зможуть користуватися звичайні люди, що не мають мільйонних статків, але прагнуть досягнути вершин. 13 років до багатства й успішності від Наполеона Гілла &ndash; це дієвий шлях для кожного, хто вирішив рухатися вперед.</p>",
+    "count": 2,
+    "price": "320.00",
+    "discount": 5,
+    "author": [
+      5
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 6,
+  "fields": {
+    "slug": "hirurg-kniga-1",
+    "created": "2025-07-01T11:44:46.975Z",
+    "updated": "2025-07-11T14:59:44.578Z",
+    "title": "Хірург. Книга 1",
+    "image": "books/Хірург._Книга_1.jpg",
+    "isbn": "978-617-12-8630-6",
+    "publisher": 1,
+    "cateogry": 18,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Він приходить лише у ночі. Безшумно проникає у дім. Крадеться до спальні, де тільки но прокинувшись від сну, самотні жінки потрапляють до приголомшливого кошмару. Зважаючи на те, що він робить зі своїми жертвами, можна припустити, що злодій знається на медицині. Саме через це його називають Хірург. Томас Мур та Джейн Ріццолі розслідують серію страшенних вбивств. Злочинець наслідує почерк серійного маніяка, якого було вбито два роки тому. Він копією навіть такі дрібні деталі, про які мало кому відомо. Остання з жертв загиблого маніяка Кетрін Корделл, вбила його, та саме через це стає метою нового вбивці. Із кожною наступною жертвою невідомий наближається до Кетрін. Саме Томасу та Джейн доведеться зупинити геніального вбивцю, чого б це не коштувало.</p>",
+    "count": 1,
+    "price": "330.00",
+    "discount": 5,
+    "author": [
+      6
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 7,
+  "fields": {
+    "slug": "clavus-domini",
+    "created": "2025-07-01T11:48:00.456Z",
+    "updated": "2025-07-11T14:59:25.800Z",
+    "title": "Clavus Domini",
+    "image": "books/Clavus_Domini.png",
+    "isbn": "978-617-09-5125-0",
+    "publisher": 4,
+    "cateogry": 23,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Відомий український письменник Сергій Батурин у своєму новому романі долучається до когорти тих, хто й досі шукає відповідей на прадавнє питання: ким був той &laquo;розбійник Варавва&raquo;, що його згадують усі четверо євангелістів? Чи насправді він був знайомий з Ісусом, і чому єрусалимський натовп наполягав на його помилуванні, а римському префекту Понтію Пилату довелося &laquo;вмивати руки&raquo;? Історичних свідоцтв бракує. І не виключено, що все відбувалося саме так, як про це розповідає автор книжки. А ще перед читачем розгортається яскрава і по-справжньому переконлива панорама Римського світу й варварської Європи на початку першого тисячоліття нової ери.</p>",
+    "count": 1,
+    "price": "350.00",
+    "discount": 30,
+    "author": [
+      7
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 8,
+  "fields": {
+    "slug": "10-rozmov-pro-istoriyu-ukrayini-vid-korolya-danila-do-getmana-mazepi",
+    "created": "2025-07-01T11:53:06.150Z",
+    "updated": "2025-07-21T14:46:11.275Z",
+    "title": "10 розмов про історію України. Від короля Данила до гетьмана Мазепи",
+    "image": "books/00000388373-280x280.jpg",
+    "isbn": "978-617-551-782-6",
+    "publisher": 5,
+    "cateogry": 27,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Коли закінчується Середньовіччя в Європі загалом та в Україні зокрема? І якщо археологічна хронологія побудована на еволюції матеріальної культури, то що в основі історичної? Настає новий хронологічний період одночасно і повсюдно чи історія розвивається паралельно, різними епохами, на сусідніх землях? Історія розвивається циклічно, з перспективою повернення в кам&rsquo;яний вік при одному необережному кроці, або ж по незворотній поступальний прямій? Ця книга з&rsquo;явилася у пошуках деталей, у пошуках горезвісних &laquo;крапок неповернення&raquo; та історичних рубежів. Україна епохи Середньовіччя постає дитиною степів та моря, успадковуючи від середземноморської культури, від кочівників та осілих землеробів однаково. Це період етногенезу українського народу. Про час і про місце, про роль особистості в історії та про роль історії у долі особистості, ведуть розмови автори цього тому.</p>",
+    "count": 0,
+    "price": "450.00",
+    "discount": 10,
+    "author": [
+      9,
+      8
+    ],
+    "other_characteristics": [
+      15,
+      38,
+      26
+    ]
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 9,
+  "fields": {
+    "slug": "17-persha-kniga-spogadiv",
+    "created": "2025-07-01T11:58:09.079Z",
+    "updated": "2025-07-21T14:47:11.380Z",
+    "title": "17. Перша книга спогадів",
+    "image": "books/17._Перша_книга_спогадів.jpg",
+    "isbn": "978-966-429-655-4",
+    "publisher": 6,
+    "cateogry": 30,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Відколи Йо себе пам&rsquo;ятає, вона мандрує зі своїм батьком з одного місця до іншого, що схоже на втечу. Йо геть не в захваті, опинившись нарешті у вогкому й холодному Гамбурзі. Та незабаром вона знайомиться у новій школі з двома симпатичними хлопцями: Адріаном, який навмисне поводиться з нею відсторонено, та з Луїсом, що прагне її товариства. Тож Йо перестає давати раду своїм почуттям &mdash; і не тільки їм! Адже вона раптом виявляє у собі здатність бачити чужі спогади...</p>",
+    "count": 2,
+    "price": "314.00",
+    "discount": 10,
+    "author": [
+      10
+    ],
+    "other_characteristics": [
+      5,
+      14,
+      16,
+      44
+    ]
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 10,
+  "fields": {
+    "slug": "big-money",
+    "created": "2025-07-03T06:57:35.470Z",
+    "updated": "2025-07-18T18:19:45.512Z",
+    "title": "Big Money",
+    "image": "books/Big_Money.jpg",
+    "isbn": "978-617-548-074-8",
+    "publisher": 7,
+    "cateogry": 22,
+    "cover": 1,
+    "language": 2,
+    "description": "<p>&laquo;Кто не хочет, ищет причины. Кто хочет, ищет возможности &mdash; фраза моего Отца, главная фраза в моем воспитании&raquo;. Эта книга о людях, которые всегда ищут возможности и находят их. Всё хорошее в этом Мире придумано людьми, которые хотели заработать. Предпринимателями и Бизнесменами. Эта книга о них. О тех, кто каждый день делает этот мир лучше, развивая свой бизнес, создавая рабочие места и платя налоги. Вопреки стереотипам, это не скучные, угрюмые капиталисты, у которых в голове только деньги. Это интересные, умные, харизматичные люди, которые, как и каждый из нас, каждый день нуждаются в успехе и сожалеют о том, что времени для этого всегда не достаточно. Их отличие только в том, что все они одержимые своей идеей перфекционисты. А именно таким будет принадлежать Мир будущего. Я очень волнуюсь. В твоих руках, уважаемый читатель, моя первая книга, состоящая из интервью успешных предпринимателей в YouTube &mdash; проекте Big Money. Книга о людях и их историях побед. Эта книга поможет тебе увеличить скорость и быстрее достигнуть своей мечты. Именно для этого эта книга и создана.</p>",
+    "count": 0,
+    "price": "500.00",
+    "discount": 0,
+    "author": [
+      11
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 11,
+  "fields": {
+    "slug": "kazki-na-nich-dlya-divchat-buntarok-2",
+    "created": "2025-07-03T07:05:13.105Z",
+    "updated": "2025-07-11T14:59:40.490Z",
+    "title": "Казки на ніч для дівчат-бунтарок 2",
+    "image": "books/Казки_на_ніч_для_дівчат-бунтарок_2.jpeg",
+    "isbn": "978-617-7563-81-4",
+    "publisher": 8,
+    "cateogry": 8,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>До другої частини увійшли такі відомі особистості: співачка Бейонсе, акторка Софі Лорен, письменниця Дж. К. Ролінґ, танцівниця Айседора Дункан, канцлерка Анґела Меркель, телеведуча Опра Вінфрі та багато інших. Італійські авторки Елена Фавіллі та Франческа Кавалло у вже звичному та характерному стилі перетворили реальні історії у правдиві казки. До проекту залучили 70 ілюстраторок, які працювали у різних стилях та переосмислили портрети відомих особистостей і представили їх в абсолютно новому образі. Що важливо, оригінальна версія книжки має історію Валентини Терешкової першої в світі жінки-космонавта, яка наразі є депутаткою Російської Федерації. Через її політичні погляди та підтримку анексії Криму, автори вперше пішли на зустріч та для українського видання замінили героїню книжки на італійську політичну діячку та Міністра закордонних справ Італії Емму Боніно.</p>",
+    "count": 4,
+    "price": "650.00",
+    "discount": 15,
+    "author": [
+      12
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_shop.book",
+  "pk": 13,
+  "fields": {
+    "slug": "bad-blood-durna-krov-tayemnici-ta-brehni-startapu-kremniyevoyi-dolini",
+    "created": "2025-07-03T07:09:38.718Z",
+    "updated": "2025-07-18T18:19:26.668Z",
+    "title": "Bad Blood | Дурна кров. Таємниці та брехні стартапу Кремнієвої долини",
+    "image": "books/Bad_Blood.jpg",
+    "isbn": "978-617-7561-15-5",
+    "publisher": 7,
+    "cateogry": 10,
+    "cover": 1,
+    "language": 1,
+    "description": "<p>Засновницю стартапу Theranos називали наймолодшою мільярдеркою світу. 22-річна Елізабет Голмс переконала Америку в тому, що винайшла революційну систему аналізу крові, яка врятує життя тисячам людей. Їй давали гроші найбагатші люди Кремнієвої долини, а Генрі Кіссинджер увійшов до ради директорів її амбітного стартапу. Згодом з&rsquo;ясувалося: компанію побудовано на брехні, інтригах, панібратстві та шахрайстві. А технологія, що мала перевернути світ медицини, взагалі не працює. І лише один журналіст попри все з&rsquo;ясував: як Елізабет Голмс вдалось ошукати таке число найрозумніших людей Америки. Ця книга &mdash; приголомшливе розслідування, що здивувало навіть Білла Ґейтса.</p>",
+    "count": 0,
+    "price": "300.00",
+    "discount": 0,
+    "author": [
+      13
+    ],
+    "other_characteristics": []
+  }
+},
+{
+  "model": "core_orders.order",
+  "pk": 1,
+  "fields": {
+    "slug": "",
+    "created": "2025-07-16T10:56:19.495Z",
+    "updated": "2025-07-16T10:56:19.495Z",
+    "user": null,
+    "status": "NEW",
+    "first_name": "Name",
+    "last_name": "Last Name",
+    "phone": "+38(096)139-47-48",
+    "email": "a@admin.com",
+    "delivery_address": "np1",
+    "comment": ""
+  }
+},
+{
+  "model": "core_orders.order",
+  "pk": 2,
+  "fields": {
+    "slug": "",
+    "created": "2025-07-16T11:13:16.597Z",
+    "updated": "2025-07-16T11:13:16.597Z",
+    "user": null,
+    "status": "NEW",
+    "first_name": "GERASIMOV",
+    "last_name": "VIKTOR",
+    "phone": "+29(096)139-47-48",
+    "email": "a@admin.com",
+    "delivery_address": "np1",
+    "comment": ""
+  }
+},
+{
+  "model": "core_orders.order",
+  "pk": 10,
+  "fields": {
+    "slug": "",
+    "created": "2025-09-25T08:53:48.464Z",
+    "updated": "2025-09-25T13:08:02.934Z",
+    "user": 2,
+    "status": "IN_WORK",
+    "first_name": "admin",
+    "last_name": "admin",
+    "phone": "+38(096)139-44-44",
+    "email": "admin@example.com",
+    "delivery_address": "Test address.",
+    "comment": ""
+  }
+},
+{
+  "model": "core_orders.order",
+  "pk": 11,
+  "fields": {
+    "slug": "",
+    "created": "2025-09-25T08:54:44.224Z",
+    "updated": "2025-09-25T08:54:44.224Z",
+    "user": null,
+    "status": "NEW",
+    "first_name": "GERASIMOV",
+    "last_name": "VIKTOR",
+    "phone": "+38(096)139-47-48",
+    "email": "admin@example.com",
+    "delivery_address": "ВУЛ. БУКОВИНСЬКА",
+    "comment": ""
+  }
+},
+{
+  "model": "core_orders.order",
+  "pk": 12,
+  "fields": {
+    "slug": "",
+    "created": "2025-09-25T12:31:44.598Z",
+    "updated": "2025-09-25T12:31:44.598Z",
+    "user": 2,
+    "status": "NEW",
+    "first_name": "admin",
+    "last_name": "admin",
+    "phone": "+38(096)139-44-44",
+    "email": "admin@example.com",
+    "delivery_address": "Test address.",
+    "comment": ""
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "book": 11,
+    "price": "552.50",
+    "quantity": 2
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "book": 11,
+    "price": "552.50",
+    "quantity": 1
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 2,
+    "book": 4,
+    "price": "480.00",
+    "quantity": 2
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 11,
+  "fields": {
+    "order": 10,
+    "book": 2,
+    "price": "432.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 12,
+  "fields": {
+    "order": 11,
+    "book": 2,
+    "price": "432.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 13,
+  "fields": {
+    "order": 12,
+    "book": 2,
+    "price": "432.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 14,
+  "fields": {
+    "order": 12,
+    "book": 11,
+    "price": "552.50",
+    "quantity": 5
+  }
+},
+{
+  "model": "core_orders.orderitem",
+  "pk": 15,
+  "fields": {
+    "order": 12,
+    "book": 6,
+    "price": "313.50",
+    "quantity": 1
+  }
+},
+{
+  "model": "core_account.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$0MSBZeiMBlE9mV7uOCdPYg$wX8l5TQc0FxoBh8FJzC0Wlc9Ul/eCefulsfLp+k09wA=",
+    "last_login": "2025-10-15T08:02:24.396Z",
+    "is_superuser": true,
+    "phone": "+38(096)139-44-44",
+    "first_name": "admin",
+    "last_name": "admin",
+    "email": "admin@example.com",
+    "delivery_address": "Test address.",
+    "is_active": true,
+    "is_staff": true,
+    "created": "2025-09-17T17:40:55.775Z",
+    "updated": "2025-08-04T11:38:29.964Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core_account.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$bOaKlpjU7FlzU0238XsCkE$LqXFe2gY1TLAIRZ2TwsYJluBkQJ7inLkZ6olKcO1JYo=",
+    "last_login": null,
+    "is_superuser": false,
+    "phone": null,
+    "first_name": "a",
+    "last_name": "a",
+    "email": "a@admin.com",
+    "delivery_address": null,
+    "is_active": true,
+    "is_staff": false,
+    "created": "2025-09-15T16:45:44.752Z",
+    "updated": "2025-08-04T11:41:50.985Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core_account.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$3B0O8ea1bGTfPrvubp4Yp4$jdmJaYoux8nypcD2Z6BFDJeAkO4bJ/TNBHfPUUnLZ7E=",
+    "last_login": "2025-09-15T07:12:23.984Z",
+    "is_superuser": false,
+    "phone": "+38(096)139-47-48",
+    "first_name": "GERASIMOV",
+    "last_name": "VIKTOR",
+    "email": "ai@admin.com",
+    "delivery_address": "ВУЛ. БУКОВИНСЬКА",
+    "is_active": true,
+    "is_staff": false,
+    "created": "2025-09-15T07:12:23.949Z",
+    "updated": "2025-09-15T07:12:23.949Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "test comment",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-09T08:42:20.691Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "test comment",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-09T08:42:22.510Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 3,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "rwrtwetrwet",
+    "rating": 4,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T08:52:39.307Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "rwrtwetrwet",
+    "rating": 4,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T08:52:44.811Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 5,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "asf",
+    "rating": 3,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T09:40:14.872Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 6,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "sdfgsdfgsdg",
+    "rating": 5,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T09:50:35.537Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 7,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "ersfdsf",
+    "rating": 4,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T09:52:58.898Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 8,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "fsfdfg",
+    "rating": 5,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T09:53:15.279Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 9,
+  "fields": {
+    "user": null,
+    "book": 2,
+    "body": "dsfsdf",
+    "rating": 3,
+    "name": "Гвардіан Тетра",
+    "created": "2025-10-09T09:55:16.971Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 10,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "New review",
+    "rating": 2,
+    "name": "admin admin",
+    "created": "2025-10-09T12:54:26.344Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 11,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "Top",
+    "rating": 5,
+    "name": "admin admin",
+    "created": "2025-10-09T13:15:08.223Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 12,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "new review",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:45:25.160Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 13,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "qq",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:45:42.332Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 14,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "11",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:46:17.835Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 15,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "11",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:47:24.305Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 16,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "33",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:47:35.571Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 17,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "111",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:47:45.103Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 18,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "11",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:47:59.039Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 19,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "2",
+    "rating": 5,
+    "name": "admin admin",
+    "created": "2025-10-13T07:48:12.854Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 20,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "12",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:57:10.229Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 21,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "12",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:57:40.357Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 22,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "12",
+    "rating": 1,
+    "name": "admin admin",
+    "created": "2025-10-13T07:58:24.054Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 23,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "3",
+    "rating": 3,
+    "name": "admin admin",
+    "created": "2025-10-13T07:59:55.544Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 24,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "33",
+    "rating": 3,
+    "name": "admin admin",
+    "created": "2025-10-13T08:02:47.073Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 25,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "new",
+    "rating": 4,
+    "name": "admin admin",
+    "created": "2025-10-13T08:20:39.576Z"
+  }
+},
+{
+  "model": "core_comment.comment",
+  "pk": 26,
+  "fields": {
+    "user": 2,
+    "book": 9,
+    "body": "top",
+    "rating": 2,
+    "name": "admin admin",
+    "created": "2025-10-13T08:31:53.426Z"
+  }
+}
+]

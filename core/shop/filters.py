@@ -1,7 +1,10 @@
 import math
+from operator import ge
 from django import forms
+from django.db.utils import ProgrammingError
 import django_filters
 from django_property_filter import PropertyFilterSet, PropertyNumberFilter
+
 
 from slugify import slugify
 
@@ -25,6 +28,15 @@ class ModelMultipleChoiceFilterCustomLabel(django_filters.ModelMultipleChoiceFil
     field_class = ModelMultipleChoiceFieldCustomLabel
 
 
+def get_price_book():
+    try:
+        data = [book.get_price_with_discount for book in Book.objects.all()]
+        return data if len(data) > 0 else [0]
+    except Exception as e:
+        print(type(e))
+        return [0]
+
+
 class BookFilter(PropertyFilterSet):
     author = django_filters.ModelMultipleChoiceFilter(
         queryset=Author.objects.order_by("name"),
@@ -46,6 +58,7 @@ class BookFilter(PropertyFilterSet):
         widget=forms.CheckboxSelectMultiple,
         field_name="language",
     )
+
     price__gt = PropertyNumberFilter(
         field_name="get_price_with_discount",
         lookup_expr="gte",
@@ -55,13 +68,16 @@ class BookFilter(PropertyFilterSet):
                 "id": "minPrice",
                 "step": 1,
                 "min": math.floor(
-                    min(book.get_price_with_discount for book in Book.objects.all())
+                    # min(book.get_price_with_discount for book in Book.objects.all())
+                    min(get_price_book())
                 ),
                 "max": math.ceil(
-                    max(book.get_price_with_discount for book in Book.objects.all())
+                    # max(book.get_price_with_discount for book in Book.objects.all())
+                    max(get_price_book())
                 ),
                 "initial": math.floor(
-                    min(book.get_price_with_discount for book in Book.objects.all())
+                    # min(book.get_price_with_discount for book in Book.objects.all())
+                    min(get_price_book())
                 ),
             },
         ),
@@ -76,13 +92,16 @@ class BookFilter(PropertyFilterSet):
                 "id": "maxPrice",
                 "step": 1,
                 "min": math.floor(
-                    min(book.get_price_with_discount for book in Book.objects.all())
+                    # min(book.get_price_with_discount for book in Book.objects.all())
+                    min(get_price_book())
                 ),
                 "max": math.ceil(
-                    max(book.get_price_with_discount for book in Book.objects.all())
+                    # max(book.get_price_with_discount for book in Book.objects.all())
+                    max(get_price_book())
                 ),
                 "initial": math.ceil(
-                    max(book.get_price_with_discount for book in Book.objects.all())
+                    # max(book.get_price_with_discount for book in Book.objects.all())
+                    max(get_price_book())
                 ),
             },
         ),
