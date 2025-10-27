@@ -1,22 +1,20 @@
 import math
-from operator import ge
 from django import forms
-from django.db.utils import ProgrammingError
 import django_filters
 from django_property_filter import PropertyFilterSet, PropertyNumberFilter
 
-
 from slugify import slugify
 
-from .models import (
-    Book,
-    Cover,
-    Language,
-    OtherCharacteristic,
-    OtherCharacteristicItem,
-    Publisher,
-    Author,
+from core.shop.services import (
+    AuthorService,
+    BookService,
+    CoverService,
+    LanguageService,
+    OtherCharacteristicItemService,
+    OtherCharacteristicService,
+    PublisherService,
 )
+from core.shop.utils import get_price_book
 
 
 class ModelMultipleChoiceFieldCustomLabel(forms.ModelMultipleChoiceField):
@@ -28,33 +26,24 @@ class ModelMultipleChoiceFilterCustomLabel(django_filters.ModelMultipleChoiceFil
     field_class = ModelMultipleChoiceFieldCustomLabel
 
 
-def get_price_book():
-    try:
-        data = [book.get_price_with_discount for book in Book.objects.all()]
-        return data if len(data) > 0 else [0]
-    except Exception as e:
-        print(type(e))
-        return [0]
-
-
 class BookFilter(PropertyFilterSet):
     author = django_filters.ModelMultipleChoiceFilter(
-        queryset=Author.objects.order_by("name"),
+        queryset=AuthorService().get_queryset_order_by_name(),
         widget=forms.CheckboxSelectMultiple,
         field_name="author",
     )
     publisher = django_filters.ModelMultipleChoiceFilter(
-        queryset=Publisher.objects.order_by("name"),
+        queryset=PublisherService().get_queryset_order_by_name(),
         widget=forms.CheckboxSelectMultiple,
         field_name="publisher",
     )
     cover = django_filters.ModelMultipleChoiceFilter(
-        queryset=Cover.objects.order_by("cover"),
+        queryset=CoverService().get_queryset_order_by_cover(),
         widget=forms.CheckboxSelectMultiple,
         field_name="cover",
     )
     language = django_filters.ModelMultipleChoiceFilter(
-        queryset=Language.objects.order_by("language"),
+        queryset=LanguageService().get_queryset_order_by_language(),
         widget=forms.CheckboxSelectMultiple,
         field_name="language",
     )
@@ -67,18 +56,9 @@ class BookFilter(PropertyFilterSet):
                 "type": "range",
                 "id": "minPrice",
                 "step": 1,
-                "min": math.floor(
-                    # min(book.get_price_with_discount for book in Book.objects.all())
-                    min(get_price_book())
-                ),
-                "max": math.ceil(
-                    # max(book.get_price_with_discount for book in Book.objects.all())
-                    max(get_price_book())
-                ),
-                "initial": math.floor(
-                    # min(book.get_price_with_discount for book in Book.objects.all())
-                    min(get_price_book())
-                ),
+                "min": math.floor(min(get_price_book())),
+                "max": math.ceil(max(get_price_book())),
+                "initial": math.floor(min(get_price_book())),
             },
         ),
         label="price",
@@ -91,18 +71,9 @@ class BookFilter(PropertyFilterSet):
                 "type": "range",
                 "id": "maxPrice",
                 "step": 1,
-                "min": math.floor(
-                    # min(book.get_price_with_discount for book in Book.objects.all())
-                    min(get_price_book())
-                ),
-                "max": math.ceil(
-                    # max(book.get_price_with_discount for book in Book.objects.all())
-                    max(get_price_book())
-                ),
-                "initial": math.ceil(
-                    # max(book.get_price_with_discount for book in Book.objects.all())
-                    max(get_price_book())
-                ),
+                "min": math.floor(min(get_price_book())),
+                "max": math.ceil(max(get_price_book())),
+                "initial": math.ceil(max(get_price_book())),
             },
         ),
         label="price",
@@ -111,17 +82,17 @@ class BookFilter(PropertyFilterSet):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        dynamic_fields = OtherCharacteristicItem.objects.all().distinct()
+        dynamic_fields = OtherCharacteristicItemService().get_all_distinct()
         for field_name in dynamic_fields:
             other_characteristic_ids = (
-                OtherCharacteristic.objects.filter(item__name=field_name.name)
-                .values_list("id", flat=True)
-                .distinct(),
+                OtherCharacteristicService().get_other_characteristic_ids_by_item_name(
+                    field_name.name
+                )
             )
             self.filters[slugify(str(field_name), separator="_")] = (
                 ModelMultipleChoiceFilterCustomLabel(
-                    queryset=OtherCharacteristic.objects.filter(
-                        id__in=other_characteristic_ids
+                    queryset=OtherCharacteristicService().get_queryset_by_ids(
+                        other_characteristic_ids
                     ),
                     widget=forms.CheckboxSelectMultiple,
                     field_name="other_characteristics",
@@ -130,7 +101,7 @@ class BookFilter(PropertyFilterSet):
             )
 
     class Meta:
-        model = Book
+        model = BookService().get_model()
         fields = [
             "price__gt",
             "price__lt",

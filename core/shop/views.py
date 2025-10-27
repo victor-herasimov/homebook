@@ -1,147 +1,114 @@
-from django.core.exceptions import ImproperlyConfigured
-from django.db.models import QuerySet, F, Case, When, BooleanField
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.views import View
 from django.views.generic import DetailView, ListView
-from django.utils.functional import cached_property
 from django.conf import settings
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from view_breadcrumbs import BaseBreadcrumbMixin
 
 from django_filters.views import FilterView
 
 from core.comment.forms import CommentForm
-from core.shop.models import Book, Category
+from core.shop.services import CategoryService, BookService
 from .filters import BookFilter
 
 
 class CatalogView(BaseBreadcrumbMixin, FilterView):
-    model = Book
     template_name = "shop/catalog.html"
     context_object_name = "books"
     paginate_by = settings.ITEMS_PER_PAGE
     allow_empty = True
-    # filterset_fields = ["author"]
     filterset_class = BookFilter
 
-    @cached_property
+    @property
     def crumbs(self):
-        links = []
-
-        category = get_object_or_404(Category, slug=self.kwargs["category_slug"])
-        parent_categories = category.get_ancestors(include_self=True)
-        links = [
+        parent_categories = CategoryService().get_parent_categories_by_slug(
+            self.kwargs["category_slug"]
+        )
+        return [
             (category.name, reverse("shop:catalog", args=[category.slug]))
             for category in parent_categories
         ]
 
-        return links
-
     def get_queryset(self):
-        queryset = super().get_queryset()
-        category = get_object_or_404(Category, slug=self.kwargs["category_slug"])
-        category_ids = category.get_descendants(include_self=True).values_list(
-            "id", flat=True
+        category_ids = CategoryService().get_category_descendants_ids_by_category_slug(
+            self.kwargs["category_slug"]
         )
         if category_ids:
-            queryset = queryset.filter(cateogry__id__in=category_ids).all()
-            queryset = queryset.annotate(
-                is_available=Case(
-                    When(count__gt=0, then=True),
-                    When(count__exact=0, then=False),
-                    default=True,
-                    output_field=BooleanField(),
-                )
-            )
-        return queryset.order_by("-is_available", "-updated")
+            queryset = BookService().get_queryset_by_category_ids(category_ids)
+            return BookService().order_by_descent_available_and_updated(queryset)
+        return BookService().get_all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = get_object_or_404(
-            Category, slug=self.kwargs["category_slug"]
-        ).name
+        context["title"] = (
+            CategoryService().get_by_slug(self.kwargs["category_slug"]).name
+        )
         return context
 
 
-class CatalogAllView(CatalogView):
-    ordering = "-is_available", "-updated"
+class CatalogAllView(BaseBreadcrumbMixin, FilterView):
+    template_name = "shop/catalog.html"
+    context_object_name = "books"
+    paginate_by = settings.ITEMS_PER_PAGE
+    allow_empty = True
+    filterset_class = BookFilter
 
-    @cached_property
+    @property
     def crumbs(self):
         return [("Новинки", reverse("main:index"))]
 
     def get_queryset(self):
-        if self.queryset is not None:
-            queryset = self.queryset
-            if isinstance(queryset, QuerySet):
-                queryset = queryset.all()
-        elif self.model is not None:
-            queryset = self.model._default_manager.all()
-        else:
-            raise ImproperlyConfigured(
-                "%(cls)s is missing a QuerySet. Define "
-                "%(cls)s.model, %(cls)s.queryset, or override "
-                "%(cls)s.get_queryset()." % {"cls": self.__class__.__name__}
-            )
-        queryset = queryset.annotate(
-            is_available=Case(
-                When(count__gt=0, then=True),
-                When(count__exact=0, then=False),
-                default=True,
-                output_field=BooleanField(),
-            )
+        print("queryset all")
+        return BookService().order_by_descent_available_and_updated(
+            BookService().get_all()
         )
-        ordering = self.get_ordering()
-        if ordering:
-            if isinstance(ordering, str):
-                ordering = (ordering,)
-        queryset = queryset.order_by(*ordering)
-        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Новинки"
+        return context
 
 
-class CatalogBestPriceView(CatalogAllView):
+class CatalogBestPriceView(BaseBreadcrumbMixin, FilterView):
+    template_name = "shop/catalog.html"
+    context_object_name = "books"
+    paginate_by = settings.ITEMS_PER_PAGE
+    allow_empty = True
+    filterset_class = BookFilter
 
-    @cached_property
+    @property
     def crumbs(self):
         return [("Кращі ціни", reverse("main:index"))]
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        # self.price * Decimal((1 - self.discount / 100))
-        queryset = queryset.annotate(
-            price_with_discount=F("price") - F("price") * F("discount") / 100,
-            is_available=Case(
-                When(count__gt=0, then=True),
-                When(count__exact=0, then=False),
-                default=True,
-                output_field=BooleanField(),
-            ),
-        ).order_by("-is_available", "price_with_discount")
-        return queryset
-
-
-class BookView(BaseBreadcrumbMixin, DetailView):
-    model = Book
-    template_name = "shop/book-detail.html"
-    context_object_name = "book"
-
-    @cached_property
-    def crumbs(self):
-        book = self.get_object()
-        category = book.cateogry
-        parent_categories = category.get_ancestors(include_self=True)
-        links = [
-            (category.name, reverse("shop:catalog", args=[category.slug]))
-            for category in parent_categories
-        ] + [(book.title, book.get_absolute_url())]
-        return links
+        return BookService().order_by_descent_available_and_ascending_price(
+            BookService().get_all()
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        object = self.get_object()
+        context["title"] = "Кращі ціни"
+        return context
+
+
+class BookView(BaseBreadcrumbMixin, DetailView):
+    model = BookService().get_model()
+    template_name = "shop/book-detail.html"
+    context_object_name = "book"
+
+    @property
+    def crumbs(self):
+        book = self.get_object()
+        parent_categories = CategoryService().get_parent_categories(book.cateogry)
+        return [
+            (category.name, reverse("shop:catalog", args=[category.slug]))
+            for category in parent_categories
+        ] + [(book.title, book.get_absolute_url())]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        book = self.get_object()
         context["comment_form"] = CommentForm(
             initial={
                 "user": (
@@ -152,40 +119,28 @@ class BookView(BaseBreadcrumbMixin, DetailView):
                     if not self.request.user.is_anonymous
                     else ""
                 ),
-                "book": object,
+                "book": book,
                 "rating": 1,
             }
         )
-        context["title"] = object.title
+        context["title"] = book.title
         return context
 
 
 class SearchView(BaseBreadcrumbMixin, ListView):
-    model = Book
     template_name = "shop/search.html"
     context_object_name = "books"
     paginate_by = settings.ITEMS_PER_PAGE
 
+    @property
+    def crumbs(self):
+        return [("Пошук", reverse("shop:search"))]
+
     def get_queryset(self):
         query = self.request.GET.get("q")
         if query:
-            # return self.model.objects.filter(title__icontains=query)
-            search_vector = SearchVector(
-                "title", "description", "author__name", "publisher__name"
-            )
-            search_query = SearchQuery(query)
-            return (
-                self.model.objects.annotate(
-                    search=search_vector, rank=SearchRank(search_vector, search_query)
-                )
-                .filter(search=search_query)
-                .order_by("-rank")
-            )
+            return BookService().search_by_query(query)
         return super().get_queryset()
-
-    @cached_property
-    def crumbs(self):
-        return [("Пошук", reverse("shop:search"))]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -194,23 +149,10 @@ class SearchView(BaseBreadcrumbMixin, ListView):
 
 
 class SearchAjaxView(View):
-    model = Book
-
     def get_queryset(self):
         query = self.request.GET.get("q")
         if query:
-            # return self.model.objects.filter(title__icontains=query)[:5]
-            search_vector = SearchVector(
-                "title", "description", "author__name", "publisher__name"
-            )
-            search_query = SearchQuery(query)
-            return (
-                self.model.objects.annotate(
-                    search=search_vector, rank=SearchRank(search_vector, search_query)
-                )
-                .filter(search=search_query)
-                .order_by("-rank")
-            )
+            return BookService().search_by_query(query)[:5]
         return []
 
     def get(self, request, *args, **kwargs):
@@ -220,5 +162,4 @@ class SearchAjaxView(View):
             context={"books": books, "query": request.GET.get("q")},
             request=request,
         )
-        print(rendered_html)
         return JsonResponse({"body": rendered_html.strip()})
