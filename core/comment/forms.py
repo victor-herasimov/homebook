@@ -1,5 +1,6 @@
 from django import forms
-from .models import Comment
+
+from core.comment.services import CommentService
 
 
 class CommentForm(forms.ModelForm):
@@ -8,5 +9,5 @@ class CommentForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Comment
+        model = CommentService().get_model()
         fields = ["user", "book", "body", "name", "rating"]

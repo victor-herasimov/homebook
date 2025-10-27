@@ -1,30 +1,26 @@
-from django.db.models import Avg, Count
 from django.http import JsonResponse
 from django.views.generic.edit import BaseCreateView
 from django.views.generic import ListView
 from django.conf import settings
 
-from .models import Comment
+from core.comment.services import CommentService
+
 from .forms import CommentForm
 
 
 class CommentListView(ListView):
-    model = Comment
     template_name = "comment/comment.html"
     context_object_name = "comments"
     paginate_by = settings.COMMENTS_PER_PAGE
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        book_id = self.kwargs["book_id"]
-        queryset = queryset.filter(book_id=book_id)
-        return queryset
+        return CommentService().get_comments_by_book_id(self.kwargs["book_id"])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
-            context["average"] = float(
-                self.get_queryset().aggregate(average=Avg("rating"))["average"]
+            context["average"] = CommentService().get_average_rating(
+                self.get_queryset()
             )
         except TypeError:
             context["average"] = 0
@@ -32,16 +28,12 @@ class CommentListView(ListView):
 
 
 class CreateCommentView(BaseCreateView):
-    model = Comment
+    model = CommentService().get_model()
     form_class = CommentForm
 
     def form_valid(self, form):
         form.save()
-        count_comments = (
-            self.get_queryset()
-            .filter(book_id=form.cleaned_data["book"])
-            .aggregate(count=Count("id"))["count"]
-        )
+        count_comments = CommentService().get_count_for_book(form.cleaned_data["book"])
         return JsonResponse(
             {"status": 200, "message": "Comment saved", "count": count_comments}
         )
