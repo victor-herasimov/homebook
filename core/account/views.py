@@ -1,5 +1,4 @@
 from django.db.models import Prefetch
-from django.utils.functional import cached_property
 from django.views.generic import (
     CreateView,
     FormView,
@@ -24,9 +23,13 @@ from core.account.forms import (
 from core.orders.models import Order, OrderItem
 
 
-class UserLoginView(FormView):
+class UserLoginView(BaseBreadcrumbMixin, FormView):
     form_class = UserLoginForm
     template_name = "account/login.html"
+
+    @property
+    def crumbs(self):
+        return [("Авторизація", reverse("account:login"))]
 
     def get_success_url(self):
         redirect_page = self.request.POST.get("next", None)
@@ -42,10 +45,14 @@ class UserLoginView(FormView):
             return HttpResponseRedirect(self.get_success_url())
 
 
-class UserRegistrationView(CreateView):
+class UserRegistrationView(BaseBreadcrumbMixin, CreateView):
     template_name = "account/registration.html"
     form_class = UserRegistrationForm
     success_url = reverse_lazy("main:index")
+
+    @property
+    def crumbs(self):
+        return [("Реєстрація", reverse("account:registration"))]
 
     def form_valid(self, form):
         user = form.instance
@@ -73,7 +80,7 @@ def logout(request):
 class ProfileView(BaseBreadcrumbMixin, LoginRequiredMixin, TemplateView):
     template_name = "account/profile.html"
 
-    @cached_property
+    @property
     def crumbs(self):
         return [("Особистий кабінет", reverse("account:profile"))]
 
@@ -81,7 +88,7 @@ class ProfileView(BaseBreadcrumbMixin, LoginRequiredMixin, TemplateView):
 class CrumbsPasswordChangeView(BaseBreadcrumbMixin, PasswordChangeView):
     template_name = "account/password_change_form.html"
 
-    @cached_property
+    @property
     def crumbs(self):
         return [
             ("Особистий кабінет", reverse("account:profile")),
@@ -102,7 +109,7 @@ class UserChangeInfoView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView):
     form_class = UserChangeInfoForm
     success_url = reverse_lazy("account:edit_info")
 
-    @cached_property
+    @property
     def crumbs(self):
         return [
             ("Особистий кабінет", reverse("account:profile")),
@@ -126,7 +133,7 @@ class UserChangeAddressView(BaseBreadcrumbMixin, LoginRequiredMixin, UpdateView)
     form_class = UserChangeAddressForm
     success_url = reverse_lazy("account:edit_address")
 
-    @cached_property
+    @property
     def crumbs(self):
         return [
             ("Особистий кабінет", reverse("account:profile")),
@@ -149,7 +156,7 @@ class UserOrdersView(BaseBreadcrumbMixin, LoginRequiredMixin, ListView):
     template_name = "account/orders.html"
     context_object_name = "orders"
 
-    @cached_property
+    @property
     def crumbs(self):
         return [
             ("Особистий кабінет", reverse("account:profile")),

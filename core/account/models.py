@@ -1,4 +1,3 @@
-from tabnanny import verbose
 from django.core.validators import EmailValidator
 from django.db import models
 from django.contrib.auth.models import (
