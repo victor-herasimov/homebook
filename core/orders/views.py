@@ -1,16 +1,19 @@
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import FormView, TemplateView
-from django.db import transaction
+from view_breadcrumbs import BaseBreadcrumbMixin
+from core.orders.services import OrderService
 
-from core.cart.cart import Cart
-from .models import OrderItem
 from .forms import OrderCreateForm
 
 
-class OrderView(FormView):
+class OrderView(BaseBreadcrumbMixin, FormView):
     template_name = "orders/order/create.html"
     form_class = OrderCreateForm
+
+    @property
+    def crumbs(self):
+        return [("Оформлення замовлення", reverse("main:index"))]
 
     def get_initial(self):
         user = self.request.user
@@ -25,29 +28,24 @@ class OrderView(FormView):
         return super().get_initial()
 
     def form_valid(self, form):
-        with transaction.atomic():
-            cart = Cart(self.request)
-            order = form.save(commit=False)
-            if not self.request.user.is_anonymous:
-                order.user = self.request.user
-            order.save()
-            for item in cart:
-                book = item["book"]
-                OrderItem.objects.create(
-                    order=order,
-                    book=book,
-                    price=item["price"],
-                    quantity=item["quantity"],
-                )
-                # book.count -= item["quantity"]
-            cart.clear()
-            return redirect(reverse("orders:order_success", args=[order.id]))
+        order = OrderService().create_order(self.request, form)
+        return redirect(reverse("orders:order_success", args=[order.id]))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Оформлення замовлення"
+        return context
 
 
-class OrderSuccess(TemplateView):
+class OrderSuccess(BaseBreadcrumbMixin, TemplateView):
     template_name = "orders/order/success.html"
+
+    @property
+    def crumbs(self):
+        return [("Замовлення успішне", reverse("main:index"))]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["order_id"] = self.kwargs["order_id"]
+        context["title"] = "Замовлення успішне"
         return context

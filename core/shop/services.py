@@ -76,42 +76,42 @@ class BookService(AbstractService):
         )
 
 
-class AuthorService(AbstractService):
+class AuthorService:
     model = Author
 
     def get_queryset_order_by_name(self) -> QuerySet:
         return self.model.objects.order_by("name")
 
 
-class PublisherService(AbstractService):
+class PublisherService:
     model = Publisher
 
     def get_queryset_order_by_name(self) -> QuerySet:
         return self.model.objects.order_by("name")
 
 
-class CoverService(AbstractService):
+class CoverService:
     model = Cover
 
     def get_queryset_order_by_cover(self) -> QuerySet:
         return self.model.objects.order_by("cover")
 
 
-class LanguageService(AbstractService):
+class LanguageService:
     model = Language
 
     def get_queryset_order_by_language(self) -> QuerySet:
         return self.model.objects.order_by("language")
 
 
-class OtherCharacteristicItemService(AbstractService):
+class OtherCharacteristicItemService:
     model = OtherCharacteristicItem
 
     def get_all_distinct(self) -> QuerySet:
         return self.model.objects.all().distinct()
 
 
-class OtherCharacteristicService(AbstractService):
+class OtherCharacteristicService:
     model = OtherCharacteristic
 
     def get_other_characteristic_ids_by_item_name(self, name) -> list[int]:

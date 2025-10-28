@@ -94,5 +94,5 @@ class OrderAdmin(admin.ModelAdmin):
             },
         ),
     ]
-    list_filter = ["updated", "created"]
+    list_filter = ["updated", "created", "status"]
     inlines = [OrderItemInline]
