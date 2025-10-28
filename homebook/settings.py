@@ -168,3 +168,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 if DEBUG:
     EMAIL_HOST = "0.0.0.0"
     EMAIL_PORT = 8025
+
+# Celery settings
+
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")

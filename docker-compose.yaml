@@ -24,3 +24,10 @@ services:
       driver: "json-file"
       options:
         max-size: "1m"
+  rabbit_mq:
+    image: rabbitmq:4.2-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
