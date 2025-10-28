@@ -35,6 +35,9 @@ class CategoryService(AbstractService):
 class BookService(AbstractService):
     model = Book
 
+    def get_new_books(self, count: int = 5) -> QuerySet:
+        return self.model.objects.filter(count__gt=0).order_by("-updated")[:count]
+
     def get_queryset_by_category_ids(self, category_ids: list[int]) -> QuerySet:
         return self.model.objects.filter(cateogry__id__in=category_ids).all()
 

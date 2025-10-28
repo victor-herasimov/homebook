@@ -1,21 +1,32 @@
 from django.urls import reverse
-from django.utils.functional import cached_property
 from django.views.generic import DetailView, TemplateView
 from view_breadcrumbs import BaseBreadcrumbMixin
 
-from core.main.models import Info, Recommendations, Document, Address, Phone, Email
-from core.shop.models import Book
+from core.main.models import Document
+from core.main.services import (
+    AddressService,
+    EmailService,
+    InfoSerivice,
+    PhoneService,
+    RecommendationsService,
+)
+
+from core.shop.services import BookService
 
 
-class ContactView(TemplateView):
+class ContactView(BaseBreadcrumbMixin, TemplateView):
     template_name = "main/contact.html"
     extra_context = {"title": "Контакти"}
 
+    @property
+    def crumbs(self):
+        return [("Контакти", reverse("main:index"))]
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["emails"] = Email.objects.filter(active=True).all()
-        context["phones"] = Phone.objects.filter(active=True).all()
-        context["addresses"] = Address.objects.filter(active=True).all()
+        context["emails"] = EmailService().get_active_emails()
+        context["phones"] = PhoneService().get_active_phones()
+        context["addresses"] = AddressService().get_active_addresses()
         return context
 
 
@@ -25,11 +36,11 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["recommendations"] = Recommendations.objects.filter(show=True).all()
-        context["new_books"] = (
-            Book.objects.filter(count__gt=0).order_by("-updated").all()[:5]
+        context["recommendations"] = (
+            RecommendationsService().get_active_recommendations()
         )
-        context["informations"] = Info.objects.order_by("created").all()
+        context["new_books"] = BookService().get_new_books()
+        context["informations"] = InfoSerivice().get_all()
         return context
 
 
@@ -38,7 +49,9 @@ class DocumentView(BaseBreadcrumbMixin, DetailView):
     template_name = "main/information.html"
     context_object_name = "document"
 
-    @cached_property
+    @property
     def crumbs(self):
-        object = self.get_object()
-        return [(object.title, reverse("main:information", kwargs={"pk": object.id}))]
+        document = self.get_object()
+        return [
+            (document.title, reverse("main:information", kwargs={"pk": document.id}))
+        ]
