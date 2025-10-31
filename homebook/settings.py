@@ -48,8 +48,14 @@ INSTALLED_APPS = [
     "core.comment.apps.CommentConfig",
 ]
 
+if DEBUG:
+    INSTALLED_APPS += [
+        "debug_toolbar",
+    ]
+
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -121,6 +127,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -173,5 +183,4 @@ if DEBUG:
     EMAIL_PORT = os.environ.get("MAILDEV_WEB_PORT")
 
 # Celery settings
-
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
