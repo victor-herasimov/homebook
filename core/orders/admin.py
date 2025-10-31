@@ -33,7 +33,7 @@ class OrderItemInline(admin.TabularInline):
     get_cost.short_description = "Сума: "
 
     fields = ["book", "price", "quantity", "get_cost"]
-    readonly_fields = ["get_cost"]
+    readonly_fields = ["get_cost", "price"]
     extra = 1
 
 
