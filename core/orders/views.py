@@ -4,6 +4,11 @@ from django.views.generic import FormView, TemplateView
 from view_breadcrumbs import BaseBreadcrumbMixin
 from core.orders.services import OrderService
 
+from core.orders.tasks import (
+    order_create_send_mail_to_client,
+    order_create_send_mail_to_staff,
+)
+
 from .forms import OrderCreateForm
 
 
@@ -29,6 +34,8 @@ class OrderView(BaseBreadcrumbMixin, FormView):
 
     def form_valid(self, form):
         order = OrderService().create_order(self.request, form)
+        order_create_send_mail_to_client.delay(order.id)
+        order_create_send_mail_to_staff.delay(order.id)
         return redirect(reverse("orders:order_success", args=[order.id]))
 
     def get_context_data(self, **kwargs):

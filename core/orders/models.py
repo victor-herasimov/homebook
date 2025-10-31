@@ -1,3 +1,4 @@
+import re
 from django.db import models
 
 from core.abstract.models import AbstractModel
@@ -53,6 +54,9 @@ class Order(AbstractModel):
 
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
+
+    def clean_phone_number(self):
+        return re.sub(r"[/(/)/-]", "", self.phone)
 
 
 class OrderItem(models.Model):

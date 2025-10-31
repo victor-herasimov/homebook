@@ -31,3 +31,15 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+  celery:
+    build: .
+    image: celery:1.0.0
+    container_name: celery
+    command: celery -A homebook worker -l info
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@rabbit_mq:5672
+      - DATABASE_HOST=db
+      - MAILDEV_WEB_HOST=maildev
+      - MAILDEV_WEB_PORT=1025
+    depends_on:
+      - rabbit_mq

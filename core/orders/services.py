@@ -15,6 +15,9 @@ class OrderItemService:
 class OrderService:
     model = Order
 
+    def get_order_by_id(self, order_id: int) -> Order:
+        return self.model.objects.get(id=order_id)
+
     def create_order(self, request: HttpRequest, form: OrderCreateForm) -> Order:
         with transaction.atomic():
             cart = Cart(request)

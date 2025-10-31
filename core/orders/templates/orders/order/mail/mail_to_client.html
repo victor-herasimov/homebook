@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<div style="max-width: 600px;margin: 0px auto;">
+    <div style="font-weight: 700;text-align: center;">Замовлення №{{order.id}}</div>
+    <div>Ваше замовлення створено успішно</div>
+    <table border="1" style="border-collapse: collapse; width: 100%; margin: 10px 0 10px 0;" >
+        <tr>
+            <td style="padding: 4px;">№п/п</td>
+            <td style="padding: 4px;">Назва</td>
+            <td style="padding: 4px;">Ціна</td>
+            <td style="padding: 4px;">Кількість</td>
+            <td style="padding: 4px;">Сума</td>
+        </tr>
+        {% for item in order.items.all %}
+        <tr>
+            <td style="padding: 4px;">{{ forloop.counter }}</td>
+            <td style="padding: 4px;">{{ item.book.title }}</td>
+            <td style="padding: 4px;">{{ item.price }} грн</td>
+            <td style="padding: 4px;">{{ item.quantity }} шт</td>
+            <td style="padding: 4px;">{{ item.get_cost }} грн</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5" style="text-align: end; padding: 4px;">Сумма: {{ order.get_total_cost }} грн</td>
+        </tr>
+    </table>
+    <span>З повагою HomeBook</span>
+</div>
