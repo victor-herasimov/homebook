@@ -44,6 +44,19 @@ class OrderAdmin(admin.ModelAdmin):
 
     get_total_cost.short_description = "Сума: "
 
+    @admin.action(description='Помітити як "В роботі"')
+    def mark_in_work(self, request, queryset):
+        for order in queryset:
+            order.status = Order.Status.IN_WORK
+            for item in order.items.all():
+                book = item.book
+                book.count = (
+                    book.count - item.quantity if book.count - item.quantity >= 0 else 0
+                )
+                book.save()
+            order.save()
+
+    actions = [mark_in_work]
     list_display = [
         "id",
         "first_name",
