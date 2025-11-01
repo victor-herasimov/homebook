@@ -97,7 +97,10 @@ class OtherCharacteristicItem(models.Model):
 
 class OtherCharacteristic(models.Model):
     item = models.ForeignKey(
-        OtherCharacteristicItem, on_delete=models.CASCADE, verbose_name="Характеристика"
+        OtherCharacteristicItem,
+        on_delete=models.CASCADE,
+        verbose_name="Характеристика",
+        related_name="items",
     )
     value = models.CharField(max_length=64, verbose_name="Значення характеристики")
 

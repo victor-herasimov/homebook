@@ -5,22 +5,6 @@
             <aside class="col-sm-12 col-lg-4 col-xl-3 overflow-y-auto">
                 {% include "components/_catalog_filters.html" %}
                 
-                    {% comment %} <form method="get">
-                        {{ filter.form.as_p }} 
-                        {% for fields in filter.form %}
-                            <div class='fw-bold py-2 text-danger'>{{ fields.label }}</div>
-                            {% for field in fields %}
-                                <div>
-                                    <label for="{{field.data.attrs.id}}">{{ field.data.label }}</label>
-                                    <input type="{{field.data.type}}" name="{{ field.data.name }}" id="{{field.data.attrs.id}}" value="{{ field.data.value }}" {% if field.data.selected %}checked{% endif %}>
-                                </div>
-                            
-                            {% endfor %}
-                        {% endfor %}
-                        <input type="submit" />
-                    </form> {% endcomment %}
-                    
-                
             </aside>
             <main class="col-sm-12 col-lg-8 col-xl-9">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">

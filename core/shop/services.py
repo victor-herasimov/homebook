@@ -1,5 +1,6 @@
-from django.db.models import F, BooleanField, Case, QuerySet, When
+from django.db.models import F, BooleanField, Case, Prefetch, QuerySet, When
 from django.contrib.postgres.search import SearchVector, SearchRank, SearchQuery
+from django.http import Http404
 from mptt.querysets import TreeQuerySet
 from mptt.models import MPTTModel
 from core.abstract.services import AbstractService
@@ -21,19 +22,35 @@ class CategoryService(AbstractService):
     def get_parent_categories(self, category: Category) -> TreeQuerySet:
         return category.get_ancestors(include_self=True)
 
-    def get_parent_categories_by_slug(self, slug: str) -> TreeQuerySet:
-        return self.get_parent_categories(self.get_by_slug(slug))
-
-    def get_category_descendants_ids_by_category_slug(self, slug: str) -> list[int]:
-        return (
-            self.get_by_slug(slug)
-            .get_descendants(include_self=True)
-            .values_list("id", flat=True)
-        )
+    def get_category_descendants_ids_by_category(self, category: Category) -> list[int]:
+        return category.get_descendants(include_self=True).values_list("id", flat=True)
 
 
 class BookService(AbstractService):
     model = Book
+
+    def get_by_slug(self, slug: str) -> QuerySet:
+        queryset = (
+            self.model.objects.select_related(
+                "publisher",
+                "cateogry",
+                "cover",
+                "language",
+            )
+            .prefetch_related(
+                Prefetch(
+                    "other_characteristics",
+                    queryset=OtherCharacteristic.objects.select_related("item"),
+                )
+            )
+            .prefetch_related("author")
+            .filter(slug=slug)
+        )
+        try:
+            obj = queryset.get()
+        except queryset.model.DoesNotExist:
+            raise Http404()
+        return obj
 
     def get_new_books(self, count: int = 5) -> QuerySet:
         return self.model.objects.filter(count__gt=0).order_by("-updated")[:count]
@@ -110,8 +127,8 @@ class LanguageService:
 class OtherCharacteristicItemService:
     model = OtherCharacteristicItem
 
-    def get_all_distinct(self) -> QuerySet:
-        return self.model.objects.all().distinct()
+    def get_all(self) -> QuerySet:
+        return self.model.objects.prefetch_related(Prefetch("items")).all()
 
 
 class OtherCharacteristicService:
@@ -119,10 +136,11 @@ class OtherCharacteristicService:
 
     def get_other_characteristic_ids_by_item_name(self, name) -> list[int]:
         return (
-            self.model.objects.filter(item__name=name)
+            self.model.objects.select_related("item")
+            .filter(item__name=name)
             .values_list("id", flat=True)
             .distinct()
         )
 
     def get_queryset_by_ids(self, ids: list[int]) -> QuerySet:
-        return self.model.objects.filter(id__in=ids)
+        return self.model.objects.select_related("item").filter(id__in=ids)

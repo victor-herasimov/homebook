@@ -7,7 +7,7 @@ class CommentService(AbstractService):
     model = Comment
 
     def get_comments_by_book_id(self, book_id: int) -> QuerySet:
-        return self.model.objects.filter(book_id=book_id)
+        return self.model.objects.select_related("user", "book").filter(book_id=book_id)
 
     def get_count_for_book(self, book_id) -> int:
         return (

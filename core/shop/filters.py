@@ -5,6 +5,7 @@ from django_property_filter import PropertyFilterSet, PropertyNumberFilter
 
 from slugify import slugify
 
+from core.shop.models import OtherCharacteristic, OtherCharacteristicItem
 from core.shop.services import (
     AuthorService,
     BookService,
@@ -81,19 +82,11 @@ class BookFilter(PropertyFilterSet):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
-        dynamic_fields = OtherCharacteristicItemService().get_all_distinct()
+        dynamic_fields = OtherCharacteristicItemService().get_all()
         for field_name in dynamic_fields:
-            other_characteristic_ids = (
-                OtherCharacteristicService().get_other_characteristic_ids_by_item_name(
-                    field_name.name
-                )
-            )
             self.filters[slugify(str(field_name), separator="_")] = (
                 ModelMultipleChoiceFilterCustomLabel(
-                    queryset=OtherCharacteristicService().get_queryset_by_ids(
-                        other_characteristic_ids
-                    ),
+                    queryset=field_name.items.order_by("value").all(),
                     widget=forms.CheckboxSelectMultiple,
                     field_name="other_characteristics",
                     label=field_name.name,

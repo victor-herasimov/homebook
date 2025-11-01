@@ -22,17 +22,16 @@ class CatalogView(BaseBreadcrumbMixin, FilterView):
 
     @property
     def crumbs(self):
-        parent_categories = CategoryService().get_parent_categories_by_slug(
-            self.kwargs["category_slug"]
-        )
+        parent_categories = CategoryService().get_parent_categories(self.category)
         return [
             (category.name, reverse("shop:catalog", args=[category.slug]))
             for category in parent_categories
         ]
 
     def get_queryset(self):
-        category_ids = CategoryService().get_category_descendants_ids_by_category_slug(
-            self.kwargs["category_slug"]
+        self.category = CategoryService().get_by_slug(self.kwargs["category_slug"])
+        category_ids = CategoryService().get_category_descendants_ids_by_category(
+            self.category
         )
         if category_ids:
             queryset = BookService().get_queryset_by_category_ids(category_ids)
@@ -41,9 +40,7 @@ class CatalogView(BaseBreadcrumbMixin, FilterView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = (
-            CategoryService().get_by_slug(self.kwargs["category_slug"]).name
-        )
+        context["title"] = self.category.name
         return context
 
 
@@ -93,13 +90,17 @@ class CatalogBestPriceView(BaseBreadcrumbMixin, FilterView):
 
 
 class BookView(BaseBreadcrumbMixin, DetailView):
-    model = BookService().get_model()
+    # model = BookService().get_model()
     template_name = "shop/book-detail.html"
     context_object_name = "book"
 
+    def get_object(self, queryset=None):
+        self.object = BookService().get_by_slug(self.kwargs.get("slug"))
+        return self.object
+
     @property
     def crumbs(self):
-        book = self.get_object()
+        book = self.object
         parent_categories = CategoryService().get_parent_categories(book.cateogry)
         return [
             (category.name, reverse("shop:catalog", args=[category.slug]))
@@ -108,7 +109,7 @@ class BookView(BaseBreadcrumbMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        book = self.get_object()
+        book = self.object
         context["comment_form"] = CommentForm(
             initial={
                 "user": (

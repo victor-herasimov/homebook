@@ -1,4 +1,5 @@
 from django.db import transaction
+from django.db.models import Prefetch, QuerySet
 from django.http import HttpRequest
 from core.cart.cart import Cart
 from core.orders.forms import OrderCreateForm
@@ -14,6 +15,18 @@ class OrderItemService:
 
 class OrderService:
     model = Order
+
+    def get_order_by_user(self, user) -> QuerySet:
+        return (
+            self.model.objects.filter(user=user)
+            .prefetch_related(
+                Prefetch(
+                    "items",
+                    queryset=OrderItem.objects.select_related("book"),
+                )
+            )
+            .order_by("-created")
+        )
 
     def get_order_by_id(self, order_id: int) -> Order:
         return self.model.objects.get(id=order_id)

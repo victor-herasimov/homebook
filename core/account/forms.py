@@ -3,10 +3,36 @@ from django.contrib.auth.forms import (
     AuthenticationForm,
     UserCreationForm,
     UserChangeForm,
+    PasswordResetForm,
 )
 
 from core.account.models import User
+from core.account.tasks import send_mail_on_reset_password
 from core.orders.validators import PhoneNumberValidator
+
+
+class PasswordResetAsyncForm(PasswordResetForm):
+
+    def send_mail(
+        self,
+        subject_template_name,
+        email_template_name,
+        context,
+        from_email,
+        to_email,
+        html_email_template_name=None,
+    ):
+
+        context["user"] = context["user"].id
+
+        send_mail_on_reset_password.delay(
+            subject_template_name,
+            email_template_name,
+            context,
+            from_email,
+            to_email,
+            html_email_template_name,
+        )
 
 
 class UserLoginForm(AuthenticationForm):

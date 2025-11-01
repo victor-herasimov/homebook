@@ -1,4 +1,3 @@
-from django.db.models import Prefetch
 from django.views.generic import (
     CreateView,
     FormView,
@@ -20,7 +19,7 @@ from core.account.forms import (
     UserLoginForm,
     UserRegistrationForm,
 )
-from core.orders.models import Order, OrderItem
+from core.orders.services import OrderService
 
 
 class UserLoginView(BaseBreadcrumbMixin, FormView):
@@ -164,13 +163,4 @@ class UserOrdersView(BaseBreadcrumbMixin, LoginRequiredMixin, ListView):
         ]
 
     def get_queryset(self):
-        return (
-            Order.objects.filter(user=self.request.user)
-            .prefetch_related(
-                Prefetch(
-                    "items",
-                    queryset=OrderItem.objects.select_related("book"),
-                )
-            )
-            .order_by("-created")
-        )
+        return OrderService().get_order_by_user(self.request.user)
