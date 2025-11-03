@@ -168,7 +168,6 @@ class Book(AbstractModel):
 
     other_characteristics = models.ManyToManyField(
         OtherCharacteristic,
-        null=True,
         blank=True,
         default=None,
         related_name="books",

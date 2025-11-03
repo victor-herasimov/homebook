@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from re import DEBUG
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,12 +13,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ouvla@=_z^oa9&f$tx^=^ga7+7e2kg9m5lqe#nn7+$%&6!60l6"
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "django-insecure-ouvla@=_z^oa9&f$tx^=^ga7+7e2kg9m5lqe#nn7+$%&6!60l6"
+)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
 
-ALLOWED_HOSTS = []
+
+DEBUG = bool(int(os.environ.get("DEBUG", 1)))
+
+
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -38,6 +49,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "django_filters",
     "django_property_filter",
+    "debug_toolbar",
     # My applicatios
     "core",
     "core.main.apps.MainConfig",
@@ -47,11 +59,6 @@ INSTALLED_APPS = [
     "core.account.apps.AccountConfig",
     "core.comment.apps.CommentConfig",
 ]
-
-if DEBUG:
-    INSTALLED_APPS += [
-        "debug_toolbar",
-    ]
 
 
 MIDDLEWARE = [
@@ -64,6 +71,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "config.urls"
 
@@ -127,6 +135,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
@@ -179,7 +188,6 @@ LOGIN_URL = "/account/login/"
 # Email
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
-print(EMAIL_HOST)
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = os.environ.get("EMAIL_PORT")
@@ -192,3 +200,7 @@ DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
 # Celery settings
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+
+SILENCED_SYSTEM_CHECKS = [
+    "ckeditor.W001",
+]
