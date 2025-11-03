@@ -22,4 +22,8 @@ COPY . .
 
 RUN chmod +x /usr/src/app/entrypoint.prod.sh
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+RUN chown -R nonroot:nonroot /usr/src/app
+
+USER nonroot
+
+ENTRYPOINT [ "./entrypoint.prod.sh" ]

@@ -17,8 +17,8 @@ SECRET_KEY = os.environ.get(
     "SECRET_KEY", "django-insecure-ouvla@=_z^oa9&f$tx^=^ga7+7e2kg9m5lqe#nn7+$%&6!60l6"
 )
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 # SECURE_SSL_REDIRECT = True
 
 
@@ -26,9 +26,12 @@ DEBUG = bool(int(os.environ.get("DEBUG", 1)))
 
 
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
+if os.environ.get("CSRF_TRUSTED_ORIGINS"):
+    CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split()
 
 
 # Application definition
@@ -155,8 +158,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / STATIC_URL]
-# STATIC_ROOT = BASE_DIR / STATIC_URL
+
+if DEBUG:
+    STATICFILES_DIRS = [BASE_DIR / STATIC_URL]
+else:
+    STATIC_ROOT = BASE_DIR / STATIC_URL
 
 # Media files
 MEDIA_URL = "media/"

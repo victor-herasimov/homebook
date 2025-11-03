@@ -1,0 +1,56 @@
+
+services:
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.prod
+    image: web_prod:1.0.0
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --access-logfile '-'
+    expose:
+      - 8000
+    volumes:
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    restart: unless-stopped
+    env_file:
+      - ./app/.env.prod
+    depends_on:
+      - db
+  db:
+    image: postgres:18.0-alpine
+    restart: always
+    env_file:
+      - ./app/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/18/docker/
+  rabbit_mq:
+    image: rabbitmq:4.2-management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+  celery:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.prod
+    image: celery:1.0.0
+    command: celery -A config worker -l info
+    env_file:
+      - ./app/.env.prod
+    depends_on:
+      - rabbit_mq
+  nginx:
+    build: ./nginx
+    image: nginx_prod:1.0.0
+    volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
+    ports:
+      - 8001:80
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
