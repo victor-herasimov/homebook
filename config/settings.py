@@ -65,7 +65,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "homebook.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -84,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "homebook.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
