@@ -40,9 +40,9 @@ services:
     depends_on:
       - rabbit_mq
   nginx:
-    build: ./nginx
-    image: nginx_prod:1.0.0
+    image: nginx:1.29-alpine
     volumes:
+      - ./conf.d:/etc/nginx/conf.d
       - static_volume:/app/static
       - media_volume:/app/media
     ports:
