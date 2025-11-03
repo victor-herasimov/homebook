@@ -178,9 +178,17 @@ LOGIN_URL = "/account/login/"
 
 # Email
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-if DEBUG:
-    EMAIL_HOST = os.environ.get("MAILDEV_WEB_HOST")
-    EMAIL_PORT = os.environ.get("MAILDEV_WEB_PORT")
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+print(EMAIL_HOST)
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
+# EMAIL_USE_TLS = bool(os.environ.get("EMAIL_USE_TLS"))
+EMAIL_USE_SSL = bool(os.environ.get("EMAIL_USE_SSL"))
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
+# if DEBUG:
+#     EMAIL_HOST = os.environ.get("MAILDEV_WEB_HOST")
+#     EMAIL_PORT = os.environ.get("MAILDEV_WEB_PORT")
 
 # Celery settings
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")

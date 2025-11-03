@@ -36,6 +36,8 @@ services:
     image: celery:1.0.0
     container_name: celery
     command: celery -A homebook worker -l info
+    env_file:
+      - .env
     environment:
       - CELERY_BROKER_URL=amqp://guest:guest@rabbit_mq:5672
       - DATABASE_HOST=db

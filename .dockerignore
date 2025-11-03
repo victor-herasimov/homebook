@@ -1,1 +1,7 @@
+.vscode
 postgres_data/
+venv/
+Dockerfile
+.env
+.env.example
+.env.prod
