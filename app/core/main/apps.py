@@ -5,3 +5,4 @@ class MainConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "core.main"
     label = "core_main"
+    verbose_name = "Головна інформація"

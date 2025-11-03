@@ -2,6 +2,8 @@ FROM python:3.12-slim
 
 WORKDIR /usr/src/app
 
+RUN apt update && apt install -y netcat-openbsd
+
 RUN mkdir media
 
 ENV PYTHONUNBUFFERED=1
@@ -15,3 +17,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+ENTRYPOINT [ "./entrypoint.sh" ]

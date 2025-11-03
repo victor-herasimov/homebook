@@ -5,3 +5,4 @@ class ShopConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "core.shop"
     label = "core_shop"
+    verbose_name = "Укравління товарами"

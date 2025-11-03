@@ -5,3 +5,4 @@ class AccountConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "core.account"
     label = "core_account"
+    verbose_name = "Управління Обіковим записом"
