@@ -30,8 +30,9 @@ def order_create_send_mail_to_client(order_id):
 def order_create_send_mail_to_staff(order_id):
     order = OrderService().get_order_by_id(order_id)
     User = get_user_model()
-    staff_user = User.objects.filter(is_staff=True, is_active=True).first()
-    recipient = staff_user.email
+    staff_users = User.objects.filter(is_staff=True, is_active=True)
+    # recipient = staff_user.email
+    recipients = [user.email for user in staff_users]
 
     subject = f"Нове замовлення №{order.id}"
     # message = f"Ваше замовлення №{order.id} на суму {order.get_total_cost()} грн створено успішно"
@@ -39,11 +40,11 @@ def order_create_send_mail_to_staff(order_id):
         "orders/order/mail/mail_to_staff.html", context={"order": order}
     )
 
-    if recipient:
+    if recipients:
         send_mail(
             subject,
             message,
             settings.DEFAULT_FROM_EMAIL,
-            [recipient],
+            recipients,
             html_message=message,
         )
