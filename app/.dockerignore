@@ -1,7 +1,9 @@
 .vscode
 postgres_data/
 venv/
+sets/
 Dockerfile
+Dockerfile.prod
 .env
 .env.example
 .env.prod

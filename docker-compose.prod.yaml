@@ -12,22 +12,41 @@ services:
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
     restart: unless-stopped
-    env_file:
-      - ./app/.env.prod
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - DEVELOP_EMAIL_SERVER=${DEVELOP_EMAIL_SERVER}
+      - MAILDEV_WEB_HOST=${MAILDEV_WEB_HOST}
+      - MAILDEV_WEB_PORT=${MAILDEV_WEB_PORT}
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_HOST_USER=${EMAIL_HOST_USER}
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_USE_TLS=${EMAIL_USE_TLS}
+      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS}
     depends_on:
       - db
   db:
     image: postgres:18.0-alpine
     restart: always
-    env_file:
-      - ./app/.env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - postgres_data:/var/lib/postgresql/18/docker/
   rabbit_mq:
     image: rabbitmq:4.2-management
     restart: always
     ports:
-      - 5672:5672
       - 15672:15672
   celery:
     build:
@@ -35,8 +54,26 @@ services:
       dockerfile: Dockerfile.prod
     image: celery:1.0.0
     command: celery -A config worker -l info
-    env_file:
-      - ./app/.env.prod
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - DEVELOP_EMAIL_SERVER=${DEVELOP_EMAIL_SERVER}
+      - MAILDEV_WEB_HOST=${MAILDEV_WEB_HOST}
+      - MAILDEV_WEB_PORT=${MAILDEV_WEB_PORT}
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_HOST_USER=${EMAIL_HOST_USER}
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_USE_TLS=${EMAIL_USE_TLS}
+      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS}
     depends_on:
       - rabbit_mq
   nginx:
