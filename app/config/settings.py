@@ -3,6 +3,8 @@ from pathlib import Path
 from re import DEBUG
 from dotenv import load_dotenv
 
+from .utils import read_secret
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -113,7 +115,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": os.getenv("POSTGRES_DB"),
         "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "PASSWORD": read_secret("postgres_pass") or os.getenv("POSTGRES_PASSWORD"),
         "HOST": os.environ.get("DATABASE_HOST"),
         "PORT": os.getenv("DATABASE_PORT"),
     }
@@ -199,14 +201,18 @@ else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = os.environ.get("EMAIL_HOST")
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+    EMAIL_HOST_PASSWORD = read_secret("email_host_pass") or os.environ.get(
+        "EMAIL_HOST_PASSWORD"
+    )
     EMAIL_PORT = os.environ.get("EMAIL_PORT")
     EMAIL_USE_TLS = bool(os.environ.get("EMAIL_USE_TLS"))
     # EMAIL_USE_SSL = bool(os.environ.get("EMAIL_USE_SSL"))
     DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
 # Celery settings
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+CELERY_BROKER_URL = read_secret("celery_broker_url") or os.environ.get(
+    "CELERY_BROKER_URL"
+)
 
 SILENCED_SYSTEM_CHECKS = [
     "ckeditor.W001",
