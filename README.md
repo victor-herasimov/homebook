@@ -139,7 +139,7 @@
         unset ALLOWED_HOSTS
         unset CSRF_TRUSTED_ORIGINS
         ```
-    5.4 Перебуваючи терміналом в директорії **homebook** виконати команди
+    5.4 Перебуваючи терміналом в директорії **homebook** виконати команди  
         - `. ./sets/set_env.sh` або `source ./sets/set_env.hs`
         - `docker compose -f docker-compose.prod.yaml up --build`  
 
